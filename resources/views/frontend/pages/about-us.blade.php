@@ -78,66 +78,58 @@
 
 /* Intro Grid Section */
 .about-intro-section {
-  background: var(--color-pure-white);
+  position: relative;
   margin: var(--spacing-40);
   margin-top: var(--spacing-56);
   border-radius: var(--radius-3xl-3);
-  box-shadow: 0 0 0 1px rgba(252, 80, 0, 0.1);
+  border: 3px solid var(--color-abyssal-ink);
+  box-shadow: 0 40px 100px rgba(7, 6, 7, 0.18);
   overflow: hidden;
 }
 
+/* Full-bleed background video */
+.about-intro-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark overlay for text legibility */
+.about-intro-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    100deg,
+    rgba(7, 6, 7, 0.88) 0%,
+    rgba(7, 6, 7, 0.72) 45%,
+    rgba(7, 6, 7, 0.45) 100%
+  );
+}
+
 .about-intro-wrapper {
+  position: relative;
+  z-index: 2;
   max-width: 100%;
-  padding: var(--spacing-56) var(--spacing-40);
+  padding: var(--spacing-80) var(--spacing-40);
 }
 
 .about-intro-grid {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: var(--spacing-56);
-  align-items: center;
+  grid-template-columns: 1fr;
+  max-width: 760px;
+  margin: 0 auto;
 }
 
-/* Left side: Images collage */
-.about-image-frame {
-  position: relative;
-  border-radius: var(--radius-2xl-2);
-  border: 3px solid var(--color-abyssal-ink);
-  overflow: hidden;
-  aspect-ratio: 16 / 10;
-  background: var(--color-basalt-canvas);
-}
-
-.about-image-frame img.main-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.about-image-frame .about-image-inset {
-  position: absolute !important;
-  width: 38% !important;
-  aspect-ratio: 1 / 1 !important;
-  right: 20px !important;
-  bottom: 20px !important;
-  border-radius: var(--radius-2xl) !important;
-  border: 3px solid var(--color-abyssal-ink) !important;
-  box-shadow: 0 15px 45px rgba(7, 6, 7, 0.15) !important;
-  object-fit: cover !important;
-  z-index: 2 !important;
-  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-.about-image-frame:hover .about-image-inset {
-  transform: scale(1.04) translateY(-5px) !important;
-}
-
-/* Right side: copy block */
+/* Copy block (now over the video) */
 .about-copy-block {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  text-align: center;
 }
 
 .about-badge {
@@ -159,7 +151,7 @@
 .about-copy-block h2 {
   font-size: clamp(28px, 3.5vw, 42px);
   font-weight: 900;
-  color: var(--color-abyssal-ink);
+  color: var(--color-pure-white);
   font-family: var(--font-pp-neue-corp-compact-ultrabold);
   line-height: 1.1;
   text-transform: uppercase;
@@ -178,7 +170,7 @@
 .about-copy-block p {
   font-size: 15px;
   line-height: 1.7;
-  color: var(--color-abyssal-ink);
+  color: rgba(255, 255, 255, 0.85);
   margin-bottom: var(--spacing-20);
 }
 
@@ -204,10 +196,10 @@
 }
 
 .about-pill-btn:hover {
-  background: var(--color-abyssal-ink);
-  color: var(--color-pure-white);
+  background: var(--color-pure-white);
+  color: var(--color-abyssal-ink);
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(7, 6, 7, 0.2);
+  box-shadow: 0 12px 30px rgba(255, 255, 255, 0.25);
 }
 
 /* Why Choose / Pillars Section Box */
@@ -458,17 +450,12 @@
     margin-top: var(--spacing-40);
   }
 
-  .about-intro-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-40);
-  }
-
   .about-hero-wrapper {
     padding: var(--spacing-64) var(--spacing-24);
   }
 
   .about-intro-wrapper {
-    padding: var(--spacing-40) var(--spacing-24);
+    padding: var(--spacing-56) var(--spacing-24);
   }
 
   .about-cta-wrapper {
@@ -509,11 +496,7 @@
   }
 
   .about-intro-wrapper {
-    padding: var(--spacing-32) var(--spacing-16);
-  }
-
-  .about-image-frame {
-    aspect-ratio: 4 / 3;
+    padding: var(--spacing-40) var(--spacing-16);
   }
 
   .about-cta-wrapper {
@@ -561,16 +544,12 @@
       </div>
     </div>
 
-    <!-- Intro Grid Section -->
+    <!-- Intro Section (video background) -->
     <section class="about-intro-section">
+      <video class="about-intro-bg-video" src="{{ asset('assets/media/videos/h-2.mp4') }}" autoplay muted loop playsinline></video>
+      <div class="about-intro-overlay"></div>
       <div class="about-intro-wrapper">
         <div class="about-intro-grid">
-          
-          <!-- Image Collage -->
-          <div class="about-image-frame">
-            <img src="{{ asset('assets/images/about-main.webp') }}" class="main-img" alt="Polyboost Headquarters">
-            <img src="{{ asset('assets/images/about-inset.webp') }}" class="about-image-inset" alt="Competitive Gaming Match">
-          </div>
 
           <!-- Text block -->
           <div class="about-copy-block">

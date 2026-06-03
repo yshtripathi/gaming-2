@@ -513,7 +513,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: transparent;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 6, 7, 0.65) 0%,
+    rgba(7, 6, 7, 0.45) 50%,
+    rgba(7, 6, 7, 0.7) 100%
+  );
   z-index: 1;
 }
 
@@ -551,15 +556,17 @@
 .hero-title-caldera {
   font-size: clamp(42px, 6vw, 96px);
   font-weight: 900;
-  color: var(--color-abyssal-ink);
+  color: var(--color-pure-white);
   line-height: 1.1;
   font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle-caldera {
   font-size: var(--text-heading-sm);
-  color: var(--color-abyssal-ink);
+  color: rgba(255, 255, 255, 0.88);
   line-height: var(--leading-body);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .hero-buttons-caldera {
@@ -567,6 +574,18 @@
   flex-wrap: wrap;
   gap: var(--spacing-16);
   margin-top: var(--spacing-32);
+}
+
+/* View Pricing (ghost) button over the video — white border & white hover */
+.hero-buttons-caldera .btn-ghost {
+  color: var(--color-pure-white);
+  border-color: var(--color-pure-white);
+}
+
+.hero-buttons-caldera .btn-ghost:hover {
+  background-color: var(--color-pure-white);
+  color: var(--color-abyssal-ink);
+  border-color: var(--color-pure-white);
 }
 
 /* Feature Icon Styling */
