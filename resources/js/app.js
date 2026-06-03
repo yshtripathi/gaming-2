@@ -27,6 +27,43 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+// Swiper Initialization Function
+window.initSwipers = function() {
+  // Initialize Swiper Thumbs Gallery Slider
+  var swiper = new Swiper(".mySwiper", {
+    loop: false,
+    spaceBetween: 12,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+      320: { slidesPerView: 2, spaceBetween: 8 },
+      575: { slidesPerView: 3, spaceBetween: 10 },
+      768: { slidesPerView: 4, spaceBetween: 12 },
+      1200: { slidesPerView: 5, spaceBetween: 16 }
+    }
+  });
+
+  var swiper2 = new Swiper(".mySwiper2", {
+    loop: false,
+    spaceBetween: 10,
+    navigation: {
+      nextEl: ".pg-swiper-btn-next",
+      prevEl: ".pg-swiper-btn-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
+};
+
+// Auto-initialize Swiper when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof window.initSwipers === 'function') {
+    window.initSwipers();
+  }
+});
+
 const app = new Vue({
     el: '#app',
 });
