@@ -663,9 +663,9 @@ header.small-screen .mobile-navar ul li a.active {
   max-width: 92vw !important;
   padding: 0 !important;
   background: var(--color-ash-white) !important;
-  border: 2px solid var(--color-digital-orange) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
   border-right: none !important;
-  border-left: 2px solid var(--color-digital-orange) !important;
+  border-left: 3px solid var(--color-abyssal-ink) !important;
   backdrop-filter: blur(10px);
   overflow: hidden !important;
   display: flex !important;
@@ -689,16 +689,16 @@ header.small-screen .mobile-navar ul li a.active {
   padding: 24px 24px 20px !important;
   background: var(--color-basalt-canvas) !important;
   color: var(--color-abyssal-ink) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 16px !important;
-  font-weight: 600 !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 18px !important;
+  font-weight: 800 !important;
   text-transform: uppercase;
   letter-spacing: 1px;
   display: flex;
   align-items: center;
   gap: 10px;
   border: none !important;
-  border-bottom: 2px solid var(--color-digital-orange) !important;
+  border-bottom: 3px solid var(--color-abyssal-ink) !important;
 }
 
 .sideCart-wrapper .widget_title::before {
@@ -723,26 +723,49 @@ header.small-screen .mobile-navar ul li a.active {
 .sideCart-wrapper .mini_cart_item {
   position: relative;
   list-style: none;
-  background: var(--color-basalt-canvas) !important;
-  border: 2px solid rgba(7, 6, 7, 0.1) !important;
+  background: var(--color-pure-white) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
   border-radius: 12px !important;
   padding: 14px !important;
-  margin: 0 0 10px !important;
+  margin: 0 0 12px !important;
   transition: all 0.25s ease;
 }
 
 .sideCart-wrapper .mini_cart_item:hover {
   border-color: var(--color-digital-orange) !important;
-  background: rgba(252, 80, 0, 0.05) !important;
+  box-shadow: 0 10px 25px rgba(252, 80, 0, 0.1) !important;
+}
+
+.sideCart-wrapper .prductsde_info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: 100% !important;
+}
+
+.sideCart-wrapper .mini_cart_item img {
+  width: 70px !important;
+  height: 50px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+}
+
+.sideCart-wrapper .cart-product-info {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
 }
 
 .sideCart-wrapper .cart-product-title {
   color: var(--color-abyssal-ink) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1.3;
-  margin: 0 0 6px;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-weight: 800 !important;
+  font-size: 14px !important;
+  text-transform: uppercase !important;
+  line-height: 1.2;
+  margin: 0 !important;
 }
 
 .sideCart-wrapper .cart-total-points {
@@ -750,14 +773,62 @@ header.small-screen .mobile-navar ul li a.active {
   align-items: center;
   gap: 5px;
   background: var(--color-digital-orange);
-  color: #fff !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 600;
+  color: var(--color-pure-white) !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-weight: 800;
   font-size: 12px;
-  padding: 4px 10px;
-  border-radius: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
   line-height: 1;
   margin-top: 6px;
+  border: 2px solid var(--color-abyssal-ink);
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.sideCart-wrapper .car-hours-group {
+  position: relative !important;
+  background: rgba(252, 80, 0, 0.06) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  border-radius: 8px !important;
+  padding: 8px 12px !important;
+  margin-top: 6px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.sideCart-wrapper .car-hours-group h5 {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 12px !important;
+  font-weight: 800 !important;
+  color: var(--color-digital-orange) !important;
+  margin: 0 !important;
+  text-transform: uppercase;
+}
+
+.sideCart-wrapper .car-hours-group p {
+  font-family: var(--font-dm-sans) !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--color-abyssal-ink) !important;
+  margin: 0 !important;
+}
+
+.sideCart-wrapper .training-remove {
+  position: absolute !important;
+  top: 6px !important;
+  right: 8px !important;
+  color: var(--color-abyssal-ink) !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  transition: color 0.2s ease;
+}
+
+.sideCart-wrapper .training-remove:hover {
+  color: var(--color-digital-orange) !important;
 }
 
 .sideCart-wrapper .mini_cart_item > .remove {
@@ -797,27 +868,28 @@ header.small-screen .mobile-navar ul li a.active {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--color-digital-orange) !important;
-  border: none !important;
+  background: var(--color-pure-white) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
   border-radius: 10px;
   padding: 14px 16px;
-  margin: 0 0 12px !important;
+  margin: 0 0 16px !important;
   width: 100%;
 }
 
 .sideCart-wrapper .total strong {
-  color: var(--color-pure-white) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-size: 11px;
+  color: var(--color-abyssal-ink) !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 13px;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin: 0;
 }
 
 .sideCart-wrapper .total .amount {
-  color: var(--color-pure-white) !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 700;
+  color: var(--color-digital-orange) !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-weight: 900;
   font-size: 20px;
   white-space: nowrap;
 }
@@ -832,51 +904,62 @@ header.small-screen .mobile-navar ul li a.active {
   flex: 1;
   width: auto !important;
   margin: 0 !important;
-  justify-content: center;
-  text-align: center;
-  background: #fc5000 !important;
-  color: #fff !important;
-  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: var(--color-digital-orange) !important;
+  color: var(--color-pure-white) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
   padding: 12px 14px !important;
   font-size: 12px !important;
-  font-family: 'DM Sans', sans-serif !important;
-  font-weight: 600 !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-weight: 800 !important;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 8px !important;
+  border-radius: var(--radius-buttons) !important;
   transition: all 0.2s ease !important;
   cursor: pointer;
+  box-shadow: 0 4px 0 var(--color-abyssal-ink) !important;
+  text-decoration: none !important;
 }
 
 .sideCart-wrapper .buttons .cus-btn:hover {
-  background: #e64a00 !important;
-  transform: translateY(-2px);
+  background: var(--color-abyssal-ink) !important;
+  color: var(--color-pure-white) !important;
+  box-shadow: none !important;
+  transform: translateY(2px) !important;
 }
 
 .sideCart-wrapper .closeButton {
   position: absolute !important;
-  top: 16px !important;
-  right: 16px !important;
+  top: 20px !important;
+  right: 20px !important;
   z-index: 6;
   width: 34px;
   height: 34px;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 0 !important;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(252, 80, 0, 0.1) !important;
-  border: 1px solid rgba(252, 80, 0, 0.2) !important;
-  color: var(--color-digital-orange) !important;
-  font-size: 16px;
-  line-height: 1;
+  background: var(--color-ash-white) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  color: var(--color-abyssal-ink) !important;
+  font-size: 14px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .sideCart-wrapper .closeButton:hover {
-  background: rgba(252, 80, 0, 0.2) !important;
+  background: var(--color-digital-orange) !important;
+  color: var(--color-pure-white) !important;
+  border-color: var(--color-abyssal-ink) !important;
   transform: rotate(90deg);
+}
+
+.header-icon-btn i {
+  font-size: 18px !important;
+  color: var(--color-abyssal-ink) !important;
 }
 
 /* ============================================================================
@@ -1011,11 +1094,7 @@ header.small-screen .mobile-navar ul li a.active {
                     <!-- Cart Icon -->
               <li class="icon position-relative sideCartToggler">
                 <a href="javascript:void(0)" class="header-icon-btn cart-icon-btn" aria-label="Shopping Cart">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"/>
-                        <circle cx="20" cy="21" r="1"/>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                    </svg>
+                    <i class="fas fa-shopping-cart"></i>
                     <span class="badge-uinfo">{{ Helper::totalCartQuantity() }}</span>
                 </a>
             </li>
@@ -1024,10 +1103,7 @@ header.small-screen .mobile-navar ul li a.active {
             @if(Auth::check() && Auth::user()->role=='user')
                 <li class="menu-item has-children">
                     <a href="{{route('user')}}" class="header-icon-btn" aria-label="My Account">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
+                        <i class="fas fa-user-circle"></i>
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('user')}}">{{ __('common.my_account') ?? 'My Account' }}</a></li>
@@ -1044,10 +1120,7 @@ header.small-screen .mobile-navar ul li a.active {
             @else
                 <li class="menu-item has-children">
                     <a href="javascript:void(0)" class="header-icon-btn" aria-label="Account">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
+                        <i class="fas fa-user-circle"></i>
                     </a>
                     <ul class="submenu">
                         <li><a href="{{route('login.form')}}">{{ __('common.login') }}</a></li>
@@ -1078,28 +1151,18 @@ header.small-screen .mobile-navar ul li a.active {
           <ul>
             <li class="mobile-icons-row">
               <a href="#" class="mobile-icon-btn" onclick="document.querySelector('.sideCart-wrapper').classList.add('show'); return false;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="9" cy="21" r="1"></circle>
-                  <circle cx="20" cy="21" r="1"></circle>
-                  <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                </svg>
+                <i class="fas fa-shopping-cart mb-1" style="font-size: 18px;"></i>
                 <span>Cart</span>
                 <span class="badge">{{Helper::cartCount()}}</span>
               </a>
               @if(Auth::check() && Auth::user()->role=='user')
                 <a href="{{route('user')}}" class="mobile-icon-btn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
+                  <i class="fas fa-user-circle mb-1" style="font-size: 18px;"></i>
                   <span>Account</span>
                 </a>
               @else
                 <a href="{{route('login.form')}}" class="mobile-icon-btn">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
+                  <i class="fas fa-user-circle mb-1" style="font-size: 18px;"></i>
                   <span>Login</span>
                 </a>
               @endif
