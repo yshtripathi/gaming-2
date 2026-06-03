@@ -1,0 +1,44 @@
+# PHP
+vendor/
+composer.lock
+.env
+.env.local
+.env.*.local
+
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+.DS_Store
+Thumbs.db
+*.sublime-workspace
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+.env.example
+
+# Build/Dist
+dist/
+build/
+*.min.js
+*.min.css
+
+# Misc
+.cache/
+tmp/
+temp/
+*.bak
+*.backup
