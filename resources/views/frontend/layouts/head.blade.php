@@ -21,16 +21,22 @@
     <meta name="favicon"  content="{{ asset('assets/media/favicon.webp') }}">
     <link rel="icon" type="image/webp" href="{{ asset('assets/media/favicon.webp') }}">
   <!-- All CSS files -->
+
+  <!-- Vendor CSS -->
   <link rel="stylesheet" href="{{url('assets/css/vendor/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{url('assets/css/vendor/font-awesome.css')}}">
   <link rel="stylesheet" href="{{url('assets/css/vendor/slick.css')}}">
   <link rel="stylesheet" href="{{url('assets/css/vendor/slick-theme.css')}}">
   <link rel="stylesheet" href="{{url('assets/css/vendor/aksVideoPlayer.css')}}">
-  <link rel="stylesheet" href="{{url('assets/css/app.css')}}">
-   <link rel="stylesheet" href="{{url('assets/css/animate.css')}}">
-   <link rel="stylesheet" href="{{url('assets/css/theme.css')}}"><!-- Theme Override - Must be loaded last -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;family=Orbitron:wght@400;600;700;800;900&amp;family=Chakra+Petch:wght@300;400;500;600;700&amp;display=swap">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{url('assets/css/animate.css')}}">
+
+  <!-- Caldera Theme Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Bebas+Neue:wght@400&display=swap" rel="stylesheet">
+
+  <!-- Caldera Theme CSS -->
+  <link rel="stylesheet" href="{{url('assets/css/caldera.css')}}">
    <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-3X49SHWXWY"></script>
 <script>
