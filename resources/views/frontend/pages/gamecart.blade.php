@@ -1,23 +1,4 @@
 @extends('frontend.layouts.main')
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-@endphp
 @section('title', 'Cart')
 
 @push('styles')
@@ -647,7 +628,7 @@
                             <div class="game-card">
                                 <div class="game-card-media">
                                     <a href="{{ route('product-detail', $cart->product->slug) }}">
-                                        <img src="{{ asset($photo[0]) }}" alt="{{ $cleanText($cart->product['title']) }}" onerror="this.style.display='none'">
+                                        <img src="{{ asset($photo[0]) }}" alt="{{ $cart->product['title'] }}" onerror="this.style.display='none'">
                                     </a>
                                     <span class="game-card-points-badge">
                                         <i class="fas fa-star me-2"></i>
@@ -658,7 +639,7 @@
                                 <div class="game-card-body">
                                     <div class="game-card-header-row">
                                         <a href="{{ route('product-detail', $cart->product->slug) }}" class="game-card-title">
-                                            {{ $cleanText($cart->product['title']) }}
+                                            {{ $cart->product['title'] }}
                                         </a>
 
                                         <div class="game-card-points-label">

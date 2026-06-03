@@ -1102,25 +1102,6 @@ header.small-screen .mobile-navar ul li a.active {
   <div id="main-wrapper" class="main-wrapper overflow-hidden">
 
     <!-- Header Area Start -->
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-@endphp
     <header class="large-screens">
       <div class="container">
         <nav class="navbar navbar-expand-lg">
@@ -1156,7 +1137,7 @@ header.small-screen .mobile-navar ul li a.active {
         @foreach($categories as $cat_info)
             <li class="menu-item">
                 <a href="{{ route('product-cat', $cat_info->slug) }}">
-                    {{ $cleanText($cat_info->title) }}
+                    {{ $cat_info->title }}
                 </a>
             </li>
         @endforeach
@@ -1301,7 +1282,7 @@ header.small-screen .mobile-navar ul li a.active {
            @foreach($categories as $cat_info)
             <li class="menu-item">
                 <a href="{{ route('product-cat', $cat_info->slug) }}">
-                    {{ $cleanText($cat_info->title) }}
+                    {{ $cat_info->title }}
                 </a>
             </li>
           @endforeach

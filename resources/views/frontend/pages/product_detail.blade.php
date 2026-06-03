@@ -1,27 +1,4 @@
 @extends('frontend.layouts.main')
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-
-    $product_detail->title = $cleanText($product_detail->title);
-    $product_detail->summary = $cleanText($product_detail->summary);
-    $product_detail->description = $cleanText($product_detail->description);
-@endphp
 @section('title', $product_detail->title)
 @section('description', $product_detail->summary)
 
@@ -772,9 +749,6 @@
         ->where('status', 'active')
         ->take(4)
         ->get();
-    foreach ($relatedProducts as $related) {
-        $related->title = $cleanText($related->title);
-    }
 @endphp
 
 <!-- Hero / Title Band -->
@@ -791,7 +765,6 @@
       @if(isset($product_detail->cat_info) && $product_detail->cat_info)
         @php
             $categoryTitle = is_array($product_detail->cat_info) ? ($product_detail->cat_info['title'] ?? '') : ($product_detail->cat_info->title ?? '');
-            $categoryTitle = $cleanText($categoryTitle);
             $categorySlug = is_array($product_detail->cat_info) ? ($product_detail->cat_info['slug'] ?? '') : ($product_detail->cat_info->slug ?? '');
         @endphp
         @if(!empty($categoryTitle) && !empty($categorySlug))

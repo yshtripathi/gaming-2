@@ -1,25 +1,6 @@
 @extends('frontend.layouts.main')
 
 @section('main-content')
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-@endphp
 
     <!-- Section 1: Hero Banner (Home) -->
     <div class="hero-banner-caldera-box">
@@ -94,7 +75,7 @@
               <div class="game-row-head">
                 <div class="game-row-heading">
                   <span class="title-square"></span>
-                  <h3 class="game-row-title">{{ $cleanText($category->title) }}</h3>
+                  <h3 class="game-row-title">{{ $category->title }}</h3>
                 </div>
                 <a href="{{ route('product-cat', $category->slug) }}" class="game-row-link">
                   {{ __('common.view_all') }}
@@ -112,10 +93,10 @@
                     <div class="swiper-slide">
                       <a href="{{ route('product-detail', $product->slug) }}" class="game-card">
                         <div class="game-image-wrapper">
-                          <img src="{{ asset($gamePhoto) }}" alt="{{ $cleanText($product->title) }}" class="game-image">
+                          <img src="{{ asset($gamePhoto) }}" alt="{{ $product->title }}" class="game-image">
                         </div>
                         <div class="game-info">
-                          <h4 class="game-title">{{ $cleanText($product->title) }}</h4>
+                          <h4 class="game-title">{{ $product->title }}</h4>
                           <p class="game-reward">
                             <i class="fas fa-coins me-1"></i>
                             {{ number_format(Helper::getProductPriceByCurrency('USD', $product), 0) }} {{ __('common.points') }}

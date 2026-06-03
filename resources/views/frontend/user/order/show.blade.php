@@ -1,23 +1,4 @@
 @extends('frontend.layouts.main')
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-@endphp
 @section('title', __('common.order_detail'))
 
 @push('styles')

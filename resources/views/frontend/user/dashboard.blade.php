@@ -1,23 +1,4 @@
 @extends('frontend.layouts.main')
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-@endphp
 @section('title', __('common.dashboard'))
 
 @push('styles')
@@ -631,7 +612,7 @@
                                         @if($game->product)
                                             <tr>
                                                 <td>{{ $game->id }}</td>
-                                                <td>{{ $cleanText($game->product->title) }}</td>
+                                                <td>{{ $game->product->title }}</td>
                                                 <td>{{ $game->created_at->format('d-M-y') }}</td>
                                                 <td>{{ number_format($game->price,0) }} {{ __('common.points') }}</td>
                                                 <td><span class="status-badge completed">{{ __('common.completed') }}</span></td>

@@ -1,24 +1,6 @@
 @extends('frontend.layouts.main')
 
 @php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-
     if (request()->routeIs('product-lists')) {
         $category = null;
     }
@@ -29,20 +11,6 @@
         }
         if (!is_object($category) || !isset($category->title)) {
             $category = null;
-        } else {
-            $category->title = $cleanText($category->title);
-            if ($category->summary) {
-                $category->summary = $cleanText($category->summary);
-            }
-        }
-    }
-
-    if (isset($products) && $products) {
-        foreach ($products as $product) {
-            $product->title = $cleanText($product->title);
-            if ($product->summary) {
-                $product->summary = $cleanText($product->summary);
-            }
         }
     }
 @endphp
@@ -519,12 +487,6 @@
         @if((!isset($category) || !$category) || count($products))
             @php
                 $allCategories = Helper::productCategoryList("all")->where('is_parent', 1);
-                foreach ($allCategories as $cat) {
-                    $cat->title = $cleanText($cat->title);
-                    if ($cat->summary) {
-                        $cat->summary = $cleanText($cat->summary);
-                    }
-                }
             @endphp
             <div class="product-catalog-layout no-sidebar-landing">
                 <div class="products-grid">

@@ -1,23 +1,4 @@
 @extends('frontend.layouts.main')
-@php
-    $cleanText = function($text) {
-        $search = [
-            'farming', 'Farming', 'FARMING',
-            'farm', 'Farm', 'FARM',
-            'aura', 'Aura', 'AURA',
-            'tournament', 'Tournament', 'TOURNAMENT',
-            'tournamet', 'Tournamet', 'TOURNAMET'
-        ];
-        $replace = [
-            'progression', 'Progression', 'PROGRESSION',
-            'collect', 'Collect', 'COLLECT',
-            'presence', 'Presence', 'PRESENCE',
-            'championship', 'Championship', 'CHAMPIONSHIP',
-            'championship', 'Championship', 'CHAMPIONSHIP'
-        ];
-        return str_replace($search, $replace, $text);
-    };
-@endphp
 @section('title', 'Cart')
 
 @push('styles')
@@ -586,7 +567,7 @@
                             <div class="cart-col-product">
                                 @if($hasProduct)
                                 <div class="cart-product-image">
-                                    <img src="{{ asset($cart['photo']) }}" alt="{{ $cleanText($cart['title']) }}" onerror="this.style.display='none'">
+                                    <img src="{{ asset($cart['photo']) }}" alt="{{ $cart['title'] }}" onerror="this.style.display='none'">
                                 </div>
                                 @else
                                 <div class="cart-product-image cart-product-points-only">
@@ -594,7 +575,7 @@
                                     <span class="points-badge">{{ $points }} {{ __('common.points') }}</span>
                                 </div>
                                 @endif
-                                <h3 class="cart-product-title">{{ $cleanText($cart['title']) }}</h3>
+                                <h3 class="cart-product-title">{{ $cart['title'] }}</h3>
                             </div>
                             <div class="cart-col cart-col-price">
                                 <span class="cart-product-price">
