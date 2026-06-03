@@ -25,567 +25,439 @@
 
 @push('styles')
 <style>
-/* Product Grid Page - Light themed HUD Styling */
+/* ============================================================================
+   CALDERA PRODUCT CATALOG — Premium Gaming Theme Style
+   ============================================================================ */
+
 .product-grid-section {
-    padding: 64px 0 96px !important;
-    background: transparent !important;
+  padding: 0 !important;
+  background: transparent !important;
+  margin: var(--spacing-40);
+  margin-top: var(--spacing-56);
 }
 
-.product-grid-header {
-    margin-bottom: 32px !important;
-    border-left: 3px solid #6d7f00 !important;
-    padding-left: 16px !important;
+/* About Title Band / Hero */
+.about-hero-section {
+  position: relative;
+  margin: var(--spacing-40);
+  margin-top: 150px; /* offset for navbar floating transformation */
+  border-radius: var(--radius-3xl-3);
+  overflow: hidden;
+  background: var(--color-ash-white);
+  border: 3px solid var(--color-abyssal-ink);
+  box-shadow: 0 40px 100px rgba(7, 6, 7, 0.08);
 }
 
-.product-grid-header h2 {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 32px !important;
-    font-weight: 900 !important;
-    color: #0b0d10 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    margin: 0;
+.about-hero-wrapper {
+  padding: var(--spacing-80) var(--spacing-40);
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
-/* Catalog Sidebar and Pills Adjustments */
-.product-catalog-layout .category-filter-bar {
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.03) !important;
-    backdrop-filter: none !important;
+.about-hero-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-abyssal-ink);
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-16);
 }
 
-.product-catalog-layout .category-pill {
-    background: #f6f7f2 !important;
-    border: 1px solid rgba(8, 10, 12, 0.06) !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+/* Breadcrumb styling */
+.about-breadcrumb-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  background: var(--color-pure-white);
+  border: 2px solid var(--color-abyssal-ink);
+  padding: var(--spacing-8) var(--spacing-20);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
 }
 
-.product-catalog-layout .category-pill:hover,
-.product-catalog-layout .category-pill.active {
-    background: #0b0d10 !important;
-    border-color: #0b0d10 !important;
-    color: #ffffff !important;
-    box-shadow: 0 10px 25px rgba(8, 10, 12, 0.15) !important;
+.about-breadcrumb-capsule a {
+  color: var(--color-abyssal-ink);
+  text-decoration: none;
+  transition: var(--transition);
 }
 
-/* Premium Product Card Redesign */
-.product-card-new {
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.07) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(8, 10, 12, 0.02) !important;
-    overflow: hidden;
-    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+.about-breadcrumb-capsule a:hover {
+  color: var(--color-digital-orange);
 }
 
-.product-card-new:hover {
-    transform: translateY(-6px) !important;
-    border-color: #6d7f00 !important;
-    box-shadow: 
-        0 20px 40px rgba(8, 10, 12, 0.05),
-        0 0 20px rgba(223, 255, 0, 0.12) !important;
+.about-breadcrumb-separator {
+  color: rgba(7, 6, 7, 0.4);
+  font-size: 10px;
 }
 
-.product-card-image {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16/10;
-    overflow: hidden;
-    background: #f6f7f2;
-}
-
-.product-card-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-.product-card-new:hover .product-card-image img {
-    transform: scale(1.06) !important;
-}
-
-.product-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, transparent 40%, rgba(8, 10, 12, 0.72) 100%) !important;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 16px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.product-card-new:hover .product-card-overlay {
-    opacity: 1 !important;
-}
-
-.product-card-play {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    background: #dfff00 !important;
-    color: #0b0d10 !important;
-    padding: 8px 18px !important;
-    border-radius: 999px !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 11.5px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px;
-    box-shadow: 0 4px 15px rgba(223, 255, 0, 0.25) !important;
-}
-
-.product-card-body {
-    padding: 22px !important;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
-
-.product-card-title {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 17.5px !important;
-    font-weight: 800 !important;
-    color: #0b0d10 !important;
-    margin: 0 0 16px 0 !important;
-    line-height: 1.35 !important;
-    height: 48px;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.product-card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 18px !important;
-    border-top: 1px solid rgba(8, 10, 12, 0.05) !important;
-    margin-top: auto;
-}
-
-.product-card-price {
-    display: flex;
-    flex-direction: column;
-}
-
-.product-card-price-label {
-    font-size: 10px !important;
-    font-weight: 700;
-    color: rgba(8, 10, 12, 0.45) !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.product-card-price-value {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 20px !important;
-    font-weight: 900 !important;
-    color: #0b0d10 !important;
-    line-height: 1.1;
-    margin-top: 2px;
-}
-
-.product-card-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 8px !important;
-    background: #0b0d10 !important;
-    border: 1px solid rgba(8, 10, 12, 0.1) !important;
-    border-radius: 12px !important;
-    color: #dfff00 !important;
-    padding: 10px 18px !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 12.5px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(8, 10, 12, 0.05) !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-.product-card-btn:hover {
-    background: #dfff00 !important;
-    color: #0b0d10 !important;
-    border-color: #dfff00 !important;
-    box-shadow: 0 8px 20px rgba(223, 255, 0, 0.25) !important;
-    transform: translateY(-1px) !important;
-}
-
-.product-card-btn svg {
-    width: 14px !important;
-    height: 14px !important;
-    stroke: currentColor !important;
-}
-
-/* View All and empty states styling */
-.view-all-container {
-    margin-top: 48px;
-}
-
-.view-all-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #0b0d10 !important;
-    border: 1px solid rgba(8, 10, 12, 0.1) !important;
-    color: #dfff00 !important;
-    padding: 14px 36px !important;
-    border-radius: 999px !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 14px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    box-shadow: 0 10px 25px rgba(8, 10, 12, 0.1) !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
-}
-
-.view-all-btn:hover {
-    background: #dfff00 !important;
-    color: #0b0d10 !important;
-    border-color: #dfff00 !important;
-    box-shadow: 0 12px 30px rgba(223, 255, 0, 0.3) !important;
-    transform: translateY(-2px) !important;
-}
-
-.view-all-btn svg {
-    width: 18px !important;
-    height: 18px !important;
-    stroke: currentColor !important;
-}
-
-.no-products {
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    border-radius: 20px !important;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.03) !important;
-    padding: 64px 32px !important;
-}
-
-.no-products-icon {
-    background: rgba(223, 255, 0, 0.15) !important;
-    width: 80px;
-    height: 80px;
-}
-
-.no-products-icon svg {
-    color: #6d7f00 !important;
-    width: 40px;
-    height: 40px;
-}
-
-.no-products h3 {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 22px !important;
-    font-weight: 800 !important;
-    color: #0b0d10 !important;
-    text-transform: uppercase;
-}
-
-.no-products p {
-    color: rgba(8, 10, 12, 0.5) !important;
-    font-size: 14.5px !important;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+.about-breadcrumb-current {
+  color: var(--color-digital-orange);
+  font-weight: 600;
 }
 
 /* Category Spotlight Section */
 .category-spotlight-section {
-    padding: 64px 0 24px !important;
-    background: transparent !important;
+  margin: var(--spacing-40);
+  margin-top: var(--spacing-56);
+  padding: 0 !important;
 }
 
 .category-spotlight-card {
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.03) !important;
-    padding: 48px !important;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 32px;
-    position: relative;
-}
-
-@media (max-width: 768px) {
-    .category-spotlight-card {
-        padding: 28px !important;
-        gap: 24px;
-    }
-}
-
-.category-spotlight-media {
-    position: relative;
-    border-radius: 18px;
-    overflow: hidden;
-    width: 100%;
-    max-width: 680px;
-    aspect-ratio: 16/9;
-    border: 1px solid rgba(8, 10, 12, 0.08);
-    box-shadow: 0 10px 30px rgba(8, 10, 12, 0.05);
-}
-
-.category-spotlight-media img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.category-spotlight-card:hover .category-spotlight-media img {
-    transform: scale(1.05);
-}
-
-.category-spotlight-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  background: var(--color-ash-white) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
+  border-radius: var(--radius-cards) !important;
+  box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06) !important;
+  padding: var(--spacing-40) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-16);
 }
 
 .spotlight-title {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 36px !important;
-    font-weight: 900 !important;
-    color: #0b0d10 !important;
-    text-transform: uppercase;
-    letter-spacing: -0.5px;
-    margin: 0 0 16px 0;
-    line-height: 1.15;
-    text-align: center;
-}
-
-@media (max-width: 768px) {
-    .spotlight-title {
-        font-size: 28px !important;
-    }
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: clamp(28px, 4vw, 42px) !important;
+  color: var(--color-abyssal-ink) !important;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-12);
 }
 
 .spotlight-summary {
-    font-size: 16.5px !important;
-    line-height: 1.65 !important;
-    color: rgba(8, 10, 12, 0.72) !important;
-    margin: 0 auto;
-    max-width: 760px;
-    text-align: center;
+  font-size: 15px !important;
+  line-height: 1.7 !important;
+  color: var(--color-abyssal-ink) !important;
 }
 
-.product-catalog-layout.no-sidebar-landing {
-    grid-template-columns: 1fr !important;
+/* Catalog Layout Adjustments */
+.product-catalog-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-32);
+  align-items: flex-start;
 }
 
-/* Premium Responsive 3-Column Horizontal Grid of Smaller Cards */
-.product-catalog-layout .products-grid {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 24px !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+/* Horizontal Products Grid */
+.products-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--spacing-24) !important;
 }
 
-.product-catalog-layout .products-grid.show-all-packs {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 24px !important;
-    max-width: 100% !important;
-    margin: 0 !important;
+.product-card-new {
+  background: var(--color-pure-white) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
+  border-radius: var(--radius-cards) !important;
+  box-shadow: 0 10px 40px rgba(7, 6, 7, 0.05) !important;
+  overflow: hidden;
+  transition: all 0.3s ease !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: stretch !important;
+  min-height: 200px;
+  width: 100%;
 }
 
-/* Compact Premium Cards */
-.product-catalog-layout .product-card-new {
-    padding: 20px !important;
-    border-radius: 18px !important;
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.07) !important;
-    box-shadow: 0 10px 30px rgba(8, 10, 12, 0.02) !important;
-    display: flex !important;
-    flex-direction: column !important;
-    height: 100% !important;
-    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+.product-card-new:hover {
+  transform: translateY(-4px) !important;
+  border-color: var(--color-digital-orange) !important;
+  box-shadow: 0 15px 45px rgba(252, 80, 0, 0.2) !important;
 }
 
-.product-catalog-layout .product-card-new:hover {
-    transform: translateY(-6px) !important;
-    border-color: #6d7f00 !important;
-    box-shadow: 
-        0 20px 40px rgba(8, 10, 12, 0.05),
-        0 0 20px rgba(223, 255, 0, 0.12) !important;
+.product-card-image {
+  position: relative;
+  width: 300px !important;
+  aspect-ratio: 16/10;
+  overflow: hidden;
+  background: var(--color-basalt-canvas);
+  border-bottom: none !important;
+  border-right: 3px solid var(--color-abyssal-ink) !important;
+  flex-shrink: 0;
 }
 
-.product-catalog-layout .product-card-title {
-    font-size: 16px !important;
-    font-weight: 800 !important;
-    color: #0b0d10 !important;
-    margin: 0 0 14px 0 !important;
-    line-height: 1.35 !important;
-    height: 44px !important;
-    overflow: hidden;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 2 !important;
-    -webkit-box-orient: vertical !important;
-    text-align: left !important;
+.product-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease !important;
 }
 
-.product-catalog-layout .product-card-image {
-    border-radius: 12px !important;
-    overflow: hidden;
-    margin: 0 0 16px 0 !important;
-    width: 100% !important;
-    background: #f6f7f2 !important;
-    aspect-ratio: auto !important;
+.product-card-new:hover .product-card-image img {
+  transform: scale(1.04) !important;
 }
 
-.product-catalog-layout .product-card-image img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
+.product-card-body {
+  padding: var(--spacing-24) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-grow: 1;
+  justify-content: space-between !important;
 }
 
-.product-catalog-layout .product-card-body {
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
+.product-card-title {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 22px !important;
+  font-weight: 800 !important;
+  color: var(--color-abyssal-ink) !important;
+  margin: 0 0 var(--spacing-12) 0 !important;
+  line-height: 1.3 !important;
+  height: auto !important;
+  overflow: visible !important;
+  text-transform: uppercase;
+  text-align: left !important;
 }
 
-.product-catalog-layout .product-card-summary {
-    font-size: 13.5px !important;
-    line-height: 1.55 !important;
-    color: rgba(8, 10, 12, 0.6) !important;
-    margin: 0 0 20px 0 !important;
-    white-space: normal !important;
-    overflow: hidden !important;
-    display: -webkit-box !important;
-    -webkit-line-clamp: 3 !important;
-    -webkit-box-orient: vertical !important;
-    text-align: left !important;
+.product-card-summary {
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+  color: rgba(7, 6, 7, 0.6) !important;
+  margin: 0 0 var(--spacing-20) 0 !important;
+  white-space: normal !important;
+  overflow: hidden !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important;
+  -webkit-box-orient: vertical !important;
+  text-align: left !important;
 }
 
-.product-catalog-layout .product-card-footer {
-    padding-top: 16px !important;
-    border-top: 1px solid rgba(8, 10, 12, 0.06) !important;
-    margin-top: auto !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+.product-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--spacing-16) !important;
+  border-top: 1px solid rgba(7, 6, 7, 0.08) !important;
+  margin-top: auto;
+  width: 100%;
+}
+
+.product-card-price {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.product-card-price-label {
+  font-size: 10px !important;
+  font-weight: 700;
+  color: rgba(7, 6, 7, 0.5) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card-price-value {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 22px !important;
+  font-weight: 900 !important;
+  color: var(--color-abyssal-ink) !important;
+  line-height: 1.1;
+  margin-top: 2px;
 }
 
 /* Explore and Add to Cart Action Buttons */
 .product-card-actions {
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
 }
 
 .product-explore-btn {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 6px !important;
-    background: transparent !important;
-    border: 1px solid rgba(8, 10, 12, 0.12) !important;
-    border-radius: 10px !important;
-    color: #0b0d10 !important;
-    padding: 8px 14px !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 11.5px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    cursor: pointer;
-    text-decoration: none !important;
-    transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--spacing-8) !important;
+  background: transparent !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  border-radius: var(--radius-inputs) !important;
+  color: var(--color-abyssal-ink) !important;
+  padding: 8px 16px !important;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: var(--transition) !important;
 }
 
 .product-explore-btn:hover {
-    background: #0b0d10 !important;
-    border-color: #0b0d10 !important;
-    color: #dfff00 !important;
+  background: var(--color-abyssal-ink) !important;
+  color: var(--color-pure-white) !important;
 }
 
-.product-explore-btn i {
-    font-size: 11px !important;
+.product-card-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--spacing-8) !important;
+  background: var(--color-digital-orange) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  border-radius: var(--radius-inputs) !important;
+  color: var(--color-pure-white) !important;
+  padding: 8px 16px !important;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(252, 80, 0, 0.15) !important;
+  transition: var(--transition) !important;
 }
 
-.product-card-new.d-none-filtered {
-    display: none !important;
+.product-card-btn:hover {
+  background: var(--color-abyssal-ink) !important;
+  color: var(--color-pure-white) !important;
+  box-shadow: 0 4px 12px rgba(7, 6, 7, 0.15) !important;
+}
+
+.product-card-btn i {
+  font-size: 13px !important;
+}
+
+/* Empty states styling */
+.no-products {
+  background: var(--color-pure-white) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
+  border-radius: var(--radius-cards) !important;
+  box-shadow: 0 15px 45px rgba(7, 6, 7, 0.05) !important;
+  padding: var(--spacing-64) var(--spacing-32) !important;
+  text-align: center;
+}
+
+.no-products-icon {
+  background: rgba(252, 80, 0, 0.1) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-24) !important;
+}
+
+.no-products-icon i {
+  color: var(--color-digital-orange) !important;
+  font-size: 40px !important;
+}
+
+.no-products h3 {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 24px !important;
+  color: var(--color-abyssal-ink) !important;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-12);
+}
+
+.no-products p {
+  color: rgba(7, 6, 7, 0.6) !important;
+  font-size: 15px !important;
+}
+
+/* Section Title with Line */
+.section-title-with-line {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-40);
+}
+
+.title-square {
+  width: 20px;
+  height: 20px;
+  background: var(--color-digital-orange);
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.section-title-with-line h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 900;
+  color: var(--color-abyssal-ink);
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.title-underline {
+  flex: 1;
+  height: 2px;
+  background: var(--color-abyssal-ink);
+  margin-left: var(--spacing-24);
 }
 
 /* Responsive Grid Adapters */
-@media (max-width: 1400px) {
-    .product-catalog-layout .products-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-        gap: 20px !important;
-    }
+@media (max-width: 991px) {
+  .product-grid-section,
+  .category-spotlight-section {
+    margin: var(--spacing-24);
+    margin-top: var(--spacing-40);
+  }
+  .product-card-image {
+    width: 240px !important;
+  }
 }
 
 @media (max-width: 768px) {
-    .product-catalog-layout .products-grid {
-        grid-template-columns: 1fr !important;
-        gap: 16px !important;
-    }
+  .product-card-new {
+    flex-direction: column !important;
+  }
+  .product-card-image {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 3px solid var(--color-abyssal-ink) !important;
+    aspect-ratio: 16/10 !important;
+  }
+  .product-grid-section,
+  .category-spotlight-section {
+    margin: var(--spacing-16);
+    margin-top: var(--spacing-32);
+  }
+  .category-spotlight-card {
+    padding: var(--spacing-24) !important;
+    gap: var(--spacing-20);
+  }
 }
 </style>
 @endpush
 
 @section('main-content')
 
-<div class="about-title-band">
-    <!-- HUD Visual Effects -->
-    <div class="about-hud-grid"></div>
-    <div class="about-hud-glow"></div>
-    <div class="about-hud-decor border-t"></div>
-    <div class="about-hud-decor border-b"></div>
+<!-- Hero / Title Band -->
+<div class="about-hero-section">
+  <div class="about-hero-wrapper">
+    <h1 class="about-hero-title">
+      @if(isset($category->title) && $category->title)
+          {{ $category->title }}
+      @else
+          Games Offered
+      @endif
+    </h1>
     
-    <div class="container position-relative z-1">
-        <h1 class="about-hud-title mb-3 animate-fade-in-up">
-            @if(isset($category->title) && $category->title)
-                {{ $category->title }}
-            @else
-                Games Offered
-            @endif
-        </h1>
-        
-        <div class="about-hud-breadcrumb-capsule animate-fade-in-up delay-1">
-            <a href="{{ route('home') }}" class="hud-breadcrumb-link">
-                <i class="fas fa-home me-2"></i>{{ __('common.home') }}
-            </a>
-            <span class="hud-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="hud-breadcrumb-current">
-                @if(isset($category->title) && $category->title)
-                    {{ $category->title }}
-                @else
-                    Games Offered
-                @endif
-            </span>
-        </div>
+    <div class="about-breadcrumb-capsule">
+      <a href="{{ route('home') }}">
+        <i class="fas fa-home me-2"></i>Home
+      </a>
+      <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+      <span class="about-breadcrumb-current">
+        @if(isset($category->title) && $category->title)
+            {{ $category->title }}
+        @else
+            Games Offered
+        @endif
+      </span>
     </div>
+  </div>
 </div>
 
 @if(isset($category) && $category)
 <section class="category-spotlight-section">
     <div class="container">
         <div class="category-spotlight-card">
-            <div class="category-spotlight-media animate-fade-in-up">
-                <img src="{{ isset($catphoto) && $catphoto ? asset($catphoto) : (isset($category->photo) && $category->photo ? asset($category->photo) : asset('assets/media/blogs/bd-1.png')) }}" alt="{{ $category->title }}">
-            </div>
-            <div class="category-spotlight-content animate-fade-in-up delay-1">
+            <div class="category-spotlight-content">
+                <span class="spotlight-tag mb-2 d-inline-block" style="font-size: 11px; font-weight: 800; color: var(--color-digital-orange); text-transform: uppercase; letter-spacing: 1.5px; display: block;">Category Focus</span>
                 <h2 class="spotlight-title">{{ $category->title }}</h2>
                 @if($category->summary)
                     <p class="spotlight-summary">{{ $category->summary }}</p>
@@ -599,42 +471,24 @@
 <!-- Product Grid Section -->
 <section class="product-grid-section" id="products">
     <div class="container">
-        <div class="product-grid-header">
-            <h2>
-                @if(isset($category->title) && $category->title)
-                    {{ __('common.services') }}
-                @else
-                    Games Offered
-                @endif
-            </h2>
-            <!-- <p>{{ __('common.browse_services') }}</p> -->
+        
+        <div class="section-title-with-line mb-5">
+          <span class="title-square"></span>
+          <h2>
+            @if(isset($category->title) && $category->title)
+                {{ __('common.services') }}
+            @else
+                Games Offered
+            @endif
+          </h2>
+          <div class="title-underline"></div>
         </div>
         
         @if((!isset($category) || !$category) || count($products))
             @php
                 $allCategories = Helper::productCategoryList("all")->where('is_parent', 1);
             @endphp
-            <div class="product-catalog-layout {{ !isset($category) || !$category ? 'no-sidebar-landing' : '' }}">
-                @if(isset($category) && $category)
-                    <aside class="category-filter-bar">
-                        <div class="category-pills">
-                            <a href="{{ route('product-lists') }}" class="category-pill {{ !isset($category) || !$category ? 'active' : '' }}">
-                                <span>01</span>
-                                {{ __('common.all_packs') }}
-                            </a>
-                            @foreach($allCategories as $index => $cat)
-                                @php
-                                    $isActive = isset($category) && $category && $category->id === $cat->id;
-                                @endphp
-                                <a href="{{ route('product-cat', $cat->slug) }}" class="category-pill {{ $isActive ? 'active' : '' }}">
-                                    <span>{{ str_pad($index + 2, 2, '0', STR_PAD_LEFT) }}</span>
-                                    {{ $cat->title }}
-                                </a>
-                            @endforeach
-                        </div>
-                    </aside>
-                @endif
-
+            <div class="product-catalog-layout no-sidebar-landing">
                 <div class="products-grid">
                     @if(!isset($category) || !$category)
                         <!-- Main Catalog Landing Page: Show all Games (Categories) -->
@@ -650,8 +504,6 @@
                                 }
                             @endphp
                             <div class="product-card-new">
-                                <h3 class="product-card-title">{{ $cat->title }}</h3>
-                                
                                 <div class="product-card-image">
                                     <a href="{{ route('product-cat', $cat->slug) }}" class="product-card-image-link">
                                         <img src="{{ $catPhoto }}" alt="{{ $cat->title }}">
@@ -659,7 +511,9 @@
                                 </div>
                                 
                                 <div class="product-card-body">
-                                    <div class="category-services-count mb-2" style="font-size: 12px !important; color: #6d7f00 !important; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-align: left;">
+                                    <h3 class="product-card-title">{{ $cat->title }}</h3>
+                                    
+                                    <div class="category-services-count mb-2" style="font-size: 12px !important; color: var(--color-digital-orange) !important; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; text-align: left;">
                                         {{ Helper::productCountByCategory($cat->id) }} {{ __('common.services') }}
                                     </div>
                                     
@@ -667,10 +521,10 @@
                                         <p class="product-card-summary" style="margin-bottom: 20px !important;">{{ $cat->summary }}</p>
                                     @endif
                                     
-                                    <div class="product-card-footer" style="padding-top: 16px !important; border-top: 1px solid rgba(8, 10, 12, 0.06) !important; margin-top: auto !important; display: flex !important; align-items: center !important; justify-content: flex-end !important;">
+                                    <div class="product-card-footer" style="padding-top: 16px !important; border-top: 1px solid rgba(7, 6, 7, 0.08) !important; margin-top: auto !important; display: flex !important; align-items: center !important; justify-content: flex-end !important;">
                                         <a href="{{ route('product-cat', $cat->slug) }}" class="product-explore-btn">
                                             {{ __('common.explore') }}
-                                            <i class="fal fa-arrow-right"></i>
+                                            <i class="fas fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -680,8 +534,6 @@
                         <!-- Specific Category Catalog: Show products inside this Category -->
                         @foreach($products as $product)
                             <div class="product-card-new">
-                                <h3 class="product-card-title">{{ $product->title }}</h3>
-                                
                                 <div class="product-card-image">
                                     @php 
                                         $photo = isset($product->photo) ? explode(',', $product->photo) : ['assets/media/blogs/bd-1.png'];
@@ -692,6 +544,8 @@
                                 </div>
                                 
                                 <div class="product-card-body">
+                                    <h3 class="product-card-title">{{ $product->title }}</h3>
+                                    
                                     @if($product->summary)
                                         <p class="product-card-summary">{{ $product->summary }}</p>
                                     @endif
@@ -704,18 +558,14 @@
                                         <div class="product-card-actions">
                                             <a href="{{ route('product-detail', $product->slug) }}" class="product-explore-btn">
                                                 {{ __('common.explore') }}
-                                                <i class="fal fa-arrow-right"></i>
+                                                <i class="fas fa-arrow-right"></i>
                                             </a>
                                             <form action="{{route('single-add-to-cart')}}" method="POST" class="m-0">
                                                 @csrf
                                                 <input type="hidden" name="quant[1]" class="qty-input" value="1">
                                                 <input type="hidden" name="slug" value="{{$product->slug}}">
                                                 <button type="submit" class="product-card-btn">
-                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                                        <circle cx="9" cy="21" r="1"/>
-                                                        <circle cx="20" cy="21" r="1"/>
-                                                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                                                    </svg>
+                                                    <i class="fas fa-shopping-cart me-2"></i>
                                                     {{ __('common.add_to_cart') }}
                                                 </button>
                                             </form>
@@ -731,12 +581,7 @@
         @else
             <div class="no-products">
                 <div class="no-products-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
-                        <line x1="9" y1="9" x2="9.01" y2="9"/>
-                        <line x1="15" y1="9" x2="15.01" y2="9"/>
-                    </svg>
+                    <i class="fas fa-frown"></i>
                 </div>
                 <h3>{{ __('common.there_are_no_products') }}</h3>
                 <p>Check back soon for new services!</p>

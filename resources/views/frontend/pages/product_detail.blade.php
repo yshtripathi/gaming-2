@@ -6,8 +6,71 @@
 <style>
 /* Premium Gaming HUD Product Detail Styles */
 .pg-product-detail-page {
-    padding: 64px 0 96px;
-    background: transparent;
+    padding: 0 !important;
+    background: transparent !important;
+    margin: var(--spacing-40);
+    margin-top: var(--spacing-56);
+}
+
+/* Hero / Breadcrumb Title Band */
+.about-hero-section {
+  position: relative;
+  margin: var(--spacing-40);
+  margin-top: 150px; /* offset for navbar floating transformation */
+  border-radius: var(--radius-3xl-3);
+  overflow: hidden;
+  background: var(--color-ash-white);
+  border: 3px solid var(--color-abyssal-ink);
+  box-shadow: 0 40px 100px rgba(7, 6, 7, 0.08);
+}
+
+.about-hero-wrapper {
+  padding: var(--spacing-80) var(--spacing-40);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.about-hero-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-abyssal-ink);
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-16);
+}
+
+.about-breadcrumb-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  background: var(--color-pure-white);
+  border: 2px solid var(--color-abyssal-ink);
+  padding: var(--spacing-8) var(--spacing-20);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.about-breadcrumb-capsule a {
+  color: var(--color-abyssal-ink);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about-breadcrumb-capsule a:hover {
+  color: var(--color-digital-orange);
+}
+
+.about-breadcrumb-separator {
+  color: rgba(7, 6, 7, 0.4);
+  font-size: 10px;
+}
+
+.about-breadcrumb-current {
+  color: var(--color-digital-orange);
+  font-weight: 600;
 }
 
 .pg-product-breadcrumb {
@@ -15,7 +78,7 @@
     align-items: center;
     gap: 8px;
     margin-bottom: 32px;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
@@ -23,17 +86,17 @@
 }
 
 .pg-product-breadcrumb a {
-    color: rgba(11, 13, 16, 0.6);
+    color: rgba(7, 6, 7, 0.6);
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .pg-product-breadcrumb a:hover {
-    color: #6d7f00;
+    color: var(--color-digital-orange);
 }
 
 .pg-product-breadcrumb span {
-    color: rgba(11, 13, 16, 0.3);
+    color: rgba(7, 6, 7, 0.3);
 }
 
 .pg-product-layout {
@@ -59,10 +122,10 @@
 }
 
 .pg-product-main-image {
-    background: #ffffff;
-    border: 1px solid rgba(8, 10, 12, 0.07);
-    border-radius: 24px;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.02);
+    background: var(--color-pure-white);
+    border: 3px solid var(--color-abyssal-ink);
+    border-radius: var(--radius-cards);
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06);
     overflow: hidden;
     aspect-ratio: 16/10;
     display: flex;
@@ -74,8 +137,8 @@
 .pg-product-main-image img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    background: #f6f7f2;
+    object-fit: cover;
+    background: var(--color-basalt-canvas);
 }
 
 .pg-product-thumbs {
@@ -90,12 +153,12 @@
     height: 84px;
     flex-shrink: 0;
     border-radius: 14px;
-    border: 2px solid transparent;
-    background: #ffffff;
+    border: 2px solid var(--color-abyssal-ink);
+    background: var(--color-pure-white);
     padding: 3px;
     overflow: hidden;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(8, 10, 12, 0.02);
+    box-shadow: 0 4px 15px rgba(7, 6, 7, 0.02);
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
@@ -108,17 +171,17 @@
 
 .pg-product-thumb:hover,
 .pg-product-thumb.active {
-    border-color: #6d7f00;
+    border-color: var(--color-digital-orange);
     transform: translateY(-2px) scale(1.04);
 }
 
 /* Panel Styling */
 .pg-product-panel {
-    background: #ffffff;
-    border: 1px solid rgba(8, 10, 12, 0.07);
-    border-radius: 24px;
-    padding: 36px;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.02);
+    background: var(--color-pure-white);
+    border: 3px solid var(--color-abyssal-ink);
+    border-radius: var(--radius-cards);
+    padding: var(--spacing-40);
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -126,18 +189,18 @@
 
 @media (max-width: 576px) {
     .pg-product-panel {
-        padding: 24px;
+        padding: var(--spacing-24);
     }
 }
 
 .pg-product-kicker {
     align-self: flex-start;
-    background: rgba(223, 255, 0, 0.15);
-    border: 1px solid rgba(109, 127, 0, 0.15);
-    color: #6d7f00;
+    background: rgba(252, 80, 0, 0.15);
+    border: 1px solid rgba(252, 80, 0, 0.15);
+    color: var(--color-digital-orange);
     padding: 6px 14px;
-    border-radius: 999px;
-    font-family: 'Chakra Petch', sans-serif;
+    border-radius: var(--radius-full);
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 11px;
     font-weight: 800;
     text-transform: uppercase;
@@ -145,10 +208,10 @@
 }
 
 .pg-product-panel h1 {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 30px;
     font-weight: 900;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     margin: 0;
     line-height: 1.2;
     text-transform: uppercase;
@@ -157,8 +220,8 @@
 .pg-product-price {
     display: flex;
     flex-direction: column;
-    background: #f6f7f2;
-    border-left: 4px solid #6d7f00;
+    background: var(--color-basalt-canvas);
+    border-left: 4px solid var(--color-digital-orange);
     padding: 16px 20px;
     border-radius: 0 16px 16px 0;
 }
@@ -166,16 +229,16 @@
 .pg-product-price span {
     font-size: 11px;
     font-weight: 700;
-    color: rgba(11, 13, 16, 0.45);
+    color: rgba(7, 6, 7, 0.45);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .pg-product-price strong {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 32px;
     font-weight: 900;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     line-height: 1.1;
     margin-top: 4px;
 }
@@ -183,7 +246,7 @@
 .pg-product-summary {
     font-size: 15px;
     line-height: 1.6;
-    color: rgba(11, 13, 16, 0.65);
+    color: rgba(7, 6, 7, 0.65);
     margin: 0;
 }
 
@@ -194,25 +257,25 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: #0b0d10;
-    border: none;
-    border-radius: 16px;
-    color: #dfff00;
+    background: var(--color-digital-orange);
+    border: 2px solid var(--color-abyssal-ink);
+    border-radius: var(--radius-inputs);
+    color: var(--color-pure-white);
     padding: 18px 24px;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-dm-sans);
     font-size: 14.5px;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(11, 13, 16, 0.1);
-    transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 10px 25px rgba(252, 80, 0, 0.15);
+    transition: all 0.35s ease;
 }
 
 .pg-product-cart-btn:hover {
-    background: #dfff00;
-    color: #0b0d10;
-    box-shadow: 0 15px 30px rgba(223, 255, 0, 0.25);
+    background: var(--color-abyssal-ink);
+    color: var(--color-pure-white);
+    box-shadow: 0 15px 30px rgba(7, 6, 7, 0.25);
     transform: translateY(-2px);
 }
 
@@ -222,16 +285,16 @@
 
 /* Accordion Info Cards */
 .pg-product-info-card {
-    border: 1px solid rgba(8, 10, 12, 0.07);
+    border: 2px solid var(--color-abyssal-ink);
     border-radius: 16px;
     overflow: hidden;
-    background: #ffffff;
+    background: var(--color-pure-white);
     transition: border-color 0.3s ease;
 }
 
 .pg-product-info-card:focus-within,
 .pg-product-info-card:hover {
-    border-color: rgba(109, 127, 0, 0.25);
+    border-color: var(--color-digital-orange);
 }
 
 .pg-product-accordion-toggle {
@@ -243,23 +306,23 @@
     background: transparent;
     border: none;
     cursor: pointer;
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 13.5px;
     font-weight: 800;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .pg-product-accordion-toggle i {
     font-size: 14px;
-    color: rgba(11, 13, 16, 0.35);
+    color: rgba(7, 6, 7, 0.35);
     transition: transform 0.3s ease;
 }
 
 .pg-product-accordion-toggle.active i {
     transform: rotate(180deg);
-    color: #6d7f00;
+    color: var(--color-digital-orange);
 }
 
 .pg-product-accordion-panel {
@@ -267,7 +330,7 @@
     padding: 0 24px 20px;
     font-size: 14px;
     line-height: 1.6;
-    color: rgba(11, 13, 16, 0.6);
+    color: rgba(7, 6, 7, 0.6);
 }
 
 .pg-product-accordion-panel.active {
@@ -294,7 +357,7 @@
 .pg-training-toggle-row p {
     font-size: 13px;
     line-height: 1.5;
-    color: rgba(11, 13, 16, 0.45);
+    color: rgba(7, 6, 7, 0.45);
     margin: 0;
 }
 
@@ -316,7 +379,7 @@
     position: absolute;
     cursor: pointer;
     inset: 0;
-    background-color: rgba(8, 10, 12, 0.08);
+    background-color: rgba(7, 6, 7, 0.08);
     transition: .4s;
     border-radius: 34px;
 }
@@ -331,11 +394,11 @@
     background-color: white;
     transition: .4s;
     border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(8, 10, 12, 0.12);
+    box-shadow: 0 2px 8px rgba(7, 6, 7, 0.12);
 }
 
 .optional-training-toggle input:checked + .optional-training-slider {
-    background-color: #6d7f00;
+    background-color: var(--color-digital-orange);
 }
 
 .optional-training-toggle input:checked + .optional-training-slider:before {
@@ -343,7 +406,7 @@
 }
 
 .training-slider-section {
-    background: #f6f7f2;
+    background: var(--color-basalt-canvas);
     border-radius: 14px;
     padding: 18px;
     margin-top: 16px;
@@ -364,22 +427,22 @@
 }
 
 .training-slider-title {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 11.5px;
     font-weight: 800;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
 }
 
 .training-slider-value {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 13.5px;
     font-weight: 900;
-    color: #6d7f00;
-    background: #ffffff;
+    color: var(--color-digital-orange);
+    background: var(--color-pure-white);
     padding: 4px 10px;
     border-radius: 8px;
-    border: 1px solid rgba(109, 127, 0, 0.12);
+    border: 1px solid rgba(252, 80, 0, 0.12);
 }
 
 .training-slider-wrapper {
@@ -392,7 +455,7 @@
     width: 100%;
     height: 6px;
     border-radius: 3px;
-    background: rgba(8, 10, 12, 0.08);
+    background: rgba(7, 6, 7, 0.08);
     outline: none;
 }
 
@@ -402,10 +465,10 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: #0b0d10;
-    border: 3px solid #dfff00;
+    background: var(--color-abyssal-ink);
+    border: 3px solid var(--color-digital-orange);
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(11, 13, 16, 0.15);
+    box-shadow: 0 4px 10px rgba(7, 6, 7, 0.15);
     transition: transform 0.1s ease;
 }
 
@@ -417,9 +480,9 @@
     position: absolute;
     top: -24px;
     transform: translateX(-50%);
-    background: #0b0d10;
-    color: #dfff00;
-    font-family: 'Chakra Petch', sans-serif;
+    background: var(--color-abyssal-ink);
+    color: var(--color-digital-orange);
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 11px;
     font-weight: 800;
     padding: 3px 8px;
@@ -434,17 +497,17 @@
 }
 
 .pg-training-price {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 12.5px;
     font-weight: 800;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
     text-align: right;
 }
 
 .pg-training-price span {
     font-size: 16px;
-    color: #6d7f00;
+    color: var(--color-digital-orange);
     font-weight: 900;
     margin-left: 4px;
 }
@@ -452,7 +515,7 @@
 .pg-product-readmore {
     display: inline-flex;
     align-items: center;
-    color: #6d7f00;
+    color: var(--color-digital-orange);
     font-size: 13px;
     font-weight: 700;
     text-decoration: none;
@@ -468,7 +531,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
-    border-top: 1px solid rgba(8, 10, 12, 0.05);
+    border-top: 1px solid rgba(7, 6, 7, 0.05);
     padding-top: 24px;
     margin-top: 8px;
 }
@@ -478,20 +541,21 @@
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: #f6f7f2;
+    background: var(--color-basalt-canvas);
+    border: 2px solid var(--color-abyssal-ink);
     padding: 12px 16px;
-    border-radius: 12px;
+    border-radius: var(--radius-inputs);
 }
 
 .pg-product-shipping-grid i {
     font-size: 16px;
-    color: #6d7f00;
+    color: var(--color-digital-orange);
 }
 
 .pg-product-shipping-grid span {
     font-size: 12px;
     font-weight: 800;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -505,11 +569,11 @@
 }
 
 .pg-detail-band {
-    background: #ffffff;
-    border: 1px solid rgba(8, 10, 12, 0.07);
-    border-radius: 24px;
+    background: var(--color-pure-white);
+    border: 3px solid var(--color-abyssal-ink);
+    border-radius: var(--radius-cards);
     padding: 40px;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.02);
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06);
 }
 
 @media (max-width: 576px) {
@@ -519,20 +583,20 @@
 }
 
 .pg-detail-band h2 {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 22px;
     font-weight: 900;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
     margin: 0 0 20px 0;
-    border-left: 4px solid #6d7f00;
+    border-left: 4px solid var(--color-digital-orange);
     padding-left: 12px;
 }
 
 .pg-detail-band p {
     font-size: 14.5px;
     line-height: 1.7;
-    color: rgba(11, 13, 16, 0.6);
+    color: rgba(7, 6, 7, 0.6);
     margin: 0;
 }
 
@@ -551,8 +615,8 @@
 }
 
 .pg-steps-grid > div {
-    background: #f6f7f2;
-    border: 1px solid rgba(8, 10, 12, 0.05);
+    background: var(--color-basalt-canvas);
+    border: 2px solid var(--color-abyssal-ink);
     border-radius: 16px;
     padding: 24px;
     display: flex;
@@ -563,10 +627,10 @@
 }
 
 .pg-steps-grid strong {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 36px;
     font-weight: 900;
-    color: rgba(109, 127, 0, 0.1);
+    color: rgba(252, 80, 0, 0.15);
     line-height: 1;
     position: absolute;
     top: 16px;
@@ -574,10 +638,10 @@
 }
 
 .pg-steps-grid span {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 13.5px;
     font-weight: 800;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -585,24 +649,24 @@
 .pg-steps-grid p {
     font-size: 13px;
     line-height: 1.6;
-    color: rgba(11, 13, 16, 0.5);
+    color: rgba(7, 6, 7, 0.5);
     margin: 0;
 }
 
 /* Related Products */
 .pg-related-products {
-    border-top: 1px solid rgba(8, 10, 12, 0.05);
+    border-top: 1px solid rgba(7, 6, 7, 0.05);
     padding-top: 48px;
 }
 
 .pg-related-products h2 {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 22px;
     font-weight: 900;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     text-transform: uppercase;
     margin-bottom: 28px;
-    border-left: 4px solid #6d7f00;
+    border-left: 4px solid var(--color-digital-orange);
     padding-left: 12px;
 }
 
@@ -627,22 +691,22 @@
 }
 
 .pg-related-card {
-    background: #ffffff;
-    border: 1px solid rgba(8, 10, 12, 0.07);
-    border-radius: 18px;
+    background: var(--color-pure-white);
+    border: 3px solid var(--color-abyssal-ink);
+    border-radius: var(--radius-cards);
     padding: 16px;
     display: flex;
     flex-direction: column;
     gap: 12px;
     text-decoration: none;
-    box-shadow: 0 10px 30px rgba(8, 10, 12, 0.02);
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.02);
     transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .pg-related-card:hover {
     transform: translateY(-4px);
-    border-color: #6d7f00;
-    box-shadow: 0 15px 35px rgba(8, 10, 12, 0.04);
+    border-color: var(--color-digital-orange);
+    box-shadow: 0 15px 45px rgba(252, 80, 0, 0.25);
 }
 
 .pg-related-card img {
@@ -650,14 +714,14 @@
     aspect-ratio: 16/10;
     object-fit: cover;
     border-radius: 12px;
-    background: #f6f7f2;
+    background: var(--color-basalt-canvas);
 }
 
 .pg-related-card span {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 14px;
     font-weight: 800;
-    color: #0b0d10;
+    color: var(--color-abyssal-ink);
     line-height: 1.35;
     height: 38px;
     overflow: hidden;
@@ -667,10 +731,10 @@
 }
 
 .pg-related-card strong {
-    font-family: 'Chakra Petch', sans-serif;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold);
     font-size: 15.5px;
     font-weight: 900;
-    color: #6d7f00;
+    color: var(--color-digital-orange);
 }
 </style>
 @endpush
@@ -687,38 +751,33 @@
         ->get();
 @endphp
 
-<div class="about-title-band">
-    <!-- HUD Visual Effects -->
-    <div class="about-hud-grid"></div>
-    <div class="about-hud-glow"></div>
-    <div class="about-hud-decor border-t"></div>
-    <div class="about-hud-decor border-b"></div>
+<!-- Hero / Title Band -->
+<div class="about-hero-section">
+  <div class="about-hero-wrapper">
+    <h1 class="about-hero-title">
+      {{ $product_detail->title }}
+    </h1>
     
-    <div class="container position-relative z-1">
-        <h1 class="about-hud-title mb-3 animate-fade-in-up">
-            {{ $product_detail->title }}
-        </h1>
-        
-        <div class="about-hud-breadcrumb-capsule animate-fade-in-up delay-1">
-            <a href="{{ route('home') }}" class="hud-breadcrumb-link">
-                <i class="fas fa-home me-2"></i>{{ __('common.home') }}
+    <div class="about-breadcrumb-capsule">
+      <a href="{{ route('home') }}">
+        <i class="fas fa-home me-2"></i>Home
+      </a>
+      @if(isset($product_detail->cat_info) && $product_detail->cat_info)
+        @php
+            $categoryTitle = is_array($product_detail->cat_info) ? ($product_detail->cat_info['title'] ?? '') : ($product_detail->cat_info->title ?? '');
+            $categorySlug = is_array($product_detail->cat_info) ? ($product_detail->cat_info['slug'] ?? '') : ($product_detail->cat_info->slug ?? '');
+        @endphp
+        @if(!empty($categoryTitle) && !empty($categorySlug))
+            <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+            <a href="{{ route('product-cat', $categorySlug) }}">
+                {{ $categoryTitle }}
             </a>
-            @if(isset($product_detail->cat_info) && $product_detail->cat_info)
-                @php
-                    $categoryTitle = is_array($product_detail->cat_info) ? ($product_detail->cat_info['title'] ?? '') : ($product_detail->cat_info->title ?? '');
-                    $categorySlug = is_array($product_detail->cat_info) ? ($product_detail->cat_info['slug'] ?? '') : ($product_detail->cat_info->slug ?? '');
-                @endphp
-                @if(!empty($categoryTitle) && !empty($categorySlug))
-                    <span class="hud-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-                    <a href="{{ route('product-cat', $categorySlug) }}" class="hud-breadcrumb-link">
-                        {{ $categoryTitle }}
-                    </a>
-                @endif
-            @endif
-            <span class="hud-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="hud-breadcrumb-current">{{ $product_detail->title }}</span>
-        </div>
+        @endif
+      @endif
+      <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+      <span class="about-breadcrumb-current">{{ $product_detail->title }}</span>
     </div>
+  </div>
 </div>
 
 <section class="pg-product-detail-page">
@@ -739,6 +798,17 @@
                         @endforeach
                     </div>
                 @endif
+
+                <!-- Description card moved here (image on top, bottom this description) -->
+                <div class="pg-product-info-card mt-3">
+                    <button type="button" class="pg-product-accordion-toggle active" data-target="pg-description-panel">
+                        <span>{{ __('common.description') }}</span>
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    <div class="pg-product-accordion-panel active" id="pg-description-panel">
+                        {!! $product_detail->description !!}
+                    </div>
+                </div>
             </div>
 
             <aside class="pg-product-panel">
@@ -752,32 +822,10 @@
 
                 <p class="pg-product-summary">{{ $product_detail->summary }}</p>
 
-                <form action="{{ route('single-add-to-cart') }}" method="POST" class="pg-product-cart-form">
-                    @csrf
-                    <input type="hidden" name="quant[1]" class="qty-input" value="1">
-                    <input type="hidden" name="slug" value="{{ $product_detail->slug }}">
-                    <input type="hidden" name="hours" id="hours-input" value="0">
-
-                    <button type="submit" class="pg-product-cart-btn">
-                        {{ __('common.add_to_cart') }}
-                        <i class="fal fa-shopping-cart"></i>
-                    </button>
-                </form>
-
-                <div class="pg-product-info-card">
-                    <button type="button" class="pg-product-accordion-toggle active" data-target="pg-description-panel">
-                        <span>{{ __('common.description') }}</span>
-                        <i class="fal fa-chevron-up"></i>
-                    </button>
-                    <div class="pg-product-accordion-panel active" id="pg-description-panel">
-                        {!! $product_detail->description !!}
-                    </div>
-                </div>
-
                 <div class="pg-product-info-card">
                     <button type="button" class="pg-product-accordion-toggle" data-target="pg-training-panel">
                         <span>{{ __('common.optional_training_add_on') }}</span>
-                        <i class="fal fa-chevron-down"></i>
+                        <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="pg-product-accordion-panel" id="pg-training-panel">
                         <div class="pg-training-toggle-row">
@@ -806,13 +854,26 @@
                     </div>
                 </div>
 
+                <!-- Form moved below optional training add on -->
+                <form action="{{ route('single-add-to-cart') }}" method="POST" class="pg-product-cart-form mt-2">
+                    @csrf
+                    <input type="hidden" name="quant[1]" class="qty-input" value="1">
+                    <input type="hidden" name="slug" value="{{ $product_detail->slug }}">
+                    <input type="hidden" name="hours" id="hours-input" value="0">
+
+                    <button type="submit" class="pg-product-cart-btn" style="width: 100%; height: 58px; padding: 0 24px; margin: 0;">
+                        {{ __('common.add_to_cart') }}
+                        <i class="fas fa-shopping-cart ms-2"></i>
+                    </button>
+                </form>
+
                 <div class="pg-product-shipping-grid">
                     <div>
-                        <i class="fal fa-bolt"></i>
+                        <i class="fas fa-bolt"></i>
                         <span>{{ __('common.quick_delivery') }}</span>
                     </div>
                     <div>
-                        <i class="fal fa-lock-alt"></i>
+                        <i class="fas fa-lock"></i>
                         <span>{{ __('common.secure_process') }}</span>
                     </div>
                 </div>
