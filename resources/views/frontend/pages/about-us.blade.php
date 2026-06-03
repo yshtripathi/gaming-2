@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'About Us | Polyboost')
+@section('title', 'About Us')
 
 @push('styles')
 <style>
@@ -532,14 +532,14 @@
     <!-- Hero / Title Band -->
     <div class="about-hero-section">
       <div class="about-hero-wrapper">
-        <h1 class="about-hero-title">ABOUT US</h1>
-        
+        <h1 class="about-hero-title">{{ __('common.about_us') }}</h1>
+
         <div class="about-breadcrumb-capsule">
           <a href="{{ route('home') }}">
-            <i class="fas fa-home me-2"></i>Home
+            <i class="fas fa-home me-2"></i>{{ __('common.home') }}
           </a>
           <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-          <span class="about-breadcrumb-current">About Us</span>
+          <span class="about-breadcrumb-current">{{ __('common.about_us') }}</span>
         </div>
       </div>
     </div>
@@ -553,16 +553,12 @@
 
           <!-- Text block -->
           <div class="about-copy-block">
-            <span class="about-badge">OUR MISSION</span>
-            <h2>WHO WE ARE</h2>
-            <h3>Bridging the gap between competitive gridlocks and elite gameplay achievements.</h3>
-            <p>
-              Polyboost was forged by a collective of competitive esports veterans who believed that climbing the ladder should be transparent, secure, and stress-free. We empower players worldwide to experience their favorite games at their true potential by dismantling the rank grind.
-            </p>
-            <p>
-              Our automated matchmaking platform instantly pairs you with Diamond, Master, and Challenger-tier boosters across multiple major multiplayer titles. Operating under military-grade security rules and VPN protection, we promise absolute confidentiality and peak progression speeds.
-            </p>
-            <a href="{{ route('contact') }}" class="about-pill-btn">CONNECT WITH US</a>
+            <span class="about-badge">{{ __('common.about_mission_badge') }}</span>
+            <h2>{{ __('common.about_who_we_are') }}</h2>
+            <h3>{{ __('common.about_tagline') }}</h3>
+            <p>{{ __('common.about_intro_p1') }}</p>
+            <p>{{ __('common.about_intro_p2') }}</p>
+            <a href="{{ route('contact') }}" class="about-pill-btn">{{ __('common.about_connect_btn') }}</a>
           </div>
 
         </div>
@@ -574,61 +570,53 @@
       <div class="why-choose-wrapper">
         <div class="section-title-with-line mb-5">
           <span class="title-square"></span>
-          <h2>OUR CORE PILLARS</h2>
+          <h2>{{ __('common.about_core_pillars') }}</h2>
           <div class="title-underline"></div>
         </div>
 
         <div class="grid-4-card-system">
-          
+
           <!-- Pillar Card 1 -->
           <div class="card-system">
             <div class="card-top">
-              <h5 class="card-label">SECURE CREDENTIALS</h5>
+              <h5 class="card-label">{{ __('common.about_pillar1_title') }}</h5>
               <i class="fas fa-user-shield card-icon-top"></i>
             </div>
             <div class="card-body">
-              <p class="card-description">
-                Your credentials are kept fully encrypted. We enforce strict hardware isolation and VPN overlays to mirror your exact location.
-              </p>
+              <p class="card-description">{{ __('common.about_pillar1_desc') }}</p>
             </div>
           </div>
 
           <!-- Pillar Card 2 -->
           <div class="card-system">
             <div class="card-top">
-              <h5 class="card-label">EXPERT PRO CREW</h5>
+              <h5 class="card-label">{{ __('common.about_pillar2_title') }}</h5>
               <i class="fas fa-trophy card-icon-top"></i>
             </div>
             <div class="card-body">
-              <p class="card-description">
-                Our boosters are active competitive players verified with top-tier ranks (Diamond, Immortal, Predator) to handle high-level matches.
-              </p>
+              <p class="card-description">{{ __('common.about_pillar2_desc') }}</p>
             </div>
           </div>
 
           <!-- Pillar Card 3 -->
           <div class="card-system">
             <div class="card-top">
-              <h5 class="card-label">24/7 ACTIVE RADAR</h5>
+              <h5 class="card-label">{{ __('common.about_pillar3_title') }}</h5>
               <i class="fas fa-headset card-icon-top"></i>
             </div>
             <div class="card-body">
-              <p class="card-description">
-                Around-the-clock live chat, real-time ticket execution, and priority customer support queues always active to support you.
-              </p>
+              <p class="card-description">{{ __('common.about_pillar3_desc') }}</p>
             </div>
           </div>
 
           <!-- Pillar Card 4 -->
           <div class="card-system">
             <div class="card-top">
-              <h5 class="card-label">RAPID EXECUTION</h5>
+              <h5 class="card-label">{{ __('common.about_pillar4_title') }}</h5>
               <i class="fas fa-bolt card-icon-top"></i>
             </div>
             <div class="card-body">
-              <p class="card-description">
-                Orders are queued instantly. Expect live streaming options, fast-track point additions, and 24-48 hour delivery cycles.
-              </p>
+              <p class="card-description">{{ __('common.about_pillar4_desc') }}</p>
             </div>
           </div>
 
@@ -639,12 +627,10 @@
     <!-- Call To Action -->
     <section class="about-footer-cta">
       <div class="about-cta-wrapper">
-        <span class="about-cta-badge">GET STARTED NOW</span>
-        <h2>DOMINATE YOUR COMPETITIVE LADDER</h2>
-        <p>
-          Ready to break free from match queues and claim your true rank? Place an order, top up points, or explore our active boosting lists today.
-        </p>
-        <a href="{{ route('product-lists') }}" class="about-cta-btn">BROWSE SERVICES <i class="fas fa-arrow-right ms-2"></i></a>
+        <span class="about-cta-badge">{{ __('common.about_cta_badge') }}</span>
+        <h2>{{ __('common.about_cta_title') }}</h2>
+        <p>{{ __('common.about_cta_desc') }}</p>
+        <a href="{{ route('product-lists') }}" class="about-cta-btn">{{ __('common.browse_services') }} <i class="fas fa-arrow-right ms-2"></i></a>
       </div>
     </section>
 

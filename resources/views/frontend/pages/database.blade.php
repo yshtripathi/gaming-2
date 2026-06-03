@@ -1,5 +1,24 @@
 
 @extends('frontend.layouts.main')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
 @section('title', 'Database')
 @push('styles')
 <style>
@@ -240,9 +259,9 @@
                                        
                                      
   </div>
-                               <a href="{{route('product-detail', $product->slug)}}"><h4 class="mb-12">{{$product->title}}  </h4></a>
+                               <a href="{{route('product-detail', $product->slug)}}"><h4 class="mb-12">{{$cleanText($product->title)}}  </h4></a>
                                         <div class="bottom-row">
-    <p> {{ Str::limit($product->summary,120) }} </p>
+    <p> {{ $cleanText(Str::limit($product->summary,120)) }} </p>
                                             <div class="price">
                                                 <h4> {{ $product->getCurrencySymbol() }} 
       {{number_format($product->price, session('currency')=='JPY' ? 0 : 2)}}                                                

@@ -1,5 +1,24 @@
 @extends('frontend.layouts.main')
-@section('title', 'Order Detail')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
+@section('title', __('common.order_detail'))
 
 @push('styles')
 <style>
@@ -357,7 +376,7 @@
                         </tr>
                         <tr>
                             <td>{{ __('common.payment_method') }}</td>
-                            <td>Credit Card</td>
+                            <td>{{ __('common.credit_card') }}</td>
                         </tr>
                         <tr>
                             <td>{{ __('common.payment_status') }}</td>

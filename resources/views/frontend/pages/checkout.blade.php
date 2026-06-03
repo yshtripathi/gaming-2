@@ -690,14 +690,14 @@
                         <div class="checkout-form-row">
                             <div class="checkout-form-group">
                                 <label>{{ __('common.first_name') }}<span class="required-star">*</span></label>
-                                <input type="text" name="first_name" id="first_name" value="" placeholder="{{ __('common.first_name') }}" class="checkout-input">
+                                <input type="text" name="first_name" id="first_name" value="" placeholder="{{ __('common.ph_first_name') }}" class="checkout-input">
                                 @error('first_name')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
                             <div class="checkout-form-group">
                                 <label>{{ __('common.last_name') }}<span class="required-star">*</span></label>
-                                <input type="text" name="last_name" id="last_name" value="" placeholder="{{ __('common.last_name') }}" class="checkout-input">
+                                <input type="text" name="last_name" id="last_name" value="" placeholder="{{ __('common.ph_last_name') }}" class="checkout-input">
                                 @error('last_name')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -707,14 +707,14 @@
                         <div class="checkout-form-row">
                             <div class="checkout-form-group">
                                 <label>{{ __('common.email') }}<span class="required-star">*</span></label>
-                                <input name="email" type="email" id="email" value="{{ auth()->user()->email ?? '' }}" placeholder="{{ __('common.email') }}" class="checkout-input">
+                                <input name="email" type="email" id="email" value="{{ auth()->user()->email ?? '' }}" placeholder="{{ __('common.ph_email') }}" class="checkout-input">
                                 @error('email')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
                             <div class="checkout-form-group">
                                 <label>{{ __('common.phone') }}<span class="required-star">*</span></label>
-                                <input type="number" name="phone" id="phone" placeholder="{{ __('common.phone') }}" value="{{ auth()->user()->phone ?? '' }}" class="checkout-input">
+                                <input type="number" name="phone" id="phone" placeholder="{{ __('common.ph_phone') }}" value="{{ auth()->user()->phone ?? '' }}" class="checkout-input">
                                 @error('phone')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -724,7 +724,7 @@
                         <div class="checkout-form-row full-width">
                             <div class="checkout-form-group">
                                 <label>{{ __('common.address') }}<span class="required-star">*</span></label>
-                                <input type="text" name="address1" id="address" value="{{ auth()->user()->address ?? '' }}" placeholder="{{ __('common.address') }}" class="checkout-input">
+                                <input type="text" name="address1" id="address" value="{{ auth()->user()->address ?? '' }}" placeholder="{{ __('common.ph_address') }}" class="checkout-input">
                                 @error('address')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -734,14 +734,14 @@
                         <div class="checkout-form-row">
                             <div class="checkout-form-group">
                                 <label>{{ __('common.town_city') }}<span class="required-star">*</span></label>
-                                <input type="text" name="city" id="city" value="{{ auth()->user()->city ?? '' }}" placeholder="{{ __('common.town_city') }}" class="checkout-input">
+                                <input type="text" name="city" id="city" value="{{ auth()->user()->city ?? '' }}" placeholder="{{ __('common.ph_city') }}" class="checkout-input">
                                 @error('city')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
                             </div>
                             <div class="checkout-form-group">
                                 <label>{{ __('common.zip_code') }}<span class="required-star">*</span></label>
-                                <input type="text" name="post_code" id="post_code" pattern="[0-9]*" placeholder="{{ __('common.zip_code') }}" value="{{ auth()->user()->zip ?? '' }}" class="checkout-input">
+                                <input type="text" name="post_code" id="post_code" pattern="[0-9]*" placeholder="{{ __('common.ph_zip') }}" value="{{ auth()->user()->zip ?? '' }}" class="checkout-input">
                                 @error('post_code')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -751,7 +751,7 @@
                         <div class="checkout-form-row">
                             <div class="checkout-form-group">
                                 <label>{{ __('common.state') }}<span class="required-star">*</span></label>
-                                <input type="text" name="state" id="state" value="{{ auth()->user()->state ?? '' }}" placeholder="{{ __('common.state') }}" class="checkout-input">
+                                <input type="text" name="state" id="state" value="{{ auth()->user()->state ?? '' }}" placeholder="{{ __('common.ph_state') }}" class="checkout-input">
                                 @error('state')
                                     <span class="text-danger">{{$message}}</span>
                                 @enderror
@@ -1129,7 +1129,7 @@
                             
                             <div class="payment-input-group">
                                 <label>{{ __('common.card_holder_name') }}</label>
-                                <input type="text" name="name" id="name" class="payment-input" placeholder="{{ __('common.card_holder_name') }}">
+                                <input type="text" name="name" id="name" class="payment-input" placeholder="{{ __('common.ph_card_name') }}">
                                 <span id="card-name-error" class="text-danger"></span>
                             </div>
                             
@@ -1233,8 +1233,8 @@ $(document).ready(function() {
   @endif
         },
         messages: {
-            first_name: "{{ __('common.name_required') }}",
-            last_name: "{{ __('common.name_required') }}",
+            first_name: "{{ __('common.first_name_required') }}",
+            last_name: "{{ __('common.last_name_required') }}",
             phone: {
                 required: "{{ __('common.phone_required') }}",
                 minlength: "{{ __('common.phone_min') }}"
@@ -1254,7 +1254,7 @@ $(document).ready(function() {
             expiry_month: "{{ __('common.card_month_required') }}",
             expiry_year: "{{ __('common.card_year_required') }}",
             cvv: "{{ __('common.card_cvv_required') }}",
-            captcha: "{{ __('common.fill_it') }}"
+            captcha: "{{ __('common.captcha_required') }}"
         },
         errorPlacement: function(error, element) {
             error.addClass('text-danger');

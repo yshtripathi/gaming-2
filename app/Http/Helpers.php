@@ -74,7 +74,7 @@ class Helper
         if ($option = 'all') {
 
             if($currentLocale == "ja") {
-                return Category::select('id', 'title_jp as title', 'slug', 'summary_jp as summary', 'photo', 'status')->orderBy('id', 'DESC')->get();
+                return Category::select('id', 'title_jp as title', 'slug', 'summary_jp as summary', 'photo', 'status', 'is_parent', 'parent_id')->orderBy('id', 'DESC')->get();
             }
 
             return Category::orderBy('id', 'DESC')->get();

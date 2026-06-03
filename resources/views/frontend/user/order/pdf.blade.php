@@ -6,6 +6,25 @@
 </head>
 <body>
 
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
 @if($order)
 <style type="text/css">
   .invoice-header {
@@ -125,7 +144,7 @@
         <tr>
           <td><span>
               @foreach($product as $pro)
-                {{$pro->title}}
+                {{$cleanText($pro->title)}}
               @endforeach
             </span></td>
           <td>x{{$cart->quantity}}</td>

@@ -1,5 +1,24 @@
 @extends('frontend.layouts.main')
-@section('title', 'Dashboard')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
+@section('title', __('common.dashboard'))
 
 @push('styles')
 <style>
@@ -469,10 +488,10 @@
     
     <div class="about-breadcrumb-capsule">
       <a href="{{ route('home') }}">
-        <i class="fas fa-home me-2"></i>Home
+        <i class="fas fa-home me-2"></i>{{ __('common.home') }}
       </a>
       <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-      <span class="about-breadcrumb-current">My Account</span>
+      <span class="about-breadcrumb-current">{{ __('common.my_account') }}</span>
     </div>
   </div>
 </div>
@@ -600,11 +619,11 @@
                             <table class="dashboard-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
-                                        <th>Game</th>
-                                        <th>Date</th>
-                                        <th>Points Spent</th>
-                                        <th>Status</th>
+                                        <th>{{ __('common.id_label') }}</th>
+                                        <th>{{ __('common.game') }}</th>
+                                        <th>{{ __('common.date') }}</th>
+                                        <th>{{ __('common.points_spent') }}</th>
+                                        <th>{{ __('common.status') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -612,10 +631,10 @@
                                         @if($game->product)
                                             <tr>
                                                 <td>{{ $game->id }}</td>
-                                                <td>{{ $game->product->title }}</td>
+                                                <td>{{ $cleanText($game->product->title) }}</td>
                                                 <td>{{ $game->created_at->format('d-M-y') }}</td>
-                                                <td>{{ number_format($game->price,0) }} Points</td>
-                                                <td><span class="status-badge completed">Completed</span></td>
+                                                <td>{{ number_format($game->price,0) }} {{ __('common.points') }}</td>
+                                                <td><span class="status-badge completed">{{ __('common.completed') }}</span></td>
                                             </tr>
                                         @endif
                                     @endforeach

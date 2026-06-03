@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Login | Polyboost')
+@section('title', 'Login')
 
 @push('styles')
 <style>
@@ -286,14 +286,14 @@
     <!-- Hero / Title Band -->
     <div class="about-hero-section">
       <div class="about-hero-wrapper">
-        <h1 class="about-hero-title">LOGIN</h1>
-        
+        <h1 class="about-hero-title">{{ __('common.login') }}</h1>
+
         <div class="about-breadcrumb-capsule">
           <a href="{{ route('home') }}">
-            <i class="fas fa-home me-2"></i>Home
+            <i class="fas fa-home me-2"></i>{{ __('common.home') }}
           </a>
           <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-          <span class="about-breadcrumb-current">Login</span>
+          <span class="about-breadcrumb-current">{{ __('common.login') }}</span>
         </div>
       </div>
     </div>
@@ -304,17 +304,17 @@
         
         <!-- Center Panel: Login Form -->
         <div class="auth-form-panel">
-          <h2>WELCOME BACK</h2>
-          <p>Login to access your active booster slots, dashboard progress, and purchase history.</p>
+          <h2>{{ __('common.welcome_back_player') }}</h2>
+          <p>{{ __('common.login_intro') }}</p>
           
           <form name="frmLogin" id="frmLogin" action="{{ route('login.submit') }}" method="post">
             @csrf
 
             <!-- Email Address -->
             <div class="auth-field">
-              <label for="email">Email Address</label>
+              <label for="email">{{ __('common.email') }}</label>
               <div class="auth-input-wrap">
-                <input type="email" name="email" id="email" placeholder="Enter email address" value="{{ old('email') }}" class="form-control" required>
+                <input type="email" name="email" id="email" placeholder="{{ __('common.ph_email') }}" value="{{ old('email') }}" class="form-control" required>
                 <i class="fas fa-envelope"></i>
               </div>
               @error('email')
@@ -324,9 +324,9 @@
 
             <!-- Password -->
             <div class="auth-field">
-              <label for="password">Password</label>
+              <label for="password">{{ __('common.password') }}</label>
               <div class="auth-input-wrap">
-                <input type="password" name="password" id="password" placeholder="Enter password" value="{{ old('password') }}" class="form-control" required>
+                <input type="password" name="password" id="password" placeholder="{{ __('common.ph_password') }}" value="{{ old('password') }}" class="form-control" required>
                 <i class="fas fa-lock"></i>
               </div>
               @error('password')
@@ -338,20 +338,20 @@
             <div class="auth-options">
               <label class="auth-check" for="remember">
                 <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                <span>Remember Me</span>
+                <span>{{ __('common.remember_me') }}</span>
               </label>
-              <a href="{{ route('forgetpwd.form') }}">Forgot Password?</a>
+              <a href="{{ route('forgetpwd.form') }}">{{ __('common.forgot_password_link') }}</a>
             </div>
 
             <!-- Submit -->
             <button type="submit" class="auth-submit-btn-caldera">
-              <span>Sign In</span>
+              <span>{{ __('common.sign_in') }}</span>
               <i class="fas fa-arrow-right"></i>
             </button>
           </form>
 
           <div class="auth-switch-link">
-            <p>Don't have an account? <a href="{{ route('register.form') }}">Create Account Now</a></p>
+            <p>{{ __('common.dont_have_account') }} <a href="{{ route('register.form') }}">{{ __('common.create_account_link') }}</a></p>
           </div>
         </div>
 

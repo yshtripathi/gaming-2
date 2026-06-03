@@ -371,7 +371,7 @@
       <!-- Column 1: Logo -->
       <div class="footer-brand">
         <a href="{{route('home')}}" class="footer-logo">
-          <img src="{{ url('assets/media/images/logo.webp') }}" alt="Gaming Fusion">
+          <img src="{{ url('assets/media/images/logo.webp') }}" alt="BattleNPC">
         </a>
       </div>
 
@@ -455,7 +455,6 @@
       <!-- Column 5: Newsletter -->
       <div class="footer-newsletter">
         <h4>{{ __('common.subscribe_our_newsletter') }}</h4>
-        <p>{{ __('common.newsletter_description') }}</p>
         <form id="subscribe-form" class="newsletter-form">
           <input type="email" id="newsletter-email" name="newsletter-email" required placeholder="{{ __('common.your_email') }}" class="newsletter-input">
           <button type="submit" class="newsletter-btn">
@@ -531,6 +530,7 @@ $('#subscribe-form').on('submit', function(e) {
   $(this)[0].reset();
   setTimeout(function() {
     $('#newsletterSuccess').removeClass('show');
+  }, 4000);
 });
 </script>
 

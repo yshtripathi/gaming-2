@@ -271,7 +271,7 @@ $order = Order::where('trans_id', $transaction_id)->first();
     
     <div class="about-breadcrumb-capsule">
       <a href="{{ route('home') }}">
-        <i class="fas fa-home me-2"></i>Home
+        <i class="fas fa-home me-2"></i>{{ __('common.home') }}
       </a>
       <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
       <span class="about-breadcrumb-current">{{ __('common.order_successful') }}</span>
@@ -293,17 +293,17 @@ $order = Order::where('trans_id', $transaction_id)->first();
             <div class="order-result-body">
                 <div class="order-status-box">
                     <div class="order-status-label">{{ __('common.payment_status') }}</div>
-                    <div class="order-status-value">SUCCESSFUL</div>
+                    <div class="order-status-value">{{ __('common.status_successful') }}</div>
                 </div>
 
                 <!-- Unified Order Details Block -->
                 <div class="order-details-box" style="background: var(--color-basalt-canvas); border: 2px solid var(--color-abyssal-ink); border-radius: 16px; padding: 20px; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; text-align: left;">
                     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(7, 6, 7, 0.08); padding-bottom: 8px;">
-                        <span style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 13px; font-weight: 800; text-transform: uppercase; color: rgba(7, 6, 7, 0.5);">Order Number</span>
+                        <span style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 13px; font-weight: 800; text-transform: uppercase; color: rgba(7, 6, 7, 0.5);">{{ __('common.order_number') }}</span>
                         <strong style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 16px; font-weight: 900; color: var(--color-abyssal-ink);">{{ $orderInfo->order_number ?? ($order->order_number ?? 'N/A') }}</strong>
                     </div>
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <span style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 13px; font-weight: 800; text-transform: uppercase; color: rgba(7, 6, 7, 0.5);">Transaction ID</span>
+                        <span style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 13px; font-weight: 800; text-transform: uppercase; color: rgba(7, 6, 7, 0.5);">{{ __('common.transaction_id') }}</span>
                         <strong style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 16px; font-weight: 900; color: var(--color-abyssal-ink); word-break: break-all;">{{ $transaction_id }}</strong>
                     </div>
                 </div>

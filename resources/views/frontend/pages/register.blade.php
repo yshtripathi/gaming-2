@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Register | Polyboost')
+@section('title', 'Register')
 
 @push('styles')
 <style>
@@ -293,14 +293,14 @@
     <!-- Hero / Title Band -->
     <div class="about-hero-section">
       <div class="about-hero-wrapper">
-        <h1 class="about-hero-title">REGISTER</h1>
+        <h1 class="about-hero-title">{{ __('common.register') }}</h1>
         
         <div class="about-breadcrumb-capsule">
           <a href="{{ route('home') }}">
-            <i class="fas fa-home me-2"></i>Home
+            <i class="fas fa-home me-2"></i>{{ __('common.home') }}
           </a>
           <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-          <span class="about-breadcrumb-current">Register</span>
+          <span class="about-breadcrumb-current">{{ __('common.register') }}</span>
         </div>
       </div>
     </div>
@@ -311,17 +311,17 @@
         
         <!-- Center Panel: Register Form -->
         <div class="auth-form-panel">
-          <h2>CREATE AN ACCOUNT</h2>
-          <p>Register below to setup your secure client cockpit, buy point packages, and initiate elite boosts.</p>
+          <h2>{{ __('common.register_header') }}</h2>
+          <p>{{ __('common.register_subheader') }}</p>
           
           <form name="frmRegister" id="frmRegister" action="{{ route('register.submit') }}" method="post">
             @csrf
 
             <!-- Name -->
             <div class="auth-field">
-              <label for="name">Your Name</label>
+              <label for="name">{{ __('common.your_name') }}</label>
               <div class="auth-input-wrap">
-                <input type="text" name="name" id="name" placeholder="Enter name" class="form-control" required value="{{ old('name') }}">
+                <input type="text" name="name" id="name" placeholder="{{ __('common.ph_name') }}" class="form-control" value="{{ old('name') }}">
                 <i class="fas fa-user"></i>
               </div>
               @error('name')
@@ -331,9 +331,9 @@
 
             <!-- Email -->
             <div class="auth-field">
-              <label for="email">Email Address</label>
+              <label for="email">{{ __('common.email') }}</label>
               <div class="auth-input-wrap">
-                <input type="email" name="email" id="email" placeholder="Enter email address" class="form-control" required value="{{ old('email') }}">
+                <input type="email" name="email" id="email" placeholder="{{ __('common.ph_email') }}" class="form-control" value="{{ old('email') }}">
                 <i class="fas fa-envelope"></i>
               </div>
               @error('email')
@@ -344,9 +344,9 @@
             <!-- Passwords -->
             <div class="auth-field-grid">
               <div class="auth-field">
-                <label for="password">Password</label>
+                <label for="password">{{ __('common.password') }}</label>
                 <div class="auth-input-wrap">
-                  <input type="password" name="password" id="password" placeholder="Create password" class="form-control" required>
+                  <input type="password" name="password" id="password" placeholder="{{ __('common.ph_password') }}" class="form-control" >
                   <i class="fas fa-lock"></i>
                 </div>
                 @error('password')
@@ -355,9 +355,9 @@
               </div>
 
               <div class="auth-field">
-                <label for="password_confirmation">Confirm Password</label>
+                <label for="password_confirmation">{{ __('common.confirm_password') }}</label>
                 <div class="auth-input-wrap">
-                  <input type="password" name="password_confirmation" id="password_confirmation" placeholder="Confirm password" class="form-control" required>
+                  <input type="password" name="password_confirmation" id="password_confirmation" placeholder="{{ __('common.ph_password') }}" class="form-control" >
                   <i class="fas fa-shield-alt"></i>
                 </div>
                 @error('password_confirmation')
@@ -370,7 +370,7 @@
             @if(env('ENABLE_CAPTCHA', true))
               <div class="auth-captcha-row">
                 <div class="auth-input-wrap">
-                  <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control" placeholder="Verification Code" required>
+                  <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control" placeholder="{{ __('common.ph_verification_code') }}" >
                   <i class="fas fa-key"></i>
                 </div>
                 <div class="auth-captcha-image">
@@ -384,13 +384,13 @@
 
             <!-- Submit -->
             <button type="submit" class="auth-submit-btn-caldera">
-              <span>Create Account</span>
+              <span>{{ __('common.submit_registration') }}</span>
               <i class="fas fa-user-plus"></i>
             </button>
           </form>
 
           <div class="auth-switch-link">
-            <p>Already have an account? <a href="{{ route('login.form') }}">Log In</a></p>
+            <p>{{ __('common.has_account_prompt') }} <a href="{{ route('login.form') }}">{{ __('common.member_login_link') }}</a></p>
           </div>
         </div>
 

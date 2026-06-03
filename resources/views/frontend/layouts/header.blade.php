@@ -1087,7 +1087,7 @@ header.small-screen .mobile-navar ul li a.active {
     <div class="preloader-content">
       <div class="preloader-scanner"></div>
       <div class="preloader-logo">
-        <img src="{{ asset('assets/media/images/logo.webp') }}" alt="Polygamez">
+        <img src="{{ asset('assets/media/images/logo.webp') }}" alt="BattleNPC">
       </div>
       <div class="preloader-spinner">
         <div class="spinner-outer"></div>
@@ -1102,6 +1102,25 @@ header.small-screen .mobile-navar ul li a.active {
   <div id="main-wrapper" class="main-wrapper overflow-hidden">
 
     <!-- Header Area Start -->
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
     <header class="large-screens">
       <div class="container">
         <nav class="navbar navbar-expand-lg">
@@ -1109,7 +1128,7 @@ header.small-screen .mobile-navar ul li a.active {
 
             <a class="navbar-brand" href="{{route('home')}}" style="display: inline-block !important; padding: 0 !important;">
     <img
-        alt="Polygamez"
+        alt="BattleNPC"
         src="{{url('assets/media/images/logo.webp')}}"
         style="height: 74px !important; width: auto !important; max-width: 300px !important; object-fit: contain !important; display: block !important; padding: 0 !important; margin: 0 !important; mix-blend-mode: multiply;"
     >
@@ -1137,7 +1156,7 @@ header.small-screen .mobile-navar ul li a.active {
         @foreach($categories as $cat_info)
             <li class="menu-item">
                 <a href="{{ route('product-cat', $cat_info->slug) }}">
-                    {{ $cat_info->title }}
+                    {{ $cleanText($cat_info->title) }}
                 </a>
             </li>
         @endforeach
@@ -1241,7 +1260,7 @@ header.small-screen .mobile-navar ul li a.active {
 <a class="navbar-brand" href="{{route('home')}}" style="display: inline-block !important; padding: 0 !important;">
     <img
         src="{{url('assets/media/images/logo.webp')}}"
-        alt="Polygamez"
+        alt="BattleNPC"
         style="height: 62px !important; width: auto !important; max-width: 250px !important; object-fit: contain !important; display: block !important; padding: 0 !important; margin: 0 !important; mix-blend-mode: multiply;"
     >
 </a>
@@ -1282,7 +1301,7 @@ header.small-screen .mobile-navar ul li a.active {
            @foreach($categories as $cat_info)
             <li class="menu-item">
                 <a href="{{ route('product-cat', $cat_info->slug) }}">
-                    {{ $cat_info->title }}
+                    {{ $cleanText($cat_info->title) }}
                 </a>
             </li>
           @endforeach

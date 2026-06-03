@@ -1,4 +1,23 @@
 @extends('frontend.layouts.main')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
 @section('title', 'Cart')
 
 @push('styles')
@@ -559,15 +578,15 @@
     <div class="about-hero-section">
       <div class="about-hero-wrapper">
         <h1 class="about-hero-title">
-          {{ __('common.cart') }}
+          {{ __('common.gamecart_title') }}
         </h1>
-        
+
         <div class="about-breadcrumb-capsule">
           <a href="{{ route('home') }}">
             <i class="fas fa-home me-2"></i>{{ __('common.home') }}
           </a>
           <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-          <span class="about-breadcrumb-current">{{ __('common.cart') }}</span>
+          <span class="about-breadcrumb-current">{{ __('common.gamecart_title') }}</span>
         </div>
       </div>
     </div>
@@ -628,7 +647,7 @@
                             <div class="game-card">
                                 <div class="game-card-media">
                                     <a href="{{ route('product-detail', $cart->product->slug) }}">
-                                        <img src="{{ asset($photo[0]) }}" alt="{{ $cart->product['title'] }}" onerror="this.style.display='none'">
+                                        <img src="{{ asset($photo[0]) }}" alt="{{ $cleanText($cart->product['title']) }}" onerror="this.style.display='none'">
                                     </a>
                                     <span class="game-card-points-badge">
                                         <i class="fas fa-star me-2"></i>
@@ -639,7 +658,7 @@
                                 <div class="game-card-body">
                                     <div class="game-card-header-row">
                                         <a href="{{ route('product-detail', $cart->product->slug) }}" class="game-card-title">
-                                            {{ $cart->product['title'] }}
+                                            {{ $cleanText($cart->product['title']) }}
                                         </a>
 
                                         <div class="game-card-points-label">
@@ -653,7 +672,7 @@
                                         <a href="{{ route('trainingdelete', $cart->id) }}" class="game-training-remove" title="{{ __('common.remove') }}">
                                             <i class="fas fa-times"></i>
                                         </a>
-                                        <h5 class="game-training-title">{{ $hours }} {{ __('common.hours') }}</h5>
+                                        <h5 class="game-training-title">{{ $hours }} {{ __('common.coaching_hours_unit') }}</h5>
                                         <p class="game-training-calc">{{ number_format($basic, 0) }} + ( {{ $hours }} × {{ number_format($perhour, 0) }} )</p>
                                         <span class="game-training-total">{{ __('common.total') }} = <b>{{ number_format($cart['price'], 0) }} {{ __('common.points') }}</b></span>
                                     </div>
@@ -713,7 +732,8 @@
                     <div class="gamecart-empty-icon">
                         <i class="fas fa-shopping-cart" style="font-size: 36px; color: var(--color-digital-orange);"></i>
                     </div>
-                    <h3>{{ __('common.no_cart_available') }}</h3>
+                    <h3>{{ __('common.gamecart_empty_title') }}</h3>
+                    <p>{{ __('common.gamecart_empty_message') }}</p>
                     <a href="{{ route('home') }}" class="gamecart-empty-btn">
                         <i class="fas fa-arrow-left me-2"></i>
                         {{ __('common.continue_shopping') }}

@@ -1,4 +1,27 @@
 @extends('frontend.layouts.main')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+
+    $product_detail->title = $cleanText($product_detail->title);
+    $product_detail->summary = $cleanText($product_detail->summary);
+    $product_detail->description = $cleanText($product_detail->description);
+@endphp
 @section('title', $product_detail->title)
 @section('description', $product_detail->summary)
 
@@ -749,6 +772,9 @@
         ->where('status', 'active')
         ->take(4)
         ->get();
+    foreach ($relatedProducts as $related) {
+        $related->title = $cleanText($related->title);
+    }
 @endphp
 
 <!-- Hero / Title Band -->
@@ -760,11 +786,12 @@
     
     <div class="about-breadcrumb-capsule">
       <a href="{{ route('home') }}">
-        <i class="fas fa-home me-2"></i>Home
+        <i class="fas fa-home me-2"></i>{{ __('common.home') }}
       </a>
       @if(isset($product_detail->cat_info) && $product_detail->cat_info)
         @php
             $categoryTitle = is_array($product_detail->cat_info) ? ($product_detail->cat_info['title'] ?? '') : ($product_detail->cat_info->title ?? '');
+            $categoryTitle = $cleanText($categoryTitle);
             $categorySlug = is_array($product_detail->cat_info) ? ($product_detail->cat_info['slug'] ?? '') : ($product_detail->cat_info->slug ?? '');
         @endphp
         @if(!empty($categoryTitle) && !empty($categorySlug))
@@ -824,12 +851,12 @@
 
                 <div class="pg-product-info-card">
                     <button type="button" class="pg-product-accordion-toggle" data-target="pg-training-panel">
-                        <span>{{ __('common.optional_training_add_on') }}</span>
+                        <span>{{ __('common.optional_coaching_add_on') }}</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
                     <div class="pg-product-accordion-panel" id="pg-training-panel">
                         <div class="pg-training-toggle-row">
-                            <p>{{ __('common.training_subtitle') }}</p>
+                            <p>{{ __('common.coaching_subtitle') }}</p>
                             <label class="optional-training-toggle">
                                 <input type="checkbox" id="addon">
                                 <span class="optional-training-slider"></span>
@@ -838,8 +865,8 @@
 
                         <div class="training-slider-section hidden" id="training-slider-section">
                             <div class="training-slider-label">
-                                <span class="training-slider-title">{{ __('common.please_choose_number_of_hours') }}</span>
-                                <span class="training-slider-value"><span id="training-hours">0</span> {{ __('common.hours') }}</span>
+                                <span class="training-slider-title">{{ __('common.coaching_hours_selection') }}</span>
+                                <span class="training-slider-value"><span id="training-hours">0</span> {{ __('common.coaching_hours_unit') }}</span>
                             </div>
                             <div class="training-slider-wrapper">
                                 <span class="training-slider-tooltip" id="training-tooltip">0</span>
@@ -882,26 +909,26 @@
 
         <div class="pg-product-detail-bands" id="training-details">
             <div class="pg-detail-band">
-                <h2>{{ __('common.what_you_get') }}</h2>
-                <p>{{ __('common.training_intro_1') }}</p>
+                <h2>{{ __('common.benefits_header') }}</h2>
+                <p>{{ __('common.coaching_intro_1') }}</p>
             </div>
             <div class="pg-detail-band">
-                <h2>{{ __('common.how_it_works') }}</h2>
+                <h2>{{ __('common.process_header') }}</h2>
                 <div class="pg-steps-grid">
                     <div>
                         <strong>01</strong>
-                        <span>{{ __('common.step_1_title') }}</span>
-                        <p>{{ __('common.step_1_desc') }}</p>
+                        <span>{{ __('common.process_step_1_title') }}</span>
+                        <p>{{ __('common.process_step_1_desc') }}</p>
                     </div>
                     <div>
                         <strong>02</strong>
-                        <span>{{ __('common.step_2_title') }}</span>
-                        <p>{{ __('common.step_2_desc') }}</p>
+                        <span>{{ __('common.process_step_2_title') }}</span>
+                        <p>{{ __('common.process_step_2_desc') }}</p>
                     </div>
                     <div>
                         <strong>03</strong>
-                        <span>{{ __('common.step_3_title') }}</span>
-                        <p>{{ __('common.step_3_desc') }}</p>
+                        <span>{{ __('common.process_step_3_title') }}</span>
+                        <p>{{ __('common.process_step_3_desc') }}</p>
                     </div>
                 </div>
             </div>

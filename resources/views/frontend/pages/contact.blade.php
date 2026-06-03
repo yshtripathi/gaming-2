@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Contact Us | Polyboost')
+@section('title', 'Contact Us')
 
 @push('styles')
 <style>
@@ -421,14 +421,14 @@
     <!-- Hero / Title Band -->
     <div class="about-hero-section">
       <div class="about-hero-wrapper">
-        <h1 class="about-hero-title">CONTACT US</h1>
-        
+        <h1 class="about-hero-title">{{ __('common.contact_us') }}</h1>
+
         <div class="about-breadcrumb-capsule">
           <a href="{{ route('home') }}">
-            <i class="fas fa-home me-2"></i>Home
+            <i class="fas fa-home me-2"></i>{{ __('common.home') }}
           </a>
           <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-          <span class="about-breadcrumb-current">Contact Us</span>
+          <span class="about-breadcrumb-current">{{ __('common.contact_us') }}</span>
         </div>
       </div>
     </div>
@@ -439,8 +439,8 @@
         
         <!-- Left Panel: Support & Company Info -->
         <aside class="contact-info-panel">
-          <h2>GET IN TOUCH</h2>
-          <span class="contact-info-subtitle">Connecting you to elite support</span>
+          <h2>{{ __('common.get_in_touch') }}</h2>
+          <span class="contact-info-subtitle">{{ __('common.contact_info_subtitle') }}</span>
           
           <div class="contact-details-list">
             
@@ -450,7 +450,7 @@
                 <i class="fas fa-building"></i>
               </div>
               <div class="contact-detail-text">
-                <label>Company</label>
+                <label>{{ __('common.contact_company') }}</label>
                 <strong>{{ $misc['Company Name'] }}</strong>
               </div>
             </div>
@@ -461,7 +461,7 @@
                 <i class="fas fa-envelope"></i>
               </div>
               <div class="contact-detail-text">
-                <label>Email Support</label>
+                <label>{{ __('common.email_support') }}</label>
                 <a href="mailto:{{ $misc['Company Email'] }}">{{ $misc['Company Email'] }}</a>
               </div>
             </div>
@@ -472,7 +472,7 @@
                 <i class="fas fa-map-marker-alt"></i>
               </div>
               <div class="contact-detail-text">
-                <label>Office Address</label>
+                <label>{{ __('common.office_address') }}</label>
                 <strong>{{ $misc['Company Address'] }}</strong>
               </div>
             </div>
@@ -483,33 +483,33 @@
           <div class="contact-support-badge-caldera">
             <i class="fas fa-headset"></i>
             <div>
-              <span>Support Response Time</span>
-              <strong>Under 24 Hours Guaranteed</strong>
+              <span>{{ __('common.support_response_time') }}</span>
+              <strong>{{ __('common.support_response_value') }}</strong>
             </div>
           </div>
         </aside>
 
         <!-- Right Panel: Message Form -->
         <div class="contact-form-panel">
-          <h2>SEND A MESSAGE</h2>
-          <p>Have questions about your rank boost or points additions? Fill out the details below and our team will support you immediately.</p>
+          <h2>{{ __('common.send_a_message') }}</h2>
+          <p>{{ __('common.contact_form_intro') }}</p>
           
           <form id="contact_form" method="POST" action="{{ route('contact.send') }}">
             @csrf
 
             <div class="contact-field-grid">
               <div class="contact-field">
-                <label for="name">Your Name</label>
+                <label for="name">{{ __('common.your_name') }}</label>
                 <div class="contact-input-wrap">
-                  <input type="text" name="name" id="name" placeholder="Enter name" class="form-control required">
+                  <input type="text" name="name" id="name" placeholder="{{ __('common.ph_name') }}" class="form-control required">
                   <i class="fas fa-user"></i>
                 </div>
               </div>
 
               <div class="contact-field">
-                <label for="email">Email Address</label>
+                <label for="email">{{ __('common.email') }}</label>
                 <div class="contact-input-wrap">
-                  <input type="email" name="email" id="email" placeholder="Enter email" class="form-control required">
+                  <input type="email" name="email" id="email" placeholder="{{ __('common.ph_email') }}" class="form-control required">
                   <i class="fas fa-envelope"></i>
                 </div>
               </div>
@@ -517,26 +517,26 @@
 
             <div class="contact-field-grid">
               <div class="contact-field">
-                <label for="phone">Phone Number</label>
+                <label for="phone">{{ __('common.phone') }}</label>
                 <div class="contact-input-wrap">
-                  <input type="number" name="phone" id="phone" placeholder="Enter phone" class="form-control required">
+                  <input type="number" name="phone" id="phone" placeholder="{{ __('common.ph_phone') }}" class="form-control required">
                   <i class="fas fa-phone"></i>
                 </div>
               </div>
 
               <div class="contact-field">
-                <label for="subject">Message Subject</label>
+                <label for="subject">{{ __('common.subject') }}</label>
                 <div class="contact-input-wrap">
-                  <input type="text" name="subject" id="subject" placeholder="Enter subject" class="form-control required">
+                  <input type="text" name="subject" id="subject" placeholder="{{ __('common.ph_subject') }}" class="form-control required">
                   <i class="fas fa-gamepad"></i>
                 </div>
               </div>
             </div>
 
             <div class="contact-field">
-              <label for="message">Your Message</label>
+              <label for="message">{{ __('common.your_message') }}</label>
               <div class="contact-input-wrap">
-                <textarea name="message" id="message" placeholder="Enter message details..." class="form-control required"></textarea>
+                <textarea name="message" id="message" placeholder="{{ __('common.ph_message') }}" class="form-control required"></textarea>
                 <i class="fas fa-comment-dots"></i>
               </div>
             </div>
@@ -544,7 +544,7 @@
             @if(env('ENABLE_CAPTCHA', true))
               <div class="contact-captcha-row">
                 <div class="contact-input-wrap">
-                  <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control required" placeholder="Fill captcha verification">
+                  <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control required" placeholder="{{ __('common.fill_captcha') }}">
                   <i class="fas fa-shield-alt"></i>
                 </div>
                 <div class="contact-captcha-image">
@@ -557,7 +557,7 @@
             @endif
 
             <button type="submit" class="contact-submit-btn-caldera">
-              <span>Send Message</span>
+              <span>{{ __('common.send_message') }}</span>
               <i class="fas fa-paper-plane"></i>
             </button>
           </form>
@@ -593,7 +593,7 @@ $(document).ready(function () {
             },
             subject: "{{ __('common.subject_required') }}",
             message: "{{ __('common.message_required') }}",
-            captcha: "{{ __('common.fill_it') }}"
+            captcha: "{{ __('common.captcha_required') }}"
         },
         errorPlacement: function (error, element) {
             error.addClass('text-danger');

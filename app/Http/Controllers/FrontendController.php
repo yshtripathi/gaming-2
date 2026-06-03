@@ -408,6 +408,7 @@ $sub_cat = DB::table('sub_categories')->get();
                     'id',
                     'title_jp as title',
                     'summary_jp as summary',
+                    'photo'
                                )->where('slug', $request->slug)->first();
         }
         else {

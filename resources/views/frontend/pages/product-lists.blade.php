@@ -1,6 +1,24 @@
 @extends('frontend.layouts.main')
 
 @php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+
     if (request()->routeIs('product-lists')) {
         $category = null;
     }
@@ -11,6 +29,20 @@
         }
         if (!is_object($category) || !isset($category->title)) {
             $category = null;
+        } else {
+            $category->title = $cleanText($category->title);
+            if ($category->summary) {
+                $category->summary = $cleanText($category->summary);
+            }
+        }
+    }
+
+    if (isset($products) && $products) {
+        foreach ($products as $product) {
+            $product->title = $cleanText($product->title);
+            if ($product->summary) {
+                $product->summary = $cleanText($product->summary);
+            }
         }
     }
 @endphp
@@ -19,8 +51,8 @@
     @section('title', $category->title)
     @section('description', $category->summary)
 @else
-    @section('title', 'Games Offered')
-    @section('description', 'Games Offered')
+    @section('title', __('common.boosting_services'))
+    @section('description', __('common.boosting_services'))
 @endif
 
 @push('styles')
@@ -432,20 +464,20 @@
       @if(isset($category->title) && $category->title)
           {{ $category->title }}
       @else
-          Games Offered
+          {{ __('common.boosting_services') }}
       @endif
     </h1>
     
     <div class="about-breadcrumb-capsule">
       <a href="{{ route('home') }}">
-        <i class="fas fa-home me-2"></i>Home
+        <i class="fas fa-home me-2"></i>{{ __('common.home') }}
       </a>
       <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
       <span class="about-breadcrumb-current">
         @if(isset($category->title) && $category->title)
             {{ $category->title }}
         @else
-            Games Offered
+            {{ __('common.boosting_services') }}
         @endif
       </span>
     </div>
@@ -457,7 +489,7 @@
     <div class="container">
         <div class="category-spotlight-card">
             <div class="category-spotlight-content">
-                <span class="spotlight-tag mb-2 d-inline-block" style="font-size: 11px; font-weight: 800; color: var(--color-digital-orange); text-transform: uppercase; letter-spacing: 1.5px; display: block;">Category Focus</span>
+                <span class="spotlight-tag mb-2 d-inline-block" style="font-size: 11px; font-weight: 800; color: var(--color-digital-orange); text-transform: uppercase; letter-spacing: 1.5px; display: block;">{{ __('common.category_focus') }}</span>
                 <h2 class="spotlight-title">{{ $category->title }}</h2>
                 @if($category->summary)
                     <p class="spotlight-summary">{{ $category->summary }}</p>
@@ -478,7 +510,7 @@
             @if(isset($category->title) && $category->title)
                 {{ __('common.services') }}
             @else
-                Games Offered
+                {{ __('common.boosting_services') }}
             @endif
           </h2>
           <div class="title-underline"></div>
@@ -487,6 +519,12 @@
         @if((!isset($category) || !$category) || count($products))
             @php
                 $allCategories = Helper::productCategoryList("all")->where('is_parent', 1);
+                foreach ($allCategories as $cat) {
+                    $cat->title = $cleanText($cat->title);
+                    if ($cat->summary) {
+                        $cat->summary = $cleanText($cat->summary);
+                    }
+                }
             @endphp
             <div class="product-catalog-layout no-sidebar-landing">
                 <div class="products-grid">
@@ -584,7 +622,7 @@
                     <i class="fas fa-frown"></i>
                 </div>
                 <h3>{{ __('common.there_are_no_products') }}</h3>
-                <p>Check back soon for new services!</p>
+                <p>{{ __('common.no_products_intro') }}</p>
             </div>
         @endif
     </div>

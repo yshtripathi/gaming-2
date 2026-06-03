@@ -1,5 +1,5 @@
 @extends('frontend.layouts.main')
-@section('title', 'Forgot Password | Polyboost')
+@section('title', 'Forgot Password')
 
 @push('styles')
 <style>
@@ -281,14 +281,14 @@
     <!-- Hero / Title Band -->
     <div class="about-hero-section">
       <div class="about-hero-wrapper">
-        <h1 class="about-hero-title">FORGOT PASSWORD</h1>
-        
+        <h1 class="about-hero-title">{{ __('common.forgot_password') }}</h1>
+
         <div class="about-breadcrumb-capsule">
           <a href="{{ route('home') }}">
-            <i class="fas fa-home me-2"></i>Home
+            <i class="fas fa-home me-2"></i>{{ __('common.home') }}
           </a>
           <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-          <span class="about-breadcrumb-current">Forgot Password</span>
+          <span class="about-breadcrumb-current">{{ __('common.forgot_password') }}</span>
         </div>
       </div>
     </div>
@@ -299,17 +299,17 @@
         
         <!-- Center Panel: Forgot Password Form -->
         <div class="auth-form-panel">
-          <h2>RESET PASSWORD</h2>
-          <p>Enter the email address associated with your account and we will send you a secure link to reset your credentials.</p>
+          <h2>{{ __('common.reset_password') }}</h2>
+          <p>{{ __('common.forgot_intro') }}</p>
           
           <form name="frmForgot" id="frmForgot" action="{{ route('password.email') }}" method="post">
             @csrf
 
             <!-- Email Address -->
             <div class="auth-field">
-              <label for="email">Email Address</label>
+              <label for="email">{{ __('common.email') }}</label>
               <div class="auth-input-wrap">
-                <input type="email" name="email" id="email" placeholder="Enter email address" value="{{ old('email') }}" class="form-control" required>
+                <input type="email" name="email" id="email" placeholder="{{ __('common.ph_email') }}" value="{{ old('email') }}" class="form-control" required>
                 <i class="fas fa-envelope"></i>
               </div>
               @error('email')
@@ -321,7 +321,7 @@
             @if(env('ENABLE_CAPTCHA', true))
               <div class="auth-captcha-row">
                 <div class="auth-input-wrap">
-                  <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control" placeholder="Verification Code" required>
+                  <input type="text" id="captcha" name="captcha" autocomplete="off" class="form-control" placeholder="{{ __('common.fill_captcha') }}" required>
                   <i class="fas fa-key"></i>
                 </div>
                 <div class="auth-captcha-image">
@@ -335,13 +335,13 @@
 
             <!-- Submit -->
             <button type="submit" class="auth-submit-btn-caldera">
-              <span>Send Reset Link</span>
+              <span>{{ __('common.send_reset_link') }}</span>
               <i class="fas fa-paper-plane"></i>
             </button>
           </form>
 
           <div class="auth-switch-link">
-            <p>Remember your password? <a href="{{ route('login.form') }}">Back to Login</a></p>
+            <p>{{ __('common.remember_password') }} <a href="{{ route('login.form') }}">{{ __('common.back_to_login') }}</a></p>
           </div>
         </div>
 

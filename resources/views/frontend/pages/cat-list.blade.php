@@ -1,5 +1,24 @@
 
 @extends('frontend.layouts.main')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
 @section('title', 'Categories of '.Request::route('slug').' :: '.env('APP_NAME'))
 @push('styles')
 <style>
@@ -275,7 +294,7 @@ if($catname == 'action-rpgs') {
                             <a href="{{route('product-cat',$cat_info->slug)}}">       
                                <img src="{{url($cat_info->photo)}}">
                               </a>           
-                                <h4 class="text-center"><a href="{{route('product-cat',$cat_info->slug)}}">{{$cat_info->title}}</a>  </h4>
+                                <h4 class="text-center"><a href="{{route('product-cat',$cat_info->slug)}}">{{$cleanText($cat_info->title)}}</a>  </h4>
                                </div>              
                          </div>
                        @endforeach

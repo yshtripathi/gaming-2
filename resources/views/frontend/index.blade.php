@@ -1,6 +1,25 @@
 @extends('frontend.layouts.main')
 
 @section('main-content')
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
 
     <!-- Section 1: Hero Banner (Home) -->
     <div class="hero-banner-caldera-box">
@@ -14,29 +33,29 @@
             <div class="hero-content text-center">
               <div class="hero-badge-caldera mb-4 d-inline-block">
                 <i class="fas fa-fire me-2"></i>
-                <span>RANK BOOST SPECIALISTS</span>
+                <span>{{ __('common.hero_badge') }}</span>
               </div>
               <h1 class="hero-title-caldera mb-4">
-                Dominate Your Game<br>
-                <span class="text-orange">Guaranteed Rank Boost</span>
+                {{ __('common.hero_title_1') }}<br>
+                <span class="text-orange">{{ __('common.hero_title_2') }}</span>
               </h1>
               <p class="hero-subtitle-caldera mb-5">
-                Professional boosters with Diamond+ ranks across all major games<br>
-                Secure, anonymous, and completely confidential account handling<br>
-                Join 50,000+ satisfied players and climb the ladder fast
+                {{ __('common.hero_subtitle_1') }}<br>
+                {{ __('common.hero_subtitle_2') }}<br>
+                {{ __('common.hero_subtitle_3') }}
               </p>
               <div class="hero-buttons-caldera justify-content-center">
                 <a href="{{route('register.form')}}" class="btn-primary">
                   <i class="fas fa-play me-2"></i>
-                  Start Boosting Now
+                  {{ __('common.hero_btn_start') }}
                 </a>
                 <a href="#points-topup" class="btn-ghost">
                   <i class="fas fa-coins me-2"></i>
-                  View Pricing
+                  {{ __('common.hero_btn_pricing') }}
                 </a>
                 <a href="{{route('about-us')}}" class="nav-link-btn">
                   <i class="fas fa-question-circle me-2"></i>
-                  How It Works
+                  {{ __('common.how_it_works') }}
                 </a>
               </div>
             </div>
@@ -52,7 +71,7 @@
       <section class="gaming-section-wrapper">
         <div class="section-title-with-line mb-5">
           <span class="title-square"></span>
-          <h2>FEATURED GAMING</h2>
+          <h2>{{ __('common.featured_gaming') }}</h2>
           <div class="title-underline"></div>
         </div>
 
@@ -75,10 +94,10 @@
               <div class="game-row-head">
                 <div class="game-row-heading">
                   <span class="title-square"></span>
-                  <h3 class="game-row-title">{{ $category->title }}</h3>
+                  <h3 class="game-row-title">{{ $cleanText($category->title) }}</h3>
                 </div>
                 <a href="{{ route('product-cat', $category->slug) }}" class="game-row-link">
-                  View All
+                  {{ __('common.view_all') }}
                   <i class="fas fa-arrow-right ms-2"></i>
                 </a>
               </div>
@@ -93,10 +112,10 @@
                     <div class="swiper-slide">
                       <a href="{{ route('product-detail', $product->slug) }}" class="game-card">
                         <div class="game-image-wrapper">
-                          <img src="{{ asset($gamePhoto) }}" alt="{{ $product->title }}" class="game-image">
+                          <img src="{{ asset($gamePhoto) }}" alt="{{ $cleanText($product->title) }}" class="game-image">
                         </div>
                         <div class="game-info">
-                          <h4 class="game-title">{{ $product->title }}</h4>
+                          <h4 class="game-title">{{ $cleanText($product->title) }}</h4>
                           <p class="game-reward">
                             <i class="fas fa-coins me-1"></i>
                             {{ number_format(Helper::getProductPriceByCurrency('USD', $product), 0) }} {{ __('common.points') }}
@@ -108,7 +127,7 @@
                     <div class="swiper-slide">
                       <div class="empty-games">
                         <i class="fas fa-gamepad mb-2"></i>
-                        <p>No games available yet</p>
+                        <p>{{ __('common.no_games_available') }}</p>
                       </div>
                     </div>
                   @endforelse
@@ -129,7 +148,7 @@
         <div class="why-choose-wrapper">
           <div class="section-title-with-line mb-5">
             <span class="title-square"></span>
-            <h2>WHY CHOOSE POLYBOOST</h2>
+            <h2>{{ __('common.why_choose_battlenpc') }}</h2>
             <div class="title-underline"></div>
           </div>
 
@@ -138,44 +157,44 @@
             <!-- Card 1 -->
             <div class="card-system">
               <div class="card-top">
-                <h5 class="card-label">PROFESSIONAL BOOSTERS</h5>
+                <h5 class="card-label">{{ __('common.wc_card1_title') }}</h5>
                 <i class="fas fa-star card-icon-top"></i>
               </div>
               <div class="card-body">
-                <p class="card-description">Experienced players with thousands of successful boosts. All our boosters are verified professionals with Diamond+ ranks.</p>
+                <p class="card-description">{{ __('common.wc_card1_desc') }}</p>
               </div>
             </div>
 
             <!-- Card 2 -->
             <div class="card-system">
               <div class="card-top">
-                <h5 class="card-label">ACCOUNT SECURITY</h5>
+                <h5 class="card-label">{{ __('common.wc_card2_title') }}</h5>
                 <i class="fas fa-shield-alt card-icon-top"></i>
               </div>
               <div class="card-body">
-                <p class="card-description">Military-grade encryption and VPN protection ensures your account stays safe. No bans, 100% confidential and anonymous.</p>
+                <p class="card-description">{{ __('common.wc_card2_desc') }}</p>
               </div>
             </div>
 
             <!-- Card 3 -->
             <div class="card-system">
               <div class="card-top">
-                <h5 class="card-label">INSTANT DELIVERY SYSTEM</h5>
+                <h5 class="card-label">{{ __('common.wc_card3_title') }}</h5>
                 <i class="fas fa-bolt card-icon-top"></i>
               </div>
               <div class="card-body">
-                <p class="card-description">Get your rank boost completed within 24-48 hours. Flexible scheduling and priority support for all customers.</p>
+                <p class="card-description">{{ __('common.wc_card3_desc') }}</p>
               </div>
             </div>
 
             <!-- Card 4 -->
             <div class="card-system">
               <div class="card-top">
-                <h5 class="card-label">24/7 SUPPORT TEAM</h5>
+                <h5 class="card-label">{{ __('common.wc_card4_title') }}</h5>
                 <i class="fas fa-headset card-icon-top"></i>
               </div>
               <div class="card-body">
-                <p class="card-description">Round-the-clock customer support ready to assist. Live chat, email, and phone support always available for you.</p>
+                <p class="card-description">{{ __('common.wc_card4_desc') }}</p>
               </div>
             </div>
 
@@ -183,7 +202,7 @@
 
           <div class="section-bottom-cta text-center mt-5">
             <a href="{{ route('product-lists') }}" class="btn-section-view">
-              View All Services
+              {{ __('common.view_all_services') }}
               <i class="fas fa-arrow-right ms-3"></i>
             </a>
           </div>
@@ -198,9 +217,9 @@
           <div class="topup-console">
             <!-- Header (spans both panels) -->
             <div class="topup-header">
-              <span class="badge-section">PRICING SYSTEM</span>
-              <h2 class="mt-3">Top Up Your Account</h2>
-              <p class="section-subtitle-caldera mt-3">Flexible pricing tiers with bonus points on every purchase<br>More points = Better value and faster progression</p>
+              <span class="badge-section">{{ __('common.pricing_system') }}</span>
+              <h2 class="mt-3">{{ __('common.topup_account') }}</h2>
+              <p class="section-subtitle-caldera mt-3">{{ __('common.topup_subtitle_1') }}<br>{{ __('common.topup_subtitle_2') }}</p>
             </div>
             <!-- Notice banner (spans both panels, permanent) -->
             <div class="topup-notice">
@@ -209,14 +228,14 @@
             </div>
             <!-- Left Panel: Bonus Tiers & Process Roadmap -->
             <div class="topup-panel topup-panel-left">
-              <span class="topup-panel-label">Bonus Structure</span>
+              <span class="topup-panel-label">{{ __('common.bonus_structure') }}</span>
                 <div class="d-flex align-items-center mb-4">
                   <div class="feature-icon-caldera me-3">
                     <i class="fas fa-gift"></i>
                   </div>
                   <div>
-                    <h4 class="mb-1">Bonus Tiers</h4>
-                    <p class="mb-0 text-muted">Get more value with bulk purchases - bigger orders get bigger rewards</p>
+                    <h4 class="mb-1">{{ __('common.bonus_tiers') }}</h4>
+                    <p class="mb-0 text-muted">{{ __('common.bonus_tiers_desc') }}</p>
                   </div>
                 </div>
 
@@ -297,7 +316,7 @@
 
                 <!-- Process Steps -->
                 <div class="bp-process-flow mt-auto">
-                  <div class="bp-flow-heading mb-3">Recharge Process Timeline</div>
+                  <div class="bp-flow-heading mb-3">{{ __('common.recharge_timeline') }}</div>
                   <div class="bp-timeline-container">
                     <div class="bp-timeline-line"></div>
                     <div class="bp-timeline-steps">
@@ -329,7 +348,7 @@
 
             <!-- Right Panel: Recharge Console -->
             <div class="topup-panel topup-panel-right">
-              <span class="topup-panel-label">Recharge Console</span>
+              <span class="topup-panel-label">{{ __('common.recharge_console') }}</span>
               <div class="bp-cyber-calc-card topup-calc">
                 <div class="bp-cyber-scan-line"></div>
                 <div class="bp-cyber-grid-overlay"></div>
@@ -370,7 +389,7 @@
                   <div class="bp-digital-cockpit mb-4">
                     <div class="bp-cockpit-glow"></div>
                     <div class="bp-cockpit-header d-flex justify-content-between mb-3">
-                      <span class="bp-cockpit-title"><i class="fas fa-chart-line"></i> VALUATION ENGINE</span>
+                      <span class="bp-cockpit-title"><i class="fas fa-chart-line"></i> {{ __('common.valuation_engine') }}</span>
                       <span class="bp-cockpit-model">v2.1</span>
                     </div>
                     
@@ -449,25 +468,25 @@
             <div class="cinema-content-left">
               <div class="cinema-badge mb-3">
                 <span class="live-dot"></span>
-                <span>CINEMATIC PREVIEW</span>
+                <span>{{ __('common.cinematic_preview') }}</span>
               </div>
               <h2 class="cinema-banner-title">
-                EXPLORE THE <span class="text-orange">NEW FRONTIER</span>
+                {{ __('common.cinema_title_1') }} <span class="text-orange">{{ __('common.cinema_title_2') }}</span>
               </h2>
               <p class="cinema-banner-desc">
-                Immerse yourself in elite gameplay, custom rank boosters, and a premium gaming vault — explore our full catalog of products and features.
+                {{ __('common.cinema_desc') }}
               </p>
               <a href="{{ route('product-lists') }}" class="cinema-cta-btn">
-                EXPLORE IT <i class="fas fa-compass ms-2"></i>
+                {{ __('common.cinema_btn') }} <i class="fas fa-compass ms-2"></i>
               </a>
             </div>
 
             <!-- Right: feature chips -->
             <div class="cinema-content-right">
               <div class="cinema-chips">
-                <span class="cinema-chip"><i class="fas fa-bolt"></i> Instant Point Vault</span>
-                <span class="cinema-chip"><i class="fas fa-shield-alt"></i> Secure &amp; Anonymous</span>
-                <span class="cinema-chip"><i class="fas fa-headset"></i> 24/7 Support Crew</span>
+                <span class="cinema-chip"><i class="fas fa-bolt"></i> {{ __('common.cinema_chip_1') }}</span>
+                <span class="cinema-chip"><i class="fas fa-shield-alt"></i> {{ __('common.cinema_chip_2') }}</span>
+                <span class="cinema-chip"><i class="fas fa-headset"></i> {{ __('common.cinema_chip_3') }}</span>
               </div>
             </div>
           </div>
