@@ -18,8 +18,8 @@
 
 <meta name="robots" content="index, follow">
   <!-- Favicon -->
-    <meta name="favicon"  content="{{ asset('assets/media/favicon.webp') }}">
-    <link rel="icon" type="image/webp" href="{{ asset('assets/media/favicon.webp') }}">
+    <meta name="favicon"  content="{{ asset('assets/images/favicon.jpg') }}">
+    <link rel="icon" type="image/jpeg" href="{{ asset('assets/images/favicon.jpg') }}">
   <!-- All CSS files -->
 
   <!-- Vendor CSS -->

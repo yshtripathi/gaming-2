@@ -15,7 +15,7 @@
 }
 
 .footer-container {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -35,7 +35,7 @@
 }
 
 .footer-logo {
-  width: 200px;
+  width: 120px;
   height: auto;
 }
 
@@ -43,8 +43,9 @@
   width: 100%;
   height: auto;
   object-fit: contain;
-  max-height: 64px;
+  max-height: 120px;
   display: block;
+  mix-blend-mode: multiply;
 }
 
 .footer-company-details {
@@ -54,17 +55,18 @@
 }
 
 .footer-company-details h3 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 20px !important;
   color: var(--color-abyssal-ink);
   margin: 0;
-  font-weight: 400;
+  font-weight: 800 !important;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .footer-company-details p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 15px !important;
   color: var(--color-abyssal-ink);
   line-height: 1.6;
   margin: 0 0 12px 0;
@@ -92,12 +94,13 @@
 }
 
 .footer-nav h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 20px !important;
   color: var(--color-abyssal-ink);
   margin: 0 0 20px 0;
-  font-weight: 400;
+  font-weight: 800 !important;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .footer-nav ul {
@@ -114,8 +117,8 @@
 }
 
 .footer-nav a {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 15px !important;
   color: var(--color-abyssal-ink);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -143,12 +146,13 @@
 }
 
 .footer-policies h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 20px !important;
   color: var(--color-abyssal-ink);
   margin: 0 0 20px 0;
-  font-weight: 400;
+  font-weight: 800 !important;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .footer-policies ul {
@@ -165,8 +169,8 @@
 }
 
 .footer-policies a {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 15px !important;
   color: var(--color-abyssal-ink);
   text-decoration: none;
   transition: all 0.3s ease;
@@ -195,17 +199,18 @@
 }
 
 .footer-newsletter h4 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 16px;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 20px !important;
   color: var(--color-abyssal-ink);
   margin: 0;
-  font-weight: 400;
+  font-weight: 800 !important;
   letter-spacing: 0.02em;
+  text-transform: uppercase;
 }
 
 .footer-newsletter p {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 14px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 15px !important;
   color: var(--color-abyssal-ink);
   line-height: 1.6;
   margin: 0;
@@ -221,8 +226,8 @@
   padding: 10px 14px;
   border: 2px solid var(--color-abyssal-ink);
   border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 14px !important;
   color: var(--color-abyssal-ink);
   background: var(--color-ash-white);
   transition: all 0.3s ease;
@@ -244,8 +249,8 @@
   color: var(--color-pure-white);
   border: none;
   border-radius: 8px;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 14px !important;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -298,8 +303,8 @@
 }
 
 .footer-copyright {
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
+  font-family: var(--font-dm-sans) !important;
+  font-size: 14px !important;
   color: var(--color-abyssal-ink);
   flex: 1;
 }
@@ -366,7 +371,7 @@
       <!-- Column 1: Logo & Company Details -->
       <div class="footer-brand">
         <a href="{{route('home')}}" class="footer-logo">
-          <img src="{{ url('assets/media/logo.webp') }}" alt="Gaming Fusion">
+          <img src="{{ url('assets/images/logo.jpg') }}" alt="Gaming Fusion">
         </a>
         <div class="footer-company-details">
           <h3>{{ $misc['Company Name'] }}</h3>

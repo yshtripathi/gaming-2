@@ -313,14 +313,6 @@
 
 .payment-logos img {
     height: 28px;
-    filter: grayscale(1) contrast(1.2);
-    opacity: 0.7;
-    transition: all 0.3s ease;
-}
-
-.payment-logos img:hover {
-    filter: none;
-    opacity: 1;
 }
 
 .dba-text {
