@@ -3,72 +3,154 @@
 
 @push('styles')
 <style>
-/* Dashboard - shares the login (auth) layout */
+/* Dashboard - single-panel layout */
+.auth-dashboard-page {
+    padding: 0 !important;
+    background-color: var(--color-basalt-canvas) !important;
+    color: var(--color-abyssal-ink) !important;
+    font-family: var(--font-dm-sans) !important;
+}
+
+/* About Title Band / Hero */
+.about-hero-section {
+  position: relative !important;
+  margin: var(--spacing-40) !important;
+  margin-top: 150px !important;
+  border-radius: var(--radius-3xl-3) !important;
+  overflow: hidden !important;
+  background: var(--color-ash-white) !important;
+  border: 3px solid var(--color-abyssal-ink) !important;
+  box-shadow: 0 40px 100px rgba(7, 6, 7, 0.08) !important;
+}
+
+.about-hero-wrapper {
+  padding: var(--spacing-80) var(--spacing-40) !important;
+  position: relative !important;
+  z-index: 2 !important;
+  text-align: center !important;
+}
+
+.about-hero-title {
+  font-size: clamp(36px, 5vw, 64px) !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  color: var(--color-abyssal-ink) !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  line-height: 1.1 !important;
+  margin-bottom: var(--spacing-16) !important;
+}
+
+/* Breadcrumb styling */
+.about-breadcrumb-capsule {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: var(--spacing-12) !important;
+  background: var(--color-pure-white) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  padding: var(--spacing-8) var(--spacing-20) !important;
+  border-radius: var(--radius-full) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.about-breadcrumb-capsule a {
+  color: var(--color-abyssal-ink) !important;
+  text-decoration: none !important;
+  transition: var(--transition) !important;
+}
+
+.about-breadcrumb-capsule a:hover {
+  color: var(--color-digital-orange) !important;
+}
+
+.about-breadcrumb-separator {
+  color: rgba(7, 6, 7, 0.4) !important;
+  font-size: 10px !important;
+}
+
+.about-breadcrumb-current {
+  color: var(--color-digital-orange) !important;
+  font-weight: 600 !important;
+}
+
 .auth-dashboard-page .auth-shell {
-    max-width: 1240px !important;
-    min-height: 640px !important;
+    max-width: var(--page-max-width) !important;
+    margin: var(--spacing-56) auto !important;
+    background: var(--color-pure-white) !important;
+    border: 3px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-cards) !important;
+    box-shadow: 0 40px 100px rgba(7, 6, 7, 0.08) !important;
+    overflow: hidden !important;
 }
 
 .auth-dashboard-page .auth-form-panel {
-    justify-content: flex-start !important;
-    padding-top: 48px !important;
-    padding-bottom: 44px !important;
+    background: var(--color-pure-white) !important;
+    padding: var(--spacing-48) var(--spacing-40) !important;
+}
+
+.auth-dashboard-page .auth-form-panel h1 {
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: clamp(24px, 3vw, 36px) !important;
+    text-transform: uppercase !important;
+    color: var(--color-abyssal-ink) !important;
+    margin-bottom: var(--spacing-12) !important;
+    line-height: 1.1 !important;
 }
 
 /* Tab navigation pills */
 .dashboard-nav-pills {
     display: flex !important;
     flex-wrap: wrap !important;
-    gap: 8px !important;
-    margin: 4px 0 26px !important;
-    padding-bottom: 22px !important;
-    border-bottom: 1px solid rgba(8, 10, 12, 0.08) !important;
+    gap: var(--spacing-12) !important;
+    margin: var(--spacing-8) 0 var(--spacing-32) !important;
+    padding-bottom: var(--spacing-24) !important;
+    border-bottom: 2px solid rgba(7, 6, 7, 0.08) !important;
 }
 
 .dashboard-nav-link {
     display: inline-flex !important;
     align-items: center !important;
-    gap: 8px !important;
-    background: #f6f7f2 !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    border-radius: 999px !important;
-    padding: 10px 18px !important;
-    color: #565d68 !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 12.5px !important;
-    font-weight: 800 !important;
+    gap: var(--spacing-8) !important;
+    background: var(--color-ash-white) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-buttons) !important;
+    padding: 10px 20px !important;
+    color: var(--color-abyssal-ink) !important;
+    font-family: var(--font-dm-sans) !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     text-decoration: none !important;
     cursor: pointer !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    transition: var(--transition) !important;
 }
 
 .dashboard-nav-link i { font-size: 14px !important; }
 
 .dashboard-nav-link:hover {
-    border-color: #6d7f00 !important;
-    color: #6d7f00 !important;
+    border-color: var(--color-digital-orange) !important;
+    color: var(--color-digital-orange) !important;
 }
 
 .dashboard-nav-link.active {
-    background: #0b0d10 !important;
-    border-color: #0b0d10 !important;
-    color: #dfff00 !important;
-    box-shadow: 0 6px 18px rgba(8, 10, 12, 0.15) !important;
+    background: var(--color-digital-orange) !important;
+    border-color: var(--color-abyssal-ink) !important;
+    color: var(--color-pure-white) !important;
+    box-shadow: 0 6px 20px rgba(252, 80, 0, 0.25) !important;
 }
 
 .dashboard-nav-link.dashboard-logout {
     margin-left: auto !important;
     background: rgba(239, 68, 68, 0.06) !important;
-    border-color: rgba(239, 68, 68, 0.2) !important;
+    border-color: #ef4444 !important;
     color: #ef4444 !important;
 }
 
 .dashboard-nav-link.dashboard-logout:hover {
     background: #ef4444 !important;
-    border-color: #ef4444 !important;
-    color: #ffffff !important;
+    border-color: var(--color-abyssal-ink) !important;
+    color: var(--color-pure-white) !important;
 }
 
 /* Tabs */
@@ -81,22 +163,23 @@
 }
 
 .dashboard-tab > h2 {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 20px !important;
-    font-weight: 900 !important;
-    color: #0b0d10 !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: var(--color-abyssal-ink) !important;
     margin: 0 0 22px !important;
-    letter-spacing: -0.5px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
 }
 
 .dashboard-subtitle {
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
     gap: 10px !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 14px !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 16px !important;
     font-weight: 800 !important;
-    color: #0b0d10 !important;
+    color: var(--color-abyssal-ink) !important;
     margin: 34px 0 14px !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
@@ -106,7 +189,7 @@
     content: '' !important;
     width: 4px !important;
     height: 16px !important;
-    background: #6d7f00 !important;
+    background: var(--color-digital-orange) !important;
     border-radius: 2px !important;
 }
 
@@ -115,10 +198,10 @@
 .dashboard-note {
     margin: 0 0 8px !important;
     padding: 16px 18px !important;
-    background: #f6f7f2 !important;
-    border: 1px dashed rgba(8, 10, 12, 0.12) !important;
-    border-radius: 12px !important;
-    color: rgba(11, 13, 16, 0.5) !important;
+    background: var(--color-ash-white) !important;
+    border: 2px dashed rgba(7, 6, 7, 0.12) !important;
+    border-radius: 16px !important;
+    color: rgba(7, 6, 7, 0.6) !important;
     font-size: 13.5px !important;
     font-weight: 600 !important;
     text-align: center !important;
@@ -130,57 +213,152 @@
     box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.12) !important;
 }
 
+/* Field styling */
+.auth-field {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--spacing-8) !important;
+  margin-bottom: var(--spacing-20) !important;
+  position: relative !important;
+}
+
+.auth-field label {
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 13px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: var(--color-abyssal-ink) !important;
+}
+
+/* Input design */
+.auth-input-wrap {
+  position: relative !important;
+  width: 100% !important;
+}
+
+.auth-input-wrap input {
+  padding-left: 48px !important; /* space for icon */
+  border-radius: var(--radius-inputs) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  font-size: 15px !important;
+  height: 48px !important;
+  width: 100% !important;
+  background-color: var(--color-pure-white) !important;
+  color: var(--color-abyssal-ink) !important;
+  font-family: var(--font-dm-sans) !important;
+}
+
+.auth-input-wrap input:focus {
+  outline: none !important;
+  border-color: var(--color-digital-orange) !important;
+  box-shadow: 0 0 0 3px rgba(252, 80, 0, 0.1) !important;
+}
+
+.auth-input-wrap i {
+  position: absolute !important;
+  left: 20px !important;
+  top: 15px !important;
+  color: rgba(7, 6, 7, 0.4) !important;
+  font-size: 16px !important;
+  pointer-events: none !important;
+}
+
+/* Submit button */
+.auth-submit-btn {
+  width: 100% !important;
+  min-height: 50px !important;
+  background: var(--color-digital-orange) !important;
+  color: var(--color-pure-white) !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  border-radius: var(--radius-buttons) !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1.2px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: var(--spacing-8) !important;
+  margin-top: var(--spacing-8) !important;
+  box-shadow: 0 10px 30px rgba(252, 80, 0, 0.25) !important;
+}
+
+.auth-submit-btn:hover {
+  background: var(--color-abyssal-ink) !important;
+  color: var(--color-pure-white) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 30px rgba(7, 6, 7, 0.2) !important;
+}
+
+.auth-submit-btn:active {
+  transform: scale(0.98) !important;
+}
+
 /* Tables */
 .dashboard-table-wrap { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
 
 .dashboard-table {
     width: 100% !important;
-    border-collapse: separate !important;
-    border-spacing: 0 !important;
+    border-collapse: collapse !important;
     margin: 0 0 8px !important;
-    border: 1px solid rgba(8, 10, 12, 0.1) !important;
-    border-radius: 14px !important;
-    overflow: hidden !important;
-    font-size: 13.5px !important;
+    background: transparent !important;
+    border: none !important;
 }
 
 .dashboard-table thead th {
-    background: #0b0d10 !important;
-    color: #dfff00 !important;
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 11px !important;
+    background: transparent !important;
+    color: var(--color-digital-orange) !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 13px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     text-align: left !important;
-    padding: 13px 15px !important;
-    border-bottom: 2px solid #6d7f00 !important;
+    padding: 12px 15px !important;
+    border: none !important;
+    border-bottom: 2px solid var(--color-abyssal-ink) !important;
     white-space: nowrap !important;
+    vertical-align: middle !important;
 }
 
 .dashboard-table td {
-    padding: 13px 15px !important;
-    border-bottom: 1px solid rgba(8, 10, 12, 0.07) !important;
-    color: rgba(11, 13, 16, 0.78) !important;
+    padding: 14px 15px !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(7, 6, 7, 0.08) !important;
+    color: var(--color-abyssal-ink) !important;
+    font-family: var(--font-dm-sans) !important;
+    font-weight: 500 !important;
     vertical-align: middle !important;
     white-space: nowrap !important;
 }
 
+.dashboard-table tbody tr {
+    background: transparent !important;
+    border: none !important;
+    transition: all 0.2s ease !important;
+}
+
+.dashboard-table tbody tr:hover {
+    background: rgba(252, 80, 0, 0.04) !important;
+}
+
 .dashboard-table tbody tr:last-child td { border-bottom: none !important; }
-.dashboard-table tbody tr:nth-child(even) { background: rgba(8, 10, 12, 0.02) !important; }
-.dashboard-table tbody tr:hover { background: rgba(109, 127, 0, 0.04) !important; }
 
 .dashboard-table .order-number {
     display: block !important;
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 15px !important;
     font-weight: 800 !important;
-    color: #0b0d10 !important;
+    color: var(--color-abyssal-ink) !important;
 }
 
 .dashboard-table small {
     display: block !important;
     font-size: 11px !important;
-    color: rgba(11, 13, 16, 0.45) !important;
+    color: rgba(7, 6, 7, 0.5) !important;
     margin-top: 2px !important;
     white-space: nowrap !important;
 }
@@ -191,7 +369,7 @@
     align-items: center !important;
     padding: 5px 12px !important;
     border-radius: 50px !important;
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-dm-sans) !important;
     font-size: 10.5px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
@@ -204,14 +382,14 @@
 .status-badge.delivered {
     background: rgba(34, 197, 94, 0.1) !important;
     color: #16a34a !important;
-    border: 1px solid rgba(34, 197, 94, 0.25) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
 }
 
 .status-badge.pending,
 .status-badge.processing {
-    background: rgba(234, 179, 8, 0.12) !important;
-    color: #a16207 !important;
-    border: 1px solid rgba(234, 179, 8, 0.3) !important;
+    background: rgba(249, 115, 22, 0.1) !important;
+    color: #ea580c !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
 }
 
 .status-badge.failed,
@@ -219,7 +397,7 @@
 .status-badge.canceled {
     background: rgba(239, 68, 68, 0.1) !important;
     color: #dc2626 !important;
-    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
 }
 
 /* Action button */
@@ -229,18 +407,18 @@
     justify-content: center !important;
     width: 34px !important;
     height: 34px !important;
-    border-radius: 10px !important;
-    background: rgba(109, 127, 0, 0.08) !important;
-    border: 1px solid rgba(109, 127, 0, 0.2) !important;
-    color: #6d7f00 !important;
+    border-radius: 12px !important;
+    background: rgba(252, 80, 0, 0.08) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    color: var(--color-digital-orange) !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
 }
 
 .action-btn:hover {
-    background: #0b0d10 !important;
-    border-color: #0b0d10 !important;
-    color: #dfff00 !important;
+    background: var(--color-digital-orange) !important;
+    color: var(--color-pure-white) !important;
+    border-color: var(--color-abyssal-ink) !important;
 }
 
 /* Empty state */
@@ -251,21 +429,27 @@
 
 .dashboard-empty i {
     font-size: 52px !important;
-    color: rgba(8, 10, 12, 0.15) !important;
+    color: rgba(7, 6, 7, 0.15) !important;
     margin-bottom: 14px !important;
 }
 
 .dashboard-empty h3 {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 17px !important;
     font-weight: 800 !important;
-    color: rgba(11, 13, 16, 0.5) !important;
+    color: rgba(7, 6, 7, 0.5) !important;
     text-transform: uppercase !important;
     margin: 0 !important;
 }
 
 @media (max-width: 991px) {
-    .auth-dashboard-page .auth-shell { max-width: 720px !important; }
+    .auth-dashboard-page .auth-shell {
+        margin: var(--spacing-32) var(--spacing-16) !important;
+        border-radius: var(--radius-3xl-2) !important;
+    }
+    .auth-form-panel {
+        padding: var(--spacing-32) var(--spacing-24) !important;
+    }
 }
 
 @media (max-width: 575px) {
@@ -276,25 +460,21 @@
 
 @section('main-content')
 
-<!-- Page Header Band -->
-<div class="about-title-band">
-    <!-- HUD Visual Effects -->
-    <div class="about-hud-grid"></div>
-    <div class="about-hud-glow"></div>
-    <div class="about-hud-decor border-t"></div>
-    <div class="about-hud-decor border-b"></div>
-
-    <div class="container position-relative z-1">
-        <h1 class="about-hud-title mb-3 animate-fade-in-up">{{ __('common.my_account') }}</h1>
-
-        <div class="about-hud-breadcrumb-capsule animate-fade-in-up delay-1">
-            <a href="{{ route('home') }}" class="hud-breadcrumb-link">
-                <i class="fas fa-home me-2"></i>{{ __('common.home') }}
-            </a>
-            <span class="hud-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="hud-breadcrumb-current">{{ __('common.my_account') }}</span>
-        </div>
+<!-- Hero / Title Band -->
+<div class="about-hero-section">
+  <div class="about-hero-wrapper">
+    <h1 class="about-hero-title">
+      {{ __('common.my_account') }}
+    </h1>
+    
+    <div class="about-breadcrumb-capsule">
+      <a href="{{ route('home') }}">
+        <i class="fas fa-home me-2"></i>Home
+      </a>
+      <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+      <span class="about-breadcrumb-current">My Account</span>
     </div>
+  </div>
 </div>
 
 <section class="polygamez-auth-page auth-dashboard-page">
@@ -308,19 +488,19 @@
 
                 <nav class="dashboard-nav-pills">
                     <button class="dashboard-nav-link active" data-target="#password" type="button">
-                        <i class="fal fa-lock"></i>
+                        <i class="fas fa-lock"></i>
                         {{ __('common.change_password') }}
                     </button>
                     <button class="dashboard-nav-link" data-target="#orders" type="button">
-                        <i class="fal fa-shopping-bag"></i>
+                        <i class="fas fa-shopping-bag"></i>
                         {{ __('common.order_history') }}
                     </button>
                     <button class="dashboard-nav-link" data-target="#points" type="button">
-                        <i class="fal fa-coins"></i>
+                        <i class="fas fa-coins"></i>
                         {{ __('common.points_history') }}
                     </button>
                     <a href="{{ route('user.logout') }}" class="dashboard-nav-link dashboard-logout">
-                        <i class="fal fa-sign-out-alt"></i>
+                        <i class="fas fa-sign-out-alt"></i>
                         {{ __('common.logout') }}
                     </a>
                 </nav>
@@ -335,26 +515,26 @@
                             <label for="oldpswrd">{{ __('common.current_password') }}</label>
                             <div class="auth-input-wrap">
                                 <input type="password" name="current_password" id="oldpswrd" placeholder="{{ __('common.current_password') }}" class="form-control" required>
-                                <i class="fal fa-lock"></i>
+                                <i class="fas fa-lock"></i>
                             </div>
                         </div>
                         <div class="auth-field">
                             <label for="new_password">{{ __('common.new_password') }}</label>
                             <div class="auth-input-wrap">
                                 <input id="new_password" type="password" name="new_password" placeholder="{{ __('common.new_password') }}" class="form-control" required minlength="6">
-                                <i class="fal fa-key"></i>
+                                <i class="fas fa-key"></i>
                             </div>
                         </div>
                         <div class="auth-field">
                             <label for="cnfrm_pswrd">{{ __('common.confirm_new_password') }}</label>
                             <div class="auth-input-wrap">
                                 <input id="cnfrm_pswrd" type="password" name="new_confirm_password" placeholder="{{ __('common.confirm_new_password') }}" class="form-control" required minlength="6">
-                                <i class="fal fa-shield-check"></i>
+                                <i class="fas fa-shield-alt"></i>
                             </div>
                         </div>
                         <button type="submit" class="auth-submit-btn">
                             <span>{{ __('common.submit') }}</span>
-                            <i class="fal fa-save"></i>
+                            <i class="fas fa-save"></i>
                         </button>
                     </form>
                 </div>
@@ -391,7 +571,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{ route('user.order.show',$order->id) }}" class="action-btn" title="{{ __('common.view_details') }}">
-                                                    <i class="fal fa-eye"></i>
+                                                    <i class="fas fa-eye"></i>
                                                 </a>
                                                 <form method="POST" action="{{ route('user.order.delete',[$order->id]) }}" class="d-inline">
                                                     @csrf
@@ -405,7 +585,7 @@
                         </div>
                     @else
                         <div class="dashboard-empty">
-                            <i class="fal fa-shopping-bag"></i>
+                            <i class="fas fa-shopping-bag"></i>
                             <h3>{{ __('common.no_orders_found') }}</h3>
                         </div>
                     @endif
@@ -444,30 +624,12 @@
                         </div>
                     @else
                         <div class="dashboard-empty">
-                            <i class="fal fa-coins"></i>
+                            <i class="fas fa-coins"></i>
                             <h3>{{ __('common.no_orders_found') }}</h3>
                         </div>
                     @endif
                 </div>
             </div>
-
-            <!-- Right: visual / profile panel -->
-            <aside class="auth-visual-panel">
-                <a class="auth-home-link" href="{{ route('home') }}">
-                    <i class="fal fa-arrow-left"></i>
-                    <span>{{ __('common.home') }}</span>
-                </a>
-                <div class="auth-visual-art">
-                    <img src="{{ asset('assets/media/banner/side-image.webp') }}" alt="{{ auth()->user()->name }}">
-                </div>
-                <div class="auth-support-card">
-                    <div>
-                        <span>{{ __('common.welcome_back_player') }}</span>
-                        <strong>{{ auth()->user()->name }}</strong>
-                    </div>
-                    <i class="fal fa-user-circle"></i>
-                </div>
-            </aside>
         </div>
     </div>
 </section>
