@@ -371,7 +371,7 @@
       <!-- Column 1: Logo -->
       <div class="footer-brand">
         <a href="{{route('home')}}" class="footer-logo">
-          <img src="{{ url('assets/media/logo.webp') }}" alt="Gaming Fusion">
+          <img src="{{ url('assets/media/images/logo.webp') }}" alt="Gaming Fusion">
         </a>
       </div>
 
@@ -478,7 +478,7 @@
           © {{date('Y')}} <a href="{{route('home')}}">{{ $misc['Company Name'] }}</a>. {{ __('common.all_right_reserved') }}
         </p>
         <div class="payment-icons">
-          <img src="{{url('assets/images/payment.webp')}}" alt="Payment Methods">
+          <img src="{{url('assets/media/images/payment.webp')}}" alt="Payment Methods">
         </div>
       </div>
     </div>
