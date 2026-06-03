@@ -48,73 +48,6 @@
 
     <!-- Main Content Start (Shares grid overlay and background radial lights) -->
       
-      <!-- Section 2: Why Choose Us -->
-      <section class="why-choose-section">
-        <div class="why-choose-wrapper">
-          <div class="section-title-with-line mb-5">
-            <span class="title-square"></span>
-            <h2>WHY CHOOSE POLYBOOST</h2>
-            <div class="title-underline"></div>
-          </div>
-
-          <div class="grid-4-card-system">
-
-            <!-- Card 1 -->
-            <div class="card-system">
-              <div class="card-top">
-                <h5 class="card-label">PROFESSIONAL BOOSTERS</h5>
-                <i class="fas fa-star card-icon-top"></i>
-              </div>
-              <div class="card-body">
-                <p class="card-description">Experienced players with thousands of successful boosts. All our boosters are verified professionals with Diamond+ ranks.</p>
-              </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="card-system">
-              <div class="card-top">
-                <h5 class="card-label">ACCOUNT SECURITY</h5>
-                <i class="fas fa-shield-alt card-icon-top"></i>
-              </div>
-              <div class="card-body">
-                <p class="card-description">Military-grade encryption and VPN protection ensures your account stays safe. No bans, 100% confidential and anonymous.</p>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="card-system">
-              <div class="card-top">
-                <h5 class="card-label">INSTANT DELIVERY SYSTEM</h5>
-                <i class="fas fa-bolt card-icon-top"></i>
-              </div>
-              <div class="card-body">
-                <p class="card-description">Get your rank boost completed within 24-48 hours. Flexible scheduling and priority support for all customers.</p>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="card-system">
-              <div class="card-top">
-                <h5 class="card-label">24/7 SUPPORT TEAM</h5>
-                <i class="fas fa-headset card-icon-top"></i>
-              </div>
-              <div class="card-body">
-                <p class="card-description">Round-the-clock customer support ready to assist. Live chat, email, and phone support always available for you.</p>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="section-bottom-cta text-center mt-5">
-            <a href="{{ route('product-lists') }}" class="btn-section-view">
-              View All Services
-              <i class="fas fa-arrow-right ms-3"></i>
-            </a>
-          </div>
-        </div>
-      </section>
-      <!-- Features Section End -->
-
       <!-- Section 3: Gaming Showcase - Stacked Category Rows -->
       <section class="gaming-section-wrapper">
         <div class="section-title-with-line mb-5">
@@ -190,6 +123,73 @@
         </div>
       </section>
       <!-- Game Streams Grid End -->
+
+      <!-- Section 2: Why Choose Us -->
+      <section class="why-choose-section">
+        <div class="why-choose-wrapper">
+          <div class="section-title-with-line mb-5">
+            <span class="title-square"></span>
+            <h2>WHY CHOOSE POLYBOOST</h2>
+            <div class="title-underline"></div>
+          </div>
+
+          <div class="grid-4-card-system">
+
+            <!-- Card 1 -->
+            <div class="card-system">
+              <div class="card-top">
+                <h5 class="card-label">PROFESSIONAL BOOSTERS</h5>
+                <i class="fas fa-star card-icon-top"></i>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Experienced players with thousands of successful boosts. All our boosters are verified professionals with Diamond+ ranks.</p>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-system">
+              <div class="card-top">
+                <h5 class="card-label">ACCOUNT SECURITY</h5>
+                <i class="fas fa-shield-alt card-icon-top"></i>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Military-grade encryption and VPN protection ensures your account stays safe. No bans, 100% confidential and anonymous.</p>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card-system">
+              <div class="card-top">
+                <h5 class="card-label">INSTANT DELIVERY SYSTEM</h5>
+                <i class="fas fa-bolt card-icon-top"></i>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Get your rank boost completed within 24-48 hours. Flexible scheduling and priority support for all customers.</p>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="card-system">
+              <div class="card-top">
+                <h5 class="card-label">24/7 SUPPORT TEAM</h5>
+                <i class="fas fa-headset card-icon-top"></i>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Round-the-clock customer support ready to assist. Live chat, email, and phone support always available for you.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="section-bottom-cta text-center mt-5">
+            <a href="{{ route('product-lists') }}" class="btn-section-view">
+              View All Services
+              <i class="fas fa-arrow-right ms-3"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- Features Section End -->
 
       <!-- Section 4: Point System -->
       <section class="py-5" id="points-topup">
@@ -643,8 +643,8 @@
 }
 
 .why-choose-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  width: 100%;
   padding: var(--spacing-56) var(--spacing-40);
 }
 
@@ -658,13 +658,13 @@
 
 .card-system {
   border-radius: var(--radius-3xl-3);
-  padding: var(--spacing-40) var(--spacing-40);
+  padding: var(--spacing-24) var(--spacing-24);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-20);
+  gap: var(--spacing-12);
   transition: all 0.3s ease;
-  min-height: 300px;
-  justify-content: center;
+  min-height: auto;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
   box-shadow: 0 10px 40px rgba(7, 6, 7, 0.08);
@@ -720,12 +720,12 @@
   align-items: center;
   gap: var(--spacing-12);
   width: 100%;
-  min-height: 40px;
+  min-height: auto;
   flex-wrap: wrap;
 }
 
 .card-label {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.7px;
@@ -733,7 +733,7 @@
   font-family: var(--font-pp-neue-corp-compact-ultrabold);
   word-wrap: break-word;
   overflow-wrap: break-word;
-  line-height: 1.4;
+  line-height: 1.3;
 }
 
 .card-icon-top {
@@ -746,15 +746,13 @@
 }
 
 .card-body {
-  flex: 1;
-  display: flex;
-  align-items: center;
+  width: 100%;
 }
 
 .card-description {
   margin: 0;
-  font-size: 14px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.6;
   word-wrap: break-word;
   overflow-wrap: break-word;
   hyphens: auto;
@@ -905,8 +903,8 @@
   }
 
   .card-system {
-    min-height: 280px;
-    padding: var(--spacing-32) var(--spacing-32);
+    min-height: auto;
+    padding: var(--spacing-24) var(--spacing-20);
   }
 }
 
@@ -932,18 +930,18 @@
   }
 
   .card-system {
-    gap: var(--spacing-12);
+    gap: var(--spacing-10);
     min-height: auto;
-    padding: var(--spacing-20) var(--spacing-20);
+    padding: var(--spacing-16) var(--spacing-16);
   }
 
   .card-description {
-    font-size: 12px;
+    font-size: 14px;
     line-height: 1.5;
   }
 
   .card-label {
-    font-size: 11px;
+    font-size: 15px;
   }
 
   .section-bottom-cta {
@@ -2679,17 +2677,17 @@
     }
 
     .card-system {
-        min-height: 260px;
-        padding: var(--spacing-32) var(--spacing-28);
-        gap: var(--spacing-18);
+        min-height: auto;
+        padding: var(--spacing-20) var(--spacing-16);
+        gap: var(--spacing-10);
     }
 
     .card-description {
-        font-size: 13px;
+        font-size: 14px;
     }
 
     .card-label {
-        font-size: 13px;
+        font-size: 15px;
     }
 
     .card-icon-top {
