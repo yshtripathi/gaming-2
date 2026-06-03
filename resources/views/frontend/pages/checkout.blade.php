@@ -2,23 +2,97 @@
 @section('title', 'Checkout')
 @push('styles')
 <style>
+/* About Title Band / Hero */
+.about-hero-section {
+  position: relative;
+  margin: var(--spacing-40);
+  margin-top: 150px; /* offset for navbar floating transformation */
+  border-radius: var(--radius-3xl-3);
+  overflow: hidden;
+  background: var(--color-ash-white);
+  border: 3px solid var(--color-abyssal-ink);
+  box-shadow: 0 40px 100px rgba(7, 6, 7, 0.08);
+}
+
+.about-hero-wrapper {
+  padding: var(--spacing-80) var(--spacing-40);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.about-hero-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-abyssal-ink);
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-16);
+}
+
+/* Breadcrumb styling */
+.about-breadcrumb-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  background: var(--color-pure-white);
+  border: 2px solid var(--color-abyssal-ink);
+  padding: var(--spacing-8) var(--spacing-20);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.about-breadcrumb-capsule a {
+  color: var(--color-abyssal-ink);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about-breadcrumb-capsule a:hover {
+  color: var(--color-digital-orange);
+}
+
+.about-breadcrumb-separator {
+  color: rgba(7, 6, 7, 0.4);
+  font-size: 10px;
+}
+
+.about-breadcrumb-current {
+  color: var(--color-digital-orange);
+  font-weight: 600;
+}
+
 /* Main Checkout Layout */
 .checkout-page-wrapper {
-    padding: 64px 0 84px !important;
+    padding: 0 !important;
     background: transparent !important;
+    margin: var(--spacing-40) !important;
+    margin-top: var(--spacing-56) !important;
+    margin-bottom: var(--spacing-80) !important;
     min-height: auto;
+}
+
+@media (max-width: 768px) {
+    .checkout-page-wrapper {
+        margin: var(--spacing-16) !important;
+        margin-top: var(--spacing-32) !important;
+        margin-bottom: var(--spacing-48) !important;
+    }
 }
 
 .checkout-grid {
     display: grid;
     grid-template-columns: 1fr 420px;
-    gap: 40px;
+    gap: var(--spacing-40);
     align-items: start;
 }
 
 @media (max-width: 1024px) {
     .checkout-grid {
         grid-template-columns: 1fr;
+        gap: var(--spacing-32);
     }
 }
 
@@ -26,38 +100,32 @@
 .checkout-forms-column {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: var(--spacing-32);
 }
 
 /* Gaming Card Styling */
 .gaming-card {
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
+    background: var(--color-pure-white) !important;
+    border: 3px solid var(--color-abyssal-ink) !important;
     border-radius: 20px !important;
-    padding: 32px;
+    padding: var(--spacing-32);
     position: relative;
     overflow: hidden;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.03) !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06) !important;
+    transition: all 0.3s ease;
 }
 
 .gaming-card-title {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 20px !important;
     font-weight: 800 !important;
-    color: #0b0d10 !important;
-    margin-bottom: 28px;
+    color: var(--color-abyssal-ink) !important;
+    margin-bottom: var(--spacing-24);
     display: flex;
     align-items: center;
     gap: 12px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-}
-
-.gaming-card-title svg {
-    width: 24px;
-    height: 24px;
-    color: #6d7f00 !important;
 }
 
 /* Form Styling */
@@ -75,6 +143,8 @@
 @media (max-width: 768px) {
     .checkout-form-row {
         grid-template-columns: 1fr;
+        gap: 16px;
+        margin-bottom: 16px;
     }
 }
 
@@ -84,16 +154,17 @@
 
 .checkout-form-group label {
     display: block;
-    font-size: 13px;
-    font-weight: 700;
-    color: rgba(8, 10, 12, 0.72) !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    color: var(--color-abyssal-ink) !important;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .checkout-form-group label .required-star {
-    color: #ef4444;
+    color: var(--color-digital-orange);
     margin-left: 2px;
 }
 
@@ -102,13 +173,21 @@
 .checkout-textarea,
 .payment-input {
     width: 100%;
-    padding: 14px 18px;
-    background: #f6f7f2 !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    border-radius: 12px !important;
-    color: #0b0d10 !important;
-    font-size: 14.5px !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 14px 20px;
+    background: var(--color-pure-white) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-inputs) !important;
+    color: var(--color-abyssal-ink) !important;
+    font-size: 14px !important;
+    font-family: var(--font-dm-sans) !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease;
+}
+
+.checkout-textarea {
+    border-radius: 16px !important;
+    min-height: 120px;
+    resize: vertical;
 }
 
 .checkout-input:focus,
@@ -116,29 +195,29 @@
 .checkout-textarea:focus,
 .payment-input:focus {
     outline: none !important;
-    border-color: #6d7f00 !important;
-    box-shadow: 0 0 0 4px rgba(223, 255, 0, 0.15) !important;
-    background: #ffffff !important;
+    border-color: var(--color-digital-orange) !important;
+    box-shadow: 0 0 0 4px rgba(252, 80, 0, 0.15) !important;
+    background: var(--color-pure-white) !important;
 }
 
 .checkout-input::placeholder,
 .checkout-textarea::placeholder,
 .payment-input::placeholder {
-    color: rgba(8, 10, 12, 0.38) !important;
+    color: rgba(7, 6, 7, 0.35) !important;
 }
 
 .checkout-select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%2334383f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23070607' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") !important;
     background-repeat: no-repeat !important;
-    background-position: right 14px center !important;
-    background-size: 18px !important;
+    background-position: right 18px center !important;
+    background-size: 16px !important;
 }
 
 .checkout-select option {
-    background: #ffffff !important;
-    color: #0b0d10 !important;
+    background: var(--color-pure-white) !important;
+    color: var(--color-abyssal-ink) !important;
     padding: 12px;
 }
 
@@ -147,7 +226,7 @@
     margin-top: 24px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
 }
 
 .checkout-checkbox {
@@ -163,123 +242,128 @@
 }
 
 .checkout-checkbox .custom-check {
-    width: 20px;
-    height: 20px;
-    min-width: 20px;
-    border: 1px solid rgba(8, 10, 12, 0.15) !important;
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 2px solid var(--color-abyssal-ink) !important;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.2s ease;
     margin-top: 2px;
-    background: #f6f7f2 !important;
+    background: var(--color-pure-white) !important;
 }
 
 .checkout-checkbox input[type="checkbox"]:checked + .custom-check {
-    background: #0b0d10 !important;
-    border-color: #0b0d10 !important;
+    background: var(--color-digital-orange) !important;
+    border-color: var(--color-abyssal-ink) !important;
 }
 
-.checkout-checkbox .custom-check svg {
-    width: 12px;
-    height: 12px;
-    color: #dfff00 !important;
+.checkout-checkbox .custom-check i {
+    font-size: 11px;
+    color: var(--color-pure-white) !important;
     opacity: 0;
     transform: scale(0);
-    transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.checkout-checkbox input[type="checkbox"]:checked + .custom-check svg {
+.checkout-checkbox input[type="checkbox"]:checked + .custom-check i {
     opacity: 1;
     transform: scale(1);
 }
 
 .checkout-checkbox .checkbox-label {
+    font-family: var(--font-dm-sans) !important;
     font-size: 14px;
-    color: rgba(8, 10, 12, 0.72) !important;
+    font-weight: 500;
+    color: rgba(7, 6, 7, 0.7) !important;
     line-height: 1.5;
 }
 
 .checkout-checkbox .checkbox-label a {
-    color: #6d7f00 !important;
+    color: var(--color-digital-orange) !important;
     font-weight: 700;
     text-decoration: none;
-    transition: color 0.3s;
+    transition: color 0.2s ease;
 }
 
 .checkout-checkbox .checkbox-label a:hover {
-    color: #8da300 !important;
+    color: var(--color-abyssal-ink) !important;
     text-decoration: underline;
 }
 
 .checkout-checkbox.error {
-    padding: 8px 12px;
-    border-radius: 8px;
-    background: rgba(180, 83, 9, 0.06);
-    border: 1px solid rgba(180, 83, 9, 0.28);
+    padding: 10px 14px;
+    border-radius: 12px;
+    background: rgba(239, 68, 68, 0.06);
+    border: 2px solid rgba(239, 68, 68, 0.2);
 }
 
 /* Payment Logos */
 .payment-logos {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 16px;
     margin-top: 28px;
     padding-top: 24px;
-    border-top: 1px solid rgba(8, 10, 12, 0.06) !important;
+    border-top: 2px solid rgba(7, 6, 7, 0.08) !important;
 }
 
 .payment-logos img {
     height: 28px;
-    opacity: 0.9;
+    filter: grayscale(1) contrast(1.2);
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.payment-logos img:hover {
+    filter: none;
+    opacity: 1;
 }
 
 .dba-text {
+    font-family: var(--font-dm-sans) !important;
     font-size: 13.5px;
-    color: rgba(8, 10, 12, 0.72) !important;
+    font-weight: 600;
+    color: rgba(7, 6, 7, 0.7) !important;
     margin-top: 20px;
     padding: 16px;
-    background: #f6f7f2 !important;
+    background: var(--color-ash-white) !important;
     border-radius: 12px;
-    border-left: 3px solid #6d7f00 !important;
+    border-left: 4px solid var(--color-digital-orange) !important;
+    border-top: 2px solid var(--color-abyssal-ink) !important;
+    border-bottom: 2px solid var(--color-abyssal-ink) !important;
+    border-right: 2px solid var(--color-abyssal-ink) !important;
 }
 
 /* Right Column - Sticky Checkout Card */
 .checkout-summary-column {
     position: sticky;
-    top: 100px;
+    top: 130px;
+    z-index: 10;
 }
 
 .checkout-summary-card {
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
+    background: var(--color-pure-white) !important;
+    border: 3px solid var(--color-abyssal-ink) !important;
     border-radius: 20px !important;
     overflow: hidden;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.03) !important;
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06) !important;
     position: relative;
 }
 
-.checkout-summary-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: #6d7f00 !important;
-}
-
 .checkout-summary-header {
-    padding: 28px 28px 20px;
-    border-bottom: 1px solid rgba(8, 10, 12, 0.06) !important;
+    padding: 24px 28px 20px;
+    border-bottom: 2px solid rgba(7, 6, 7, 0.08) !important;
 }
 
 .checkout-summary-title {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 20px !important;
     font-weight: 800 !important;
-    color: #0b0d10 !important;
+    color: var(--color-abyssal-ink) !important;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -287,15 +371,9 @@
     letter-spacing: 0.5px;
 }
 
-.checkout-summary-title svg {
-    width: 22px;
-    height: 22px;
-    color: #6d7f00 !important;
-}
-
 /* Order Items */
 .order-items-list {
-    padding: 20px 28px;
+    padding: 12px 28px;
     max-height: 280px;
     overflow-y: auto;
 }
@@ -305,25 +383,25 @@
 }
 
 .order-items-list::-webkit-scrollbar-track {
-    background: rgba(223, 255, 0, 0.05);
+    background: rgba(252, 80, 0, 0.05);
     border-radius: 3px;
 }
 
 .order-items-list::-webkit-scrollbar-thumb {
-    background: rgba(8, 10, 12, 0.15);
+    background: rgba(7, 6, 7, 0.15);
     border-radius: 3px;
 }
 
 .order-items-list::-webkit-scrollbar-thumb:hover {
-    background: rgba(8, 10, 12, 0.25);
+    background: rgba(7, 6, 7, 0.25);
 }
 
 .order-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(8, 10, 12, 0.06) !important;
+    padding: 16px 0;
+    border-bottom: 2px solid rgba(7, 6, 7, 0.08) !important;
 }
 
 .order-item:last-child {
@@ -337,46 +415,50 @@
 }
 
 .order-item-icon {
-    width: 48px;
-    height: 48px;
-    background: rgba(223, 255, 0, 0.15) !important;
-    border: 1px solid rgba(223, 255, 0, 0.28) !important;
-    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    background: rgba(252, 80, 0, 0.08) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.order-item-icon svg {
-    width: 24px;
-    height: 24px;
-    color: #6d7f00 !important;
+.order-item-icon i {
+    font-size: 16px;
+    color: var(--color-digital-orange) !important;
 }
 
 .order-item-details h5 {
-    font-size: 14px;
-    font-weight: 700;
-    color: #0b0d10 !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: var(--color-abyssal-ink) !important;
     margin-bottom: 2px;
+    text-transform: uppercase;
 }
 
 .order-item-details span {
-    font-size: 12px;
-    color: rgba(8, 10, 12, 0.5) !important;
+    font-family: var(--font-dm-sans) !important;
+    font-size: 13px !important;
+    font-weight: 600;
+    color: rgba(7, 6, 7, 0.5) !important;
 }
 
 .order-item-price {
-    font-size: 15px;
-    font-weight: 800;
-    color: #0b0d10 !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    color: var(--color-abyssal-ink) !important;
 }
 
 /* Order Total */
 .order-total-section {
     padding: 20px 28px;
-    background: #f6f7f2 !important;
-    border-top: 1px solid rgba(8, 10, 12, 0.06) !important;
-    border-bottom: 1px solid rgba(8, 10, 12, 0.06) !important;
+    background: var(--color-ash-white) !important;
+    border-top: 3px solid var(--color-abyssal-ink) !important;
+    border-bottom: 3px solid var(--color-abyssal-ink) !important;
 }
 
 .order-total-row {
@@ -386,18 +468,19 @@
 }
 
 .order-total-label {
-    font-size: 14px;
-    font-weight: 700;
-    color: rgba(8, 10, 12, 0.72) !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    color: var(--color-abyssal-ink) !important;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 .order-total-amount {
-    font-family: 'Chakra Petch', sans-serif !important;
-    font-size: 20px !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 24px !important;
     font-weight: 900 !important;
-    color: #0b0d10 !important;
+    color: var(--color-digital-orange) !important;
 }
 
 /* Payment Form */
@@ -406,9 +489,10 @@
 }
 
 .payment-form-title {
-    font-size: 16px !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 18px !important;
     font-weight: 800 !important;
-    color: #0b0d10 !important;
+    color: var(--color-abyssal-ink) !important;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -417,21 +501,16 @@
     letter-spacing: 0.5px;
 }
 
-.payment-form-title svg {
-    width: 20px;
-    height: 20px;
-    color: #6d7f00 !important;
-}
-
 .payment-input-group {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
 }
 
 .payment-input-group label {
     display: block;
-    font-size: 12px;
-    font-weight: 700;
-    color: rgba(8, 10, 12, 0.72) !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: var(--color-abyssal-ink) !important;
     margin-bottom: 8px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -439,7 +518,7 @@
 
 .payment-row {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: 14px;
 }
 
@@ -451,12 +530,15 @@
 
 .card-jninfo .payment-input {
     flex: 1;
+    text-align: center;
+    padding: 14px 10px;
 }
 
-.lrqw-icn {
-    color: rgba(8, 10, 12, 0.38) !important;
-    font-size: 16px;
-    font-weight: 600;
+.card-jninfo span {
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--color-abyssal-ink) !important;
 }
 
 /* Captcha Section */
@@ -464,6 +546,7 @@
     display: flex;
     gap: 12px;
     margin-bottom: 20px;
+    align-items: center;
 }
 
 .captcha-section .payment-input {
@@ -471,11 +554,12 @@
 }
 
 .captcha-box {
-    width: 120px;
+    width: 130px;
     height: 50px;
-    background: #f6f7f2 !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    border-radius: 12px;
+    min-width: 130px;
+    background: var(--color-ash-white) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-2xl-2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -494,36 +578,59 @@
     justify-content: center;
     width: 100% !important;
     padding: 16px 32px !important;
-    background: #0b0d10 !important;
-    border: 1px solid rgba(8, 10, 12, 0.1) !important;
-    border-radius: 14px !important;
-    color: #dfff00 !important;
-    font-family: 'Chakra Petch', sans-serif !important;
+    background: var(--color-digital-orange) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-buttons) !important;
+    color: var(--color-pure-white) !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 15px !important;
     font-weight: 800 !important;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     cursor: pointer;
-    box-shadow: 0 10px 30px rgba(8, 10, 12, 0.15) !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    box-shadow: 0 10px 30px rgba(252, 80, 0, 0.25) !important;
+    transition: all 0.2s ease !important;
 }
 
 .place-order-btn:hover {
-    background: #dfff00 !important;
-    color: #0b0d10 !important;
-    border-color: #dfff00 !important;
-    box-shadow: 0 15px 40px rgba(223, 255, 0, 0.3) !important;
-    transform: translateY(-2px) !important;
+    background: var(--color-abyssal-ink) !important;
+    color: var(--color-pure-white) !important;
+    box-shadow: none !important;
+    transform: translateY(2px) !important;
 }
 
 /* Error / warning messages */
 .text-danger,
 #frmCheckout label.error {
     display: block;
+    font-family: var(--font-dm-sans) !important;
     font-size: 12px;
-    font-weight: 600;
-    color: #b45309 !important; /* warning amber */
+    font-weight: 700;
+    color: #ef4444 !important;
     margin-top: 8px;
+}
+
+/* Alert styling overrides */
+.alert-success {
+    background: rgba(16, 185, 129, 0.1) !important;
+    border: 2px solid #10b981 !important;
+    color: #10b981 !important;
+    border-radius: 12px !important;
+    padding: 12px 18px !important;
+    font-family: var(--font-dm-sans) !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px;
+}
+
+.alert-danger {
+    background: rgba(239, 68, 68, 0.1) !important;
+    border: 2px solid #ef4444 !important;
+    color: #ef4444 !important;
+    border-radius: 12px !important;
+    padding: 12px 18px !important;
+    font-family: var(--font-dm-sans) !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px;
 }
 
 /* Responsive */
@@ -540,11 +647,11 @@
     }
     
     .checkout-summary-card {
-        margin-top: 30px;
+        margin-top: 10px;
     }
     
     .payment-row {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1.2fr 0.8fr;
     }
 }
 </style>
@@ -552,22 +659,13 @@
 
 @section('main-content')
 
-<div class="about-title-band">
-    <!-- HUD Visual Effects -->
-    <div class="about-hud-grid"></div>
-    <div class="about-hud-glow"></div>
-    <div class="about-hud-decor border-t"></div>
-    <div class="about-hud-decor border-b"></div>
-    
-    <div class="container position-relative z-1">
-        <h1 class="about-hud-title mb-3 animate-fade-in-up">{{ __('common.checkout') }}</h1>
-        
-        <div class="about-hud-breadcrumb-capsule animate-fade-in-up delay-1">
-            <a href="{{ route('home') }}" class="hud-breadcrumb-link">
-                <i class="fas fa-home me-2"></i>{{ __('common.home') }}
-            </a>
-            <span class="hud-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="hud-breadcrumb-current">{{ __('common.checkout') }}</span>
+<div class="about-hero-section">
+    <div class="about-hero-wrapper">
+        <h1 class="about-hero-title">{{ __('common.checkout') }}</h1>
+        <div class="about-breadcrumb-capsule">
+            <a href="{{ route('home') }}"><i class="fas fa-home me-2"></i>{{ __('common.home') }}</a>
+            <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+            <span class="about-breadcrumb-current">{{ __('common.checkout') }}</span>
         </div>
     </div>
 </div>
@@ -586,7 +684,7 @@
                     <!-- Billing Details Card -->
                     <div class="gaming-card billing-card">
                         <h3 class="gaming-card-title">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <i class="fas fa-user-circle me-2" style="color: var(--color-digital-orange);"></i>
                             {{ __('common.billing_details') }}
                         </h3>
                         
@@ -926,7 +1024,7 @@
                     <!-- Additional Information Card -->
                     <div class="gaming-card additional-info-card">
                         <h3 class="gaming-card-title">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            <i class="fas fa-file-alt me-2" style="color: var(--color-digital-orange);"></i>
                             {{ __('common.additional_information') }}
                         </h3>
                         
@@ -939,7 +1037,7 @@
                             <label class="checkout-checkbox">
                                 <input type="checkbox" id="terms" name="terms">
                                 <span class="custom-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <i class="fas fa-check"></i>
                                 </span>
                                 <span class="checkbox-label">{{ __('common.agree_terms_text') }} <a href="{{ route('pages', 'terms-conditions') }}" target='_blank'>{{ __('common.terms_policy') }}</a></span>
                             </label>
@@ -947,7 +1045,7 @@
                             <label class="checkout-checkbox">
                                 <input type="checkbox" id="privacy" name="privacy">
                                 <span class="custom-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <i class="fas fa-check"></i>
                                 </span>
                                 <span class="checkbox-label">{{ __('common.agree_terms_text') }} <a href="{{ route('pages', 'privacy-policy') }}" target='_blank'>{{ __('common.privacy_policy') }}</a></span>
                             </label>
@@ -955,7 +1053,7 @@
                             <label class="checkout-checkbox">
                                 <input type="checkbox" id="delivery" name="delivery">
                                 <span class="custom-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <i class="fas fa-check"></i>
                                 </span>
                                 <span class="checkbox-label">{{ __('common.agree_terms_text') }} <a href="{{ route('pages', 'delivery-policy') }}" target='_blank'>{{ __('common.delivery_policy') }}</a></span>
                             </label>
@@ -963,7 +1061,7 @@
                             <label class="checkout-checkbox">
                                 <input type="checkbox" id="refund" name="refund">
                                 <span class="custom-check">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                    <i class="fas fa-check"></i>
                                 </span>
                                 <span class="checkbox-label">{{ __('common.agree_terms_text') }} <a href="{{ route('pages', 'refund-policy') }}" target='_blank'>{{ __('common.refund_policy') }}</a></span>
                             </label>
@@ -984,7 +1082,7 @@
                     <div class="checkout-summary-card">
                         <div class="checkout-summary-header">
                             <h3 class="checkout-summary-title">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                <i class="fas fa-shopping-basket me-2" style="color: var(--color-digital-orange);"></i>
                                 {{ __('common.your_order') }}
                             </h3>
                         </div>
@@ -1006,7 +1104,7 @@
                             <div class="order-item">
                                 <div class="order-item-info">
                                     <div class="order-item-icon">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                                        <i class="fas fa-star" style="color: var(--color-digital-orange);"></i>
                                     </div>
                                     <div class="order-item-details">
                                         <h5>{{ $points }} {{ __('common.points') }}</h5>
@@ -1033,7 +1131,7 @@
                         <!-- Payment Details Section -->
                         <div class="payment-form-section">
                             <h4 class="payment-form-title">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                                <i class="fas fa-credit-card me-2" style="color: var(--color-digital-orange);"></i>
                                 {{ __('common.card_details') }}
                             </h4>
                             

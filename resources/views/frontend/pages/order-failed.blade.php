@@ -4,23 +4,80 @@
 <style>
 /* Order Failed - Gaming HUD Theme */
 .order-result-section {
-    padding: 64px 0 96px !important;
-    background-color: #f6f7f2 !important;
-    background-image:
-        radial-gradient(circle at 50% 50%, rgba(223, 255, 0, 0.04) 0%, transparent 80%),
-        repeating-linear-gradient(90deg, rgba(8, 10, 12, 0.015) 0 1px, transparent 1px 40px),
-        repeating-linear-gradient(0deg, rgba(8, 10, 12, 0.015) 0 1px, transparent 1px 40px) !important;
-    position: relative !important;
-    min-height: 60vh !important;
+    padding: 0 !important;
+    background: transparent !important;
+    margin: var(--spacing-40);
+    margin-top: var(--spacing-56);
+}
+
+/* Hero / Title Band */
+.about-hero-section {
+  position: relative;
+  margin: var(--spacing-40);
+  margin-top: 150px; /* offset for navbar floating transformation */
+  border-radius: var(--radius-3xl-3);
+  overflow: hidden;
+  background: var(--color-ash-white);
+  border: 3px solid var(--color-abyssal-ink);
+  box-shadow: 0 40px 100px rgba(7, 6, 7, 0.08);
+}
+
+.about-hero-wrapper {
+  padding: var(--spacing-80) var(--spacing-40);
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.about-hero-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--color-abyssal-ink);
+  font-family: var(--font-pp-neue-corp-compact-ultrabold);
+  line-height: 1.1;
+  margin-bottom: var(--spacing-16);
+}
+
+.about-breadcrumb-capsule {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  background: var(--color-pure-white);
+  border: 2px solid var(--color-abyssal-ink);
+  padding: var(--spacing-8) var(--spacing-20);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.about-breadcrumb-capsule a {
+  color: var(--color-abyssal-ink);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about-breadcrumb-capsule a:hover {
+  color: var(--color-digital-orange);
+}
+
+.about-breadcrumb-separator {
+  color: rgba(7, 6, 7, 0.4);
+  font-size: 10px;
+}
+
+.about-breadcrumb-current {
+  color: var(--color-digital-orange);
+  font-weight: 600;
 }
 
 .order-result-card {
     max-width: 720px !important;
     margin: 0 auto !important;
-    background: #ffffff !important;
-    border: 1px solid rgba(8, 10, 12, 0.08) !important;
-    border-radius: 24px !important;
-    box-shadow: 0 15px 45px rgba(8, 10, 12, 0.04) !important;
+    background: var(--color-pure-white) !important;
+    border: 3px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-cards) !important;
+    box-shadow: 0 20px 50px rgba(7, 6, 7, 0.06) !important;
     overflow: hidden !important;
     position: relative !important;
 }
@@ -31,21 +88,13 @@
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    height: 4px !important;
-    background: linear-gradient(90deg, #ef4444, #dc2626, #ef4444) !important;
-    background-size: 200% 100% !important;
-    animation: result-gradient-slide 3s ease infinite !important;
-}
-
-@keyframes result-gradient-slide {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    height: 6px !important;
+    background: #ef4444 !important;
 }
 
 .order-result-head {
     text-align: center !important;
-    padding: 48px 40px 32px !important;
+    padding: var(--spacing-48) var(--spacing-40) var(--spacing-32) !important;
 }
 
 .order-result-icon {
@@ -56,72 +105,56 @@
     align-items: center !important;
     justify-content: center !important;
     margin: 0 auto 24px !important;
-    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-    box-shadow: 0 0 40px rgba(239, 68, 68, 0.35) !important;
-    animation: result-pulse-failed 2.4s ease-in-out infinite !important;
-}
-
-@keyframes result-pulse-failed {
-    0%, 100% { box-shadow: 0 0 40px rgba(239, 68, 68, 0.35); transform: scale(1); }
-    50% { box-shadow: 0 0 60px rgba(239, 68, 68, 0.55); transform: scale(1.04); }
-}
-
-.order-result-icon svg {
-    width: 44px !important;
-    height: 44px !important;
-    color: #ffffff !important;
-    stroke: #ffffff !important;
+    background: #ef4444 !important;
+    border: 3px solid var(--color-abyssal-ink) !important;
+    box-shadow: 0 0 30px rgba(239, 68, 68, 0.3) !important;
 }
 
 .order-result-title {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 30px !important;
     font-weight: 900 !important;
     text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    color: #0b0d10 !important;
+    letter-spacing: 1px !important;
+    color: var(--color-abyssal-ink) !important;
     margin: 0 0 10px !important;
-}
-
-.order-result-title span {
-    color: #dc2626 !important;
 }
 
 .order-result-subtitle {
     font-size: 15px !important;
-    color: rgba(11, 13, 16, 0.55) !important;
+    color: rgba(7, 6, 7, 0.6) !important;
     margin: 0 !important;
 }
 
 .order-result-body {
-    padding: 0 40px 48px !important;
+    padding: 0 var(--spacing-40) var(--spacing-48) !important;
 }
 
 /* Status box */
 .order-status-box {
     background: rgba(239, 68, 68, 0.07) !important;
-    border: 1px solid rgba(239, 68, 68, 0.25) !important;
+    border: 3px solid var(--color-abyssal-ink) !important;
     border-radius: 16px !important;
-    padding: 22px !important;
+    padding: var(--spacing-20) !important;
     margin-bottom: 28px !important;
     text-align: center !important;
 }
 
 .order-status-label {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 12px !important;
-    color: rgba(11, 13, 16, 0.5) !important;
+    color: rgba(7, 6, 7, 0.5) !important;
     text-transform: uppercase !important;
-    letter-spacing: 2px !important;
+    letter-spacing: 1px !important;
     margin-bottom: 8px !important;
     font-weight: 700 !important;
 }
 
 .order-status-value {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 24px !important;
     font-weight: 900 !important;
-    color: #dc2626 !important;
+    color: #ef4444 !important;
     text-transform: uppercase !important;
     letter-spacing: 1px !important;
 }
@@ -132,18 +165,21 @@
 }
 
 .order-result-message h3 {
-    font-family: 'Chakra Petch', sans-serif !important;
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 22px !important;
     font-weight: 800 !important;
-    color: #0b0d10 !important;
+    color: var(--color-abyssal-ink) !important;
     margin-bottom: 14px !important;
+    text-transform: uppercase;
 }
 
 .order-result-message h5 {
+    font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
     font-size: 15px !important;
-    color: rgba(11, 13, 16, 0.6) !important;
+    color: var(--color-abyssal-ink) !important;
     line-height: 1.6 !important;
     margin-bottom: 10px !important;
+    text-transform: uppercase;
 }
 
 .order-result-message ul {
@@ -156,17 +192,17 @@
 
 .order-result-message ul li {
     padding: 10px 0 !important;
-    color: rgba(11, 13, 16, 0.65) !important;
+    color: rgba(7, 6, 7, 0.65) !important;
     font-size: 14.5px !important;
     line-height: 1.6 !important;
-    border-bottom: 1px solid rgba(8, 10, 12, 0.06) !important;
+    border-bottom: 1px solid rgba(7, 6, 7, 0.06) !important;
 }
 
 .order-result-message ul li:before {
     content: '' !important;
     display: inline-block !important;
-    width: 7px !important;
-    height: 7px !important;
+    width: 8px !important;
+    height: 8px !important;
     background: #ef4444 !important;
     border-radius: 50% !important;
     margin-right: 12px !important;
@@ -175,12 +211,12 @@
 
 .order-result-message p {
     font-size: 14.5px !important;
-    color: rgba(11, 13, 16, 0.55) !important;
+    color: rgba(7, 6, 7, 0.55) !important;
     margin-top: 14px !important;
 }
 
 .order-result-message a {
-    color: #6d7f00 !important;
+    color: var(--color-digital-orange) !important;
     font-weight: 700 !important;
     text-decoration: none !important;
     transition: all 0.3s ease !important;
@@ -203,25 +239,22 @@
     align-items: center !important;
     gap: 10px !important;
     padding: 15px 30px !important;
-    background: #0b0d10 !important;
-    border: 1px solid #0b0d10 !important;
-    border-radius: 12px !important;
-    color: #dfff00 !important;
-    font-family: 'Chakra Petch', sans-serif !important;
+    background: var(--color-digital-orange) !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-inputs) !important;
+    color: var(--color-pure-white) !important;
+    font-family: var(--font-dm-sans) !important;
     font-size: 13.5px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     text-decoration: none !important;
-    box-shadow: 0 6px 20px rgba(8, 10, 12, 0.15) !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    transition: all 0.3s ease !important;
 }
 
 .btn-result-primary:hover {
-    background: #dfff00 !important;
-    color: #0b0d10 !important;
-    border-color: #dfff00 !important;
-    box-shadow: 0 10px 25px rgba(223, 255, 0, 0.25) !important;
+    background: var(--color-abyssal-ink) !important;
+    color: var(--color-pure-white) !important;
     transform: translateY(-2px) !important;
 }
 
@@ -231,33 +264,26 @@
     gap: 10px !important;
     padding: 15px 30px !important;
     background: transparent !important;
-    border: 1px solid rgba(8, 10, 12, 0.18) !important;
-    border-radius: 12px !important;
-    color: #0b0d10 !important;
-    font-family: 'Chakra Petch', sans-serif !important;
+    border: 2px solid var(--color-abyssal-ink) !important;
+    border-radius: var(--radius-inputs) !important;
+    color: var(--color-abyssal-ink) !important;
+    font-family: var(--font-dm-sans) !important;
     font-size: 13.5px !important;
     font-weight: 800 !important;
     text-transform: uppercase !important;
     letter-spacing: 0.5px !important;
     text-decoration: none !important;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    transition: all 0.3s ease !important;
 }
 
 .btn-result-secondary:hover {
-    border-color: #6d7f00 !important;
-    color: #6d7f00 !important;
+    background: var(--color-abyssal-ink) !important;
+    color: var(--color-pure-white) !important;
     transform: translateY(-2px) !important;
 }
 
-.btn-result-primary svg,
-.btn-result-secondary svg {
-    width: 18px !important;
-    height: 18px !important;
-    stroke: currentColor !important;
-}
-
 @media (max-width: 768px) {
-    .order-result-section { padding: 40px 0 64px !important; }
+    .order-result-section { padding: var(--spacing-24) 0 !important; }
     .order-result-card { margin: 0 16px !important; }
     .order-result-head { padding: 36px 24px 24px !important; }
     .order-result-body { padding: 0 24px 36px !important; }
@@ -271,26 +297,21 @@
 
 @section('main-content')
 
-<!-- Page Header Band -->
-<div class="about-title-band">
-    <div class="about-hud-grid"></div>
-    <div class="about-hud-glow"></div>
-    <div class="about-hud-decor border-t"></div>
-    <div class="about-hud-decor border-b"></div>
-
-    <div class="container position-relative z-1">
-        <h1 class="about-hud-title mb-3 animate-fade-in-up">
-            {{ __('common.payment_unsuccessful') }}
-        </h1>
-
-        <div class="about-hud-breadcrumb-capsule animate-fade-in-up delay-1">
-            <a href="{{ route('home') }}" class="hud-breadcrumb-link">
-                <i class="fas fa-home me-2"></i>{{ __('common.home') }}
-            </a>
-            <span class="hud-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-            <span class="hud-breadcrumb-current">{{ __('common.payment_unsuccessful') }}</span>
-        </div>
+<!-- Hero / Title Band -->
+<div class="about-hero-section">
+  <div class="about-hero-wrapper">
+    <h1 class="about-hero-title">
+      {{ __('common.payment_unsuccessful') }}
+    </h1>
+    
+    <div class="about-breadcrumb-capsule">
+      <a href="{{ route('home') }}">
+        <i class="fas fa-home me-2"></i>Home
+      </a>
+      <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
+      <span class="about-breadcrumb-current">{{ __('common.payment_unsuccessful') }}</span>
     </div>
+  </div>
 </div>
 
 <!-- Order Failed Body -->
@@ -299,10 +320,7 @@
         <div class="order-result-card">
             <div class="order-result-head">
                 <div class="order-result-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
+                    <i class="fas fa-times" style="font-size: 40px; color: var(--color-pure-white);"></i>
                 </div>
                 <h1 class="order-result-title">{{ __('common.payment_unsuccessful') }}</h1>
                 <p class="order-result-subtitle">{{ __('common.payment_error') }}</p>
@@ -312,6 +330,18 @@
                 <div class="order-status-box">
                     <div class="order-status-label">{{ __('common.payment_status') }}</div>
                     <div class="order-status-value">FAILED</div>
+                </div>
+
+                <!-- Unified Order Details Block -->
+                <div class="order-details-box" style="background: var(--color-basalt-canvas); border: 2px solid var(--color-abyssal-ink); border-radius: 16px; padding: 20px; margin-bottom: 32px; display: flex; flex-direction: column; gap: 12px; text-align: left;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(7, 6, 7, 0.08); padding-bottom: 8px;">
+                        <span style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 13px; font-weight: 800; text-transform: uppercase; color: rgba(7, 6, 7, 0.5);">Order Number</span>
+                        <strong style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 16px; font-weight: 900; color: var(--color-abyssal-ink);">{{ $orderInfo->order_number ?? ($order['oid'] ?? '') }}</strong>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <span style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 13px; font-weight: 800; text-transform: uppercase; color: rgba(7, 6, 7, 0.5);">Transaction ID</span>
+                        <strong style="font-family: var(--font-pp-neue-corp-compact-ultrabold); font-size: 16px; font-weight: 900; color: var(--color-abyssal-ink); word-break: break-all;">{{ $order['transaction_id'] ?? ($orderInfo->trans_id ?? 'N/A') }}</strong>
+                    </div>
                 </div>
 
                 <div class="order-result-message">
@@ -329,10 +359,7 @@
 
                 <div class="order-result-actions">
                     <a href="{{ route('home') }}" class="btn-result-primary">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                        </svg>
+                        <i class="fas fa-home me-2"></i>
                         {{ __('common.go_to_homepage') }}
                     </a>
                 </div>
