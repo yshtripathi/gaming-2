@@ -5,7 +5,7 @@
     <!-- Section 1: Hero Banner (Home) -->
     <div class="hero-banner-caldera-box">
       <video class="hero-bg-video" autoplay muted loop playsinline>
-        <source src="{{ asset('assets/media/videos/hero-banner.mp4') }}" type="video/mp4">
+        <source src="{{ asset('assets/media/videos/h-3.mp4') }}" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
       <div class="container position-relative">
