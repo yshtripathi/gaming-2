@@ -22,8 +22,8 @@
 
 .footer-top {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
   padding: 60px 0;
 }
 
@@ -365,30 +365,32 @@
 
 <footer class="gaming-footer">
   <div class="footer-container">
-    <!-- 4-Column Grid -->
+    <!-- 5-Column Grid -->
     <div class="footer-top">
 
-      <!-- Column 1: Logo & Company Details -->
+      <!-- Column 1: Logo -->
       <div class="footer-brand">
         <a href="{{route('home')}}" class="footer-logo">
-          <img src="{{ url('assets/images/logo.jpg') }}" alt="Gaming Fusion">
+          <img src="{{ url('assets/media/logo.webp') }}" alt="Gaming Fusion">
         </a>
-        <div class="footer-company-details">
-          <h3>{{ $misc['Company Name'] }}</h3>
-          <p>
-            <strong>{{ __('common.email') }}:</strong><br>
-            <a href="mailto:{{ $misc['Company Email'] }}" style="color: var(--color-abyssal-ink); text-decoration: none;">
-              {{ $misc['Company Email'] }}
-            </a>
-          </p>
-          <p>
-            <strong>{{ __('common.location') }}:</strong><br>
-            {{ $misc['Company Address'] }}
-          </p>
-        </div>
       </div>
 
-      <!-- Column 2: Navigation Links -->
+      <!-- Column 2: Company Details -->
+      <div class="footer-company-details">
+        <h3>{{ $misc['Company Name'] }}</h3>
+        <p>
+          <strong>{{ __('common.email') }}:</strong><br>
+          <a href="mailto:{{ $misc['Company Email'] }}" style="color: var(--color-abyssal-ink); text-decoration: none;">
+            {{ $misc['Company Email'] }}
+          </a>
+        </p>
+        <p>
+          <strong>{{ __('common.location') }}:</strong><br>
+          {{ $misc['Company Address'] }}
+        </p>
+      </div>
+
+      <!-- Column 3: Navigation Links -->
       <div class="footer-nav">
         <h4>{{ __('common.navigate') }}</h4>
         <ul>
@@ -419,7 +421,7 @@
         </ul>
       </div>
 
-      <!-- Column 3: Policy Links -->
+      <!-- Column 4: Policy Links -->
       <div class="footer-policies">
         <h4>{{ __('common.policies') }}</h4>
         <ul>
@@ -450,7 +452,7 @@
         </ul>
       </div>
 
-      <!-- Column 4: Newsletter -->
+      <!-- Column 5: Newsletter -->
       <div class="footer-newsletter">
         <h4>{{ __('common.subscribe_our_newsletter') }}</h4>
         <p>{{ __('common.newsletter_description') }}</p>
