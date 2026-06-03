@@ -382,8 +382,8 @@ return [
     'create_account_link' => '今すぐアカウント作成',
 
     // Register page content
-    'register_header' => 'アリーナに参加する',
-    'register_subheader' => '今すぐエリートプロファイルを作成して、ポイントの購入、ライブ注文の追跡、限定特典の獲得を始めましょう。',
+    'register_header' => 'アカウント作成',
+    'register_subheader' => 'アカウントを作成するには、以下のフォームに入力してください。',
     'confirm_password' => 'パスワードの確認',
     'ph_verification_code' => '確認コード',
     'submit_registration' => '今すぐ新規登録',

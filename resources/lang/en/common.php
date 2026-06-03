@@ -382,8 +382,8 @@ return [
     'create_account_link' => 'Create Account Now',
 
     // Register page content
-    'register_header' => 'Join the Arena',
-    'register_subheader' => 'Create your elite profile today to purchase points, track live orders, and unlock exclusive rewards.',
+    'register_header' => 'Create an Account',
+    'register_subheader' => 'Please fill in the form below to create your account.',
     'confirm_password' => 'Confirm Password',
     'ph_verification_code' => 'Verification Code',
     'submit_registration' => 'Sign Up Now',

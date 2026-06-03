@@ -655,6 +655,7 @@
 @endsection
 
 @push('scripts')
+<script src="{{ url('assets/js/vendor/jquery-validator.js') }}"></script>
 <script>
 $(document).ready(function() {
     $('.dashboard-nav-link[data-target]').on('click', function() {
@@ -664,12 +665,29 @@ $(document).ready(function() {
         $($(this).data('target')).addClass('active');
     });
 
-    $('#passwordform').on('submit', function(e) {
-        var newPassword = $('#new_password').val();
-        var confirmPassword = $('#cnfrm_pswrd').val();
-        if (newPassword !== confirmPassword) {
-            e.preventDefault();
-            $('#cnfrm_pswrd').addClass('is-invalid');
+    $("#passwordform").validate({
+        rules: {
+            current_password: "required",
+            new_password: { required: true, minlength: 6 },
+            new_confirm_password: { required: true, minlength: 6, equalTo: "#new_password" }
+        },
+        messages: {
+            current_password: "{{ __('common.password_required') }}",
+            new_password: {
+                required: "{{ __('common.password_required') }}",
+                minlength: "{{ __('common.password_min') }}"
+            },
+            new_confirm_password: {
+                required: "{{ __('common.password_confirmation_required') }}",
+                minlength: "{{ __('common.password_confirmation_min') }}",
+                equalTo: "{{ __('common.password_confirmation_equal') }}"
+            }
+        },
+        errorPlacement: function (error, element) {
+            error.addClass('text-danger');
+            error.css('display', 'block');
+            var wrap = element.closest('.auth-input-wrap');
+            error.insertAfter(wrap.length ? wrap : element);
         }
     });
 });
