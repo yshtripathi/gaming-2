@@ -399,3 +399,48 @@
 
 </section>
 @endsection
+
+@push('scripts')
+<script src="{{ url('assets/js/vendor/jquery-validator.js') }}"></script>
+<script>
+$(document).ready(function () {
+    $("#frmRegister").validate({
+        rules: {
+            name: "required",
+            email: { required: true, email: true },
+            password: { required: true, minlength: 5 },
+            password_confirmation: { required: true, minlength: 5, equalTo: "#password" },
+            @if(env('ENABLE_CAPTCHA', true))
+            captcha: "required",
+            @endif
+        },
+        messages: {
+            name: "{{ __('common.name_required') }}",
+            email: "{{ __('common.email_required') }}",
+            password: {
+                required: "{{ __('common.password_required') }}",
+                minlength: "{{ __('common.password_min') }}"
+            },
+            password_confirmation: {
+                required: "{{ __('common.password_confirmation_required') }}",
+                minlength: "{{ __('common.password_confirmation_min') }}",
+                equalTo: "{{ __('common.password_confirmation_equal') }}"
+            },
+            @if(env('ENABLE_CAPTCHA', true))
+            captcha: "{{ __('common.captcha_required') }}"
+            @endif
+        },
+        errorPlacement: function (error, element) {
+            error.addClass('text-danger');
+            error.css('display', 'block');
+            if (element.attr('id') === 'captcha') {
+                error.insertAfter(element.closest('.auth-captcha-row'));
+            } else {
+                var wrap = element.closest('.auth-input-wrap');
+                error.insertAfter(wrap.length ? wrap : element);
+            }
+        }
+    });
+});
+</script>
+@endpush

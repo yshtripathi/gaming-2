@@ -191,6 +191,7 @@ return [
     'message_required' => 'メッセージを入力してください',
     'subject_required' => '件名を入力してください',
     'order_detail' => 'ご注文の詳細',
+    'order_summary' => '注文の概要',
     'contact_success_message' => 'あなたのメッセージが正常に送信されました！',
     'please_try_again' => 'もう一度お試しください！！',
     'product_add' => '商品が正常に追加されました',

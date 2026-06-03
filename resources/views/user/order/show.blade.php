@@ -1,6 +1,25 @@
 @extends('frontend.layouts.main')
 
-@section('title', 'Order Detail')
+@section('title', __('common.order_detail'))
+@php
+    $cleanText = function($text) {
+        $search = [
+            'farming', 'Farming', 'FARMING',
+            'farm', 'Farm', 'FARM',
+            'aura', 'Aura', 'AURA',
+            'tournament', 'Tournament', 'TOURNAMENT',
+            'tournamet', 'Tournamet', 'TOURNAMET'
+        ];
+        $replace = [
+            'progression', 'Progression', 'PROGRESSION',
+            'collect', 'Collect', 'COLLECT',
+            'presence', 'Presence', 'PRESENCE',
+            'championship', 'Championship', 'CHAMPIONSHIP',
+            'championship', 'Championship', 'CHAMPIONSHIP'
+        ];
+        return str_replace($search, $replace, $text);
+    };
+@endphp
 
 @push('styles')
 <style>
@@ -251,7 +270,7 @@
 <div class="about-hero-section">
   <div class="about-hero-wrapper">
     <h1 class="about-hero-title">
-      Order Detail
+      {{ __('common.order_detail') }}
     </h1>
     
     <div class="about-breadcrumb-capsule">
@@ -259,9 +278,9 @@
         <i class="fas fa-home me-2"></i>{{ __('common.home') }}
       </a>
       <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-      <a href="/user">My Account</a>
+      <a href="/user">{{ __('common.my_account') }}</a>
       <span class="about-breadcrumb-separator"><i class="fas fa-chevron-right"></i></span>
-      <span class="about-breadcrumb-current">Order Detail</span>
+      <span class="about-breadcrumb-current">{{ __('common.order_detail') }}</span>
     </div>
   </div>
 </div>
@@ -293,7 +312,7 @@
                 @endphp
 
                 <!-- Table 1: Order Summary -->
-                <h2 class="dashboard-subtitle dashboard-subtitle-first" style="margin-bottom: 20px;">Order Summary</h2>
+                <h2 class="dashboard-subtitle dashboard-subtitle-first" style="margin-bottom: 20px;">{{ __('common.order_summary') }}</h2>
                 <div class="dashboard-table-wrap mb-5">
                     <table class="dashboard-table">
                         <thead>
@@ -350,7 +369,7 @@
                             </tr>
                             <tr>
                                 <td style="font-weight: 800; font-family: var(--font-pp-neue-corp-compact-ultrabold); text-transform: uppercase;">{{ __('common.payment_method') }}</td>
-                                <td>Credit Card</td>
+                                <td>{{ __('common.credit_card') }}</td>
                             </tr>
                             <tr>
                                 <td style="font-weight: 800; font-family: var(--font-pp-neue-corp-compact-ultrabold); text-transform: uppercase;">{{ __('common.status') }}</td>

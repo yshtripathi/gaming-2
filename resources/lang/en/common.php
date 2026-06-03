@@ -190,6 +190,8 @@ return [
     'message_required' => 'Please enter your message',
     'subject_required' => 'Please enter a subject',
     'order_detail' => 'Order Details',
+    'order_summary' => 'Order Summary',
+    'order_summary' => 'Order Summary',
     'contact_success_message' => 'Your message has been sent successfully!',
     'please_try_again' => 'Please try again!!',
     'product_add' => 'Product Successfully added',
