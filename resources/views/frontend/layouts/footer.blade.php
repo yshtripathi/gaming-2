@@ -531,7 +531,6 @@ $('#subscribe-form').on('submit', function(e) {
   $(this)[0].reset();
   setTimeout(function() {
     $('#newsletterSuccess').removeClass('show');
-  }, 4000);
 });
 </script>
 

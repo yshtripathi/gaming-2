@@ -64,9 +64,7 @@
     },
 
     preloader: function () {
-      setTimeout(function () {
-        $("#preloader").hide("slow");
-      }, 2000);
+      // Handled smoothly via CSS transition in header.blade.php
     },
 
 

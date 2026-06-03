@@ -13,57 +13,156 @@
 #preloader {
   position: fixed;
   inset: 0;
-  background: var(--color-basalt-canvas);
+  background-color: var(--color-abyssal-ink);
+  background-image: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 6px 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 99999;
-  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: opacity 1.2s ease-in-out, visibility 1.2s ease-in-out;
 }
 
 .preloader-content {
+  position: relative;
   text-align: center;
-  background: var(--color-ash-white);
-  border-radius: 16px;
-  padding: 40px 48px;
-  border: 2px solid var(--color-digital-orange);
-  box-shadow: 0 10px 40px rgba(7, 6, 7, 0.1);
+  background: rgba(7, 6, 7, 0.95) !important;
+  border: 2px solid var(--color-digital-orange) !important;
+  box-shadow: 
+    0 0 25px rgba(252, 80, 0, 0.25),
+    inset 0 0 15px rgba(252, 80, 0, 0.15) !important;
+  padding: 50px 60px !important;
+  border-radius: 4px !important;
+  max-width: 420px;
+  width: 90%;
+  overflow: hidden;
 }
 
-.preloader-logo { margin-bottom: 20px; }
+.preloader-content::before, .preloader-content::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--color-digital-orange);
+  border-style: solid;
+  pointer-events: none;
+}
+.preloader-content::before {
+  top: 10px;
+  left: 10px;
+  border-width: 2px 0 0 2px;
+}
+.preloader-content::after {
+  bottom: 10px;
+  right: 10px;
+  border-width: 0 2px 2px 0;
+}
+
+.preloader-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--color-digital-orange), transparent);
+  opacity: 0.8;
+  animation: scan 3s linear infinite;
+}
+
+.preloader-logo {
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+}
 .preloader-logo img {
-  width: 80px;
-  height: 80px;
+  width: 90px !important;
+  height: 90px !important;
   object-fit: contain;
-  border-radius: 12px;
-  background: var(--color-basalt-canvas);
-  padding: 8px;
-  mix-blend-mode: multiply;
+  border-radius: 0px !important;
+  background: var(--color-ash-white) !important;
+  padding: 10px !important;
+  border: 2px solid var(--color-abyssal-ink) !important;
+  box-shadow: 4px 4px 0px var(--color-cyber-violet) !important;
+  animation: floatLogo 2s ease-in-out infinite alternate;
 }
 
-.preloader-spinner { margin-bottom: 20px; }
-
-.spinner-ring {
-  width: 50px;
-  height: 50px;
-  border: 3px solid rgba(252, 80, 0, 0.2);
+.preloader-spinner {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 24px;
+}
+.spinner-outer {
+  position: absolute;
+  inset: 0;
+  border: 3px solid transparent;
   border-top-color: var(--color-digital-orange);
+  border-bottom-color: var(--color-digital-orange);
   border-radius: 50%;
-  animation: spin 1s linear infinite;
-  margin: 0 auto;
+  animation: spinClockwise 1.5s cubic-bezier(0.53, 0.21, 0.29, 0.67) infinite;
+}
+.spinner-inner {
+  position: absolute;
+  inset: 8px;
+  border: 2px dashed var(--color-cyber-violet);
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinCounterClockwise 1s linear infinite;
 }
 
 .preloader-text {
-  color: var(--color-digital-orange);
-  font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  letter-spacing: 2px;
+  color: var(--color-pure-white) !important;
+  font-family: var(--font-pp-neue-corp-compact-ultrabold) !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  margin: 0;
-  font-weight: 500;
+  margin: 0 0 10px 0;
+  position: relative;
+  display: inline-block;
+  animation: glitchText 3s infinite;
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
+.preloader-subtext {
+  font-family: var(--font-dm-sans) !important;
+  font-size: 10px;
+  color: var(--color-digital-orange);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  opacity: 0.7;
+  animation: pulse 1s ease-in-out infinite alternate;
+  margin-top: 5px;
+}
+
+@keyframes scan {
+  0% { top: 0%; }
+  50% { top: 100%; }
+  100% { top: 0%; }
+}
+@keyframes floatLogo {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-6px) rotate(1deg); }
+}
+@keyframes spinClockwise {
+  to { transform: rotate(360deg); }
+}
+@keyframes spinCounterClockwise {
+  to { transform: rotate(-360deg); }
+}
+@keyframes glitchText {
+  0%, 95%, 100% { text-shadow: none; color: var(--color-pure-white); }
+  96% { text-shadow: 2px -1px var(--color-digital-orange), -2px 1px var(--color-cyber-violet); color: var(--color-pixel-glare); }
+  97% { text-shadow: -3px 2px var(--color-digital-orange), 3px -2px var(--color-cyber-violet); }
+  98% { text-shadow: 1px 2px var(--color-digital-orange), -1px -2px var(--color-cyber-violet); }
+  99% { text-shadow: none; }
+}
+@keyframes pulse {
+  from { opacity: 0.4; }
+  to { opacity: 0.8; }
+}
 
 /* ---- Back to Top ---- */
 .back-to-top {
@@ -986,11 +1085,13 @@ header.small-screen .mobile-navar ul li a.active {
   <!-- Preloader-->
   <div id="preloader">
     <div class="preloader-content">
+      <div class="preloader-scanner"></div>
       <div class="preloader-logo">
-        <img src="{{ asset('assets/media/images/favicon.webp') }}" alt="Polygamez">
+        <img src="{{ asset('assets/media/images/logo.webp') }}" alt="Polygamez">
       </div>
       <div class="preloader-spinner">
-        <div class="spinner-ring"></div>
+        <div class="spinner-outer"></div>
+        <div class="spinner-inner"></div>
       </div>
       <p class="preloader-text">Loading...</p>
     </div>
@@ -1498,12 +1599,16 @@ header.small-screen .mobile-navar ul li a.active {
     });
   });
 
-  // Preloader
+  // Preloader with 1.0 second display time
   window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-      preloader.style.opacity = '0';
-      preloader.style.visibility = 'hidden';
+      setTimeout(function() {
+        preloader.style.opacity = '0';
+        setTimeout(function() {
+          preloader.style.visibility = 'hidden';
+        }, 1200); // Match CSS transition duration
+      }, 1000);
     }
   });
 
